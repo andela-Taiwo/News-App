@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+    - "6.9.2"
+before_script:
+    - npm install
+script:
+    - jasmine 
+after_success:
+    - gulp coverage
+
+skip_cleanup: true
