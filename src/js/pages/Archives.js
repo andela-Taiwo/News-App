@@ -1,11 +1,11 @@
 import React from 'react';
-export  default class Archives extends React.Component{
+export default class Archives extends React.Component{
   render(){
     console.log(this.props);
-    const{ query } = this.props.location;
+    const{ query }=this.props.location;
     const {date,filter}=query;
-    const{params} = this.props;
-    const{articles}= params;
+    const{params}=this.props;
+    const{articles}=params;
 
     return(
       <div>

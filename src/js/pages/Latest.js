@@ -1,9 +1,9 @@
 import React from 'react';
 import $ from 'jquery';
 import Request from 'superagent';
-import { Link } from 'react-router';
+import {Card,CardTitle} from 'react-materialize';
 
-export  default class Latest extends React.Component{
+export default class Latest extends React.Component{
     constructor() {
         super();
         this.state = { result: [] ,
@@ -27,7 +27,13 @@ export  default class Latest extends React.Component{
         
         const newsList = [];
         for(var i=0 ; i<sources.length; i++){
-        newsList.push(<tr key={sources[i].url}><td>{sources[i].author}</td><td>{sources[i].description}</td><td><a onClick={this.getArticle.bind(this,sources[i].id) }>{sources[i].url}</a></td></tr>);
+        newsList.push(<Card key={sources[i].id} className='small'
+	header={<CardTitle image='../img/abcnews.jpg'></CardTitle>}
+    title= {sources[i].name}
+	actions={[<a href='#'onClick={this.getArticle.bind(this,sources[i].id) }>{sources[i].url}</a>]}>
+	{sources[i].description}
+    
+</Card>);
 
         this.setState({
           result: newsList
@@ -56,7 +62,7 @@ getArticle(src_url){
         newsList.push(<tr key={articles[i].url}><td>{articles[i].author}</td><td>{articles[i].description}</td><td><a >{articles[i].url}</a></td></tr>);
 
         this.setState({
-          news: newsList
+          result: newsList
         })
         }
 

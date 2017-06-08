@@ -1,37 +1,39 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { IndexRoute, Router, Route, hashHistory, historyListener } from 'react-router';
+import { HashRouter as Router, Route, } from 'react-router-dom';
 import Bootstrap from 'bootstrap-without-jquery';
 import Layout from './pages/layout';
-import Features from './pages/Features';
+import Saved from './pages/Save';
 import Archives from './pages/Archives';
 import Header from  './pages/Header';
 import Search from './pages/Search';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Latest from './pages/Latest';
+import Footer from './pages/Footer';
+import {createBrowserHistory} from 'history';
 
 require('../sass/style.sass');
+
+const history = createBrowserHistory();
 
 const app = document.getElementById('app');
 
 ReactDOM.render(
-  <Router history={hashHistory}>
-   <div>
-   <Route path="/" component={Layout}>
-    <IndexRoute component={Latest}></IndexRoute>
-    <Route path="featured"component={Features}></Route>
-    <Route path="(archives/:articles)" name="archives" component={Archives}></Route>
-      <Route path="search" component={Search}></Route>
-      <Route path="login" component={Login}></Route>
-      <Route path="register" component={Register}></Route>
-
-      <Route path="latest" component={Latest}></Route>
-
-
-   </Route>
-
-
-   </div>
- </Router>,
-  app);
+  <div>
+  <Router history={history}>
+    <switch>
+   <Route path="/" component={Layout} />
+    <Route exact path="/" component={Login} />
+    <Route path="/saved"component={Saved} />
+    <Route path="/(archives/:articles)" name="archives" component={Archives} />
+    <Route path="/search" component={Search} />
+    <Route path="/login" component={Login} />
+    <Route path="/register" component={Register} />
+    <Route exact path="/latest" component={Latest} />
+   
+   </switch>
+ </Router>
+   <Footer />
+ </div>,
+   app);

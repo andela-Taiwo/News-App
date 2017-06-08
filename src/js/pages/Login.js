@@ -2,18 +2,34 @@ import React from 'react';
 import GoogleLogin from 'react-google-login';
 import FontAwesome  from 'react-fontawesome';
 export  default class Login extends React.Component{
+  
+   logIn (e) {
+
+   this.props.history.push('/latest');
+  }
+    responseGoogle(response) {
+    const loginProfile = response.getBasicProfile();
+    const userProfile = {};
+    userProfile.name = loginProfile.getName();
+    userProfile.email = loginProfile.getEmail();
+    userProfile.idToken = response.googleId;
+    localStorage.setItem('userProfile', JSON.stringify(userProfile));
+    this.props.history.push('/sources');
+  }
 
   render(){
     const responseGoogle = (response) => {
-      console.log(response);
+      const {tokenId} = response;
+      if(tokenId){
+        this.props.history.push('./latest');
+      }else{
+        this.props.history.push('./features')
+      }
      }
+
+  
     return(
       <div>
-      Username: <input />
-      Password: <input type='password' />
-      <input type='submit' />
-      <br />
-      <p />
       <GoogleLogin
           clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
           buttonText="Login"

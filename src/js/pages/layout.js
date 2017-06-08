@@ -1,17 +1,15 @@
 import React from 'react';
 import Bootstrap from 'bootstrap-without-jquery';
-import { Link } from 'react-router';
 import Header from './Header';
-import Footer from './Footer';
 import Request from 'superagent';
-export  default class Layout extends React.Component{
+class Layout extends React.Component{
   constructor(){
     super();
     this.state ={};
   }
 navigate(){
-  //this.props.history.pushState(null, '/');
-  this.props.router.replace('/');
+//console.log(this.props);
+  this.props.location.replace('/');
 
 }
   render(){
@@ -23,8 +21,9 @@ navigate(){
     
     {this.props.children}
 
-    <Footer />
     </div>
   );
   }
 }
+
+export default Layout;
