@@ -17,7 +17,7 @@ navigate(){
     return(
       <div>
       <Header />
-    <h1>NewsHeadlines.net</h1>
+    <h3>Articles Hub</h3>
     
     {this.props.children}
 

@@ -10,13 +10,13 @@ class Header extends React.Component {
 
     render() {
         return (
-            <nav className="navbar navbar-inverse">
+            <nav className="nav-wrapper">
               <HashRouter>
               <div className="container-fluid">
                 <div className="navbar-header">
-                  <Link className="navbar-brand" to="/">HeadLines.net</Link>
+                  <a href="" className="brand-logo" to="/">Articles Hub</a>
                 </div>
-                <ul className="nav navbar-nav navbar-right">
+                <ul id="nav-mobile" className="right hide-on-med-and-down">
                   <li className="active" onClick={this.navigate.bind(this)}><Link to="/latest">Latest News</Link></li>
                 <li>  <Link to="/archives">archives</Link></li>
                 <li>  <Link to="/saved"  activeClassName="active" component={Saved}>Saved</Link></li>
