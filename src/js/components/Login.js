@@ -1,13 +1,15 @@
 import React from 'react';
 import GoogleLogin from 'react-google-login';
 import FontAwesome  from 'react-fontawesome';
+import sourceStore from '../stores/SourceStore';
+
 export  default class Login extends React.Component{
   
-   logIn (e) {
-
+  logIn (e) {
    this.props.history.push('/latest');
   }
-    responseGoogle(response) {
+
+  responseGoogle(response) {
     const loginProfile = response.getBasicProfile();
     const userProfile = {};
     userProfile.name = loginProfile.getName();
@@ -17,11 +19,15 @@ export  default class Login extends React.Component{
     this.props.history.push('/sources');
   }
 
+  componentWillMount() {
+  sourceStore.on('change', () => console.log('from login',sourceStore.sources));
+}
+
   render(){
     const responseGoogle = (response) => {
       const {tokenId} = response;
       if(tokenId){
-        this.props.history.push('./latest');
+        this.props.history.push('./sources');
       }else{
         this.props.history.push('./features')
       }

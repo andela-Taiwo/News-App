@@ -2,16 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter as Router, Route, } from 'react-router-dom';
 import Bootstrap from 'bootstrap-without-jquery';
-import Layout from './pages/layout';
-import Saved from './pages/Save';
-import Archives from './pages/Archives';
-import Header from  './pages/Header';
-import Search from './pages/Search';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Latest from './pages/Latest';
-import Footer from './pages/Footer';
+import Layout from './components/layout';
+import Saved from './components/Save';
+import Archives from './components/Archives';
+import Header from  './components/Header';
+import Search from './components/Search';
+import Login from './components/Login';
+import Register from './components/Register';
+import Latest from './components/Latest';
+import Footer from './components/Footer';
 import {createBrowserHistory} from 'history';
+import Sources from './components/sources';
 
 require('../sass/style.sass');
 
@@ -30,7 +31,7 @@ ReactDOM.render(
     <Route path="/search" component={Search} />
     <Route path="/login" component={Login} />
     <Route path="/register" component={Register} />
-    <Route exact path="/latest" component={Latest} />
+    <Route exact path="/sources" component={Sources} />
    
    </switch>
  </Router>
