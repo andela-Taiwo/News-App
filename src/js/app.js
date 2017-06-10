@@ -9,7 +9,7 @@ import Header from  './components/Header';
 import Search from './components/Search';
 import Login from './components/Login';
 import Register from './components/Register';
-import Latest from './components/Latest';
+import Article from './components/Article';
 import Footer from './components/Footer';
 import {createBrowserHistory} from 'history';
 import Sources from './components/sources';
@@ -29,6 +29,8 @@ ReactDOM.render(
     <Route path="/saved"component={Saved} />
     <Route path="/(archives/:articles)" name="archives" component={Archives} />
     <Route path="/search" component={Search} />
+    <Route path="/articles/:article/:sortBy" component={Article} />
+    
     <Route path="/login" component={Login} />
     <Route path="/register" component={Register} />
     <Route exact path="/sources" component={Sources} />

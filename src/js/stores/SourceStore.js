@@ -13,15 +13,16 @@ class SourceStoreClass extends EventEmitter {
   // }
   constructor() {
     super();
-    this.sources =[];
-    
+    this.sources =[];  
   }
 
-
+ 
 
   getSources() {
     return this.sources;
   }
+
+
 
 
   handleActions(action) {
@@ -33,6 +34,12 @@ class SourceStoreClass extends EventEmitter {
         // knows that a change has been made
         this.emit(CHANGE_EVENT);
         break;
+
+      // case "GET_ARTCLES":
+      //   this.articles = action.articles
+      //   this.emit(CHANGE_EVENT);
+      //   break;
+        
       case "REMOVE_SOURCES":
         this.setSources();
         this.emit(CHANGE_EVENT);

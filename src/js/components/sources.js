@@ -33,10 +33,8 @@ class Sources extends Component {
   }
 
   componentWillMount() {
-    console.log("Mount");
     ArticleAction.getSources();
     sourceStore.on("change",()=>{
-      console.log("Hi Maly");
       this.setState({
         sources:sourceStore.getSources()
       })
@@ -56,10 +54,13 @@ class Sources extends Component {
   }
 
   render() {
-    let {sources} = this.state
+    let { sources } = this.state
+    //console.log(sources);
+
     
-    const sourceComponent = sources.map(sourceItem => <SourceListItem 
-      key={sourceItem.id}{...sourceItem} />);
+    
+    /*const sourceComponent = sources.map(sourceItem => <SourceListItem 
+      key={sourceItem.id}{...sourceItem} />);*/
     
     // let SourceListItems;
     // if (this.state.sources) {
@@ -67,8 +68,25 @@ class Sources extends Component {
     //   SourceListItems = this.state.sources.map(source => getSourceListItem(source));
     // }
     return (
-      <div>
-          {sourceComponent} 
+      <div className="row">
+        {/*{sourceComponent} */}
+        {sources.map((source) => {
+          return (
+            <div key={source.id} className="col s12 m7 card">
+              {source.name}
+              {source.sortBysAvailable.map((sortBy) => {
+                return (
+                  <div key={sortBy}>
+
+                    <a href={`#/articles/${source.id}/${sortBy}`}>{sortBy}</a>
+                  </div>
+                )
+              })
+              }
+            </div>
+          )
+        }
+        )}
       </div>
     );
   }

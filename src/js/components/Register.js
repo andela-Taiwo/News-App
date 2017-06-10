@@ -1,11 +1,103 @@
-import React from 'react';
-export default class Register extends React.Component{
-  render(){
-    return(
-      <div>
-    <h1>Registration Form </h1>
-    <h3>Register here</h3>
-    </div>
+// src/components/Contacts.js
+
+import React, { Component } from 'react';
+//import { ListGroup } from 'react-bootstrap';
+// import { Link } from 'react-router';
+import * as ArticleAction from '../actions/ArticleAction';
+import sourceStore from '../stores/SourceStore';
+import SourceListItem from './SourceListItem';
+
+
+// We'll use this function to get a contact
+// list item for each of the contacts in our list
+function getSourceListItem(source) {
+  return (
+    <SourceListItem
+      key={source.id}
+      source={source}
+    />
   );
+}
+class Sources extends Component {
+
+  constructor() {
+    super();
+    // For our initial state, we just want
+    // an empty array of contacts
+    this.state = {
+      sources: sourceStore.getSources()
+    }
+    // We need to bind this to onChange so we can have
+    // the proper this reference inside the method
+    this.onChange = this.onChange.bind(this);
+  }
+
+  componentWillMount() {
+    ArticleAction.getSources();
+    sourceStore.on("change",()=>{
+      this.setState({
+        sources:sourceStore.getSources()
+      })
+    })
+    //sourceStore.addChangeListener(this.onChange);
+  }
+  componentDidMount(){
+    ArticleAction.getArtcles(id,url);
+    articleStore.on('change',()=>{
+      this.setState({
+        source:articleStore.getArtcles(id,url)
+      })
+    })
+
+  }
+  componentWillUnmount() {
+   //
+    sourceStore.removeChangeListener(this.onChange);
+  }
+
+  onChange() {
+    this.setState({
+      sources: sourceStore.getSources()
+    });
+  }
+
+  render() {
+    let { sources } = this.state
+    console.log(sources);
+
+    
+    
+    /*const sourceComponent = sources.map(sourceItem => <SourceListItem 
+      key={sourceItem.id}{...sourceItem} />);*/
+    
+    // let SourceListItems;
+    // if (this.state.sources) {
+    //   // Map over the contacts and get an element for each of them
+    //   SourceListItems = this.state.sources.map(source => getSourceListItem(source));
+    // }
+    return (
+      <div>
+        {/*{sourceComponent} */}
+        {sources.map((source) => {
+          return (
+            <div key={source.id}>
+              {source.name}
+              {source.sortBysAvailable.map((sortBy) => {
+                return (
+                  <div key={sortBy}>
+
+                    <a href={`#/articles/${source.id}/${sortBy}`} onClick={this.getArticle.bind(this,sources[i].id) }>{sortBy}</a>
+                  </div>
+                )
+              })
+              }
+            </div>
+          )
+        }
+        )}
+      </div>
+    );
   }
 }
+
+export default Sources;

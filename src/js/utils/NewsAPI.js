@@ -23,7 +23,7 @@ export default {
         .get(url)
         .end((err, response) => {
           if (err) reject(err);
-          resolve(response.body);
+          resolve(response.body.articles);
         })
     });
   }

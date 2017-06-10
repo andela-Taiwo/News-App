@@ -11,11 +11,9 @@ class Layout extends React.Component{
  
   }
 getName(){
-    ArticleAction.getSources();
-    // console.log("Hello");
-  }
+  ArticleAction.getSources();
+}
 navigate(){
-//console.log(this.props);
   this.props.location.replace('/');
 
 }

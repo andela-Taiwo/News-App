@@ -6,7 +6,7 @@ import sourceStore from '../stores/SourceStore';
 export  default class Login extends React.Component{
   
   logIn (e) {
-   this.props.history.push('/latest');
+   this.props.history.push('/sources');
   }
 
   responseGoogle(response) {
@@ -18,10 +18,6 @@ export  default class Login extends React.Component{
     localStorage.setItem('userProfile', JSON.stringify(userProfile));
     this.props.history.push('/sources');
   }
-
-  componentWillMount() {
-  sourceStore.on('change', () => console.log('from login',sourceStore.sources));
-}
 
   render(){
     const responseGoogle = (response) => {
