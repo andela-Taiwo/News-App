@@ -1,4 +1,4 @@
-// src/components/Contacts.js
+// src/components/Article.js
 
 import React, { Component } from 'react';
 //import { ListGroup } from 'react-bootstrap';
@@ -25,36 +25,19 @@ export default class Articles extends React.Component {
     this.updateArticles = this.updateArticles.bind(this);
   }
 
-  /**
-   * This function mounts the getNewsHeadlines action function when it is about
-   *to be rendered on the DOM. Props are passed to the action method and an
-   API call is made.
-   * @return {void} sets the current state
-   * @memberof Headlines
-   */
+
   componentDidMount() {
     console.log("Hello");
     ArticleAction.getArticles(this.state.sourceId, this.state.sortBy);
     articleStore.on('change', this.updateArticles);
   }
 
-  /**
-   *This function unmounts the rendered component using the removeListener
-   method and updates the
-   *state of articles.
-   * @return {void} sets the updated state
-   * @memberof Headlines
-   */
+
   componentWillUnmount() {
     articleStore.removeListener('change', this.updateArticles);
   }
 
-  /**
-   *This function is reponsible for updating the state of the article prop when
-   the component is rendered.
-   * @return {object} updated state of articles
-   * @memberof Headlines
-   */
+
   updateArticles() {
     this.setState({
       articles: articleStore.getArticles(),
@@ -68,14 +51,14 @@ export default class Articles extends React.Component {
 
     return (
       <div >
-        {/*<Signout />*/}
+      
         <div id="loginHeader">
         <br /><h4 id="headerStyle">{sortBy}{' News from '}{newsName}</h4>
         <br /> <br />
         <div className="container">
           <div className="row">
             <div className="col m4">
-              {/*<Previous />*/}
+              
               </div>
           </div>
         </div>
