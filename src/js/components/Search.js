@@ -1,49 +1,31 @@
 import React from 'react';
-export default class Search extends React.Component{
-  constructor(props) {
-  super(props);
-  this.state = {value: ''};
+export default class Search extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        name: ''
+      };
+      this.handleAdd = this.handleAdd.bind(this);
+    }
 
-  this.handleChange = this.handleChange.bind(this);
-  this.handleSubmit = this.handleSubmit.bind(this);
-}
+    handleAdd(e) {
+        e.preventDefault();
+        this.props.onSearch(this.state.sources);
+    }
 
-handleChange(event) {
-  this.setState({value: event.target.value});
-}
-
-handleSubmit(event) {
-  alert('A name was submitted: ' + this.state.value);
-  event.preventDefault();
-}
-// 
-// performSearch() {
-//    const
-//      self = this,
-//      url  = googleAutoSuggestURL + this.state.inputValue;
-//
-//    if(this.state.inputValue !== '') {
-//      JSONP(url, function(error, data) {
-//        let searchResults, retrievedSearchTerms;
-//
-//        if(error) return error;
-//
-//        searchResults = data[1];
-//
-//        retrievedSearchTerms = searchResults.map(function(result) {
-//          return result[0];
-//        });
-//
-//        self.setState({
-//          dataSource: retrievedSearchTerms
-//        });
-//      });
-//    }
-//  }
-//
-render() {
-  return (
-    <input type="text" value={this.state.value} onChange={this.handleChange} />
-  );
-}
+    render() {
+      return (
+        <form>
+          <input
+            className=""
+            type="text"
+            name="name"
+            value={this.state.name}
+            onChange={e => this.setState({ name: e.target.value })}
+          >
+          </input>
+          <button onClick={this.handleAdd}>Search</button>
+        </form>
+      );
+    }
 }

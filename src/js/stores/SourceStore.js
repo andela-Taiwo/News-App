@@ -22,6 +22,10 @@ class SourceStoreClass extends EventEmitter {
     return this.sources;
   }
 
+  setSources(){
+    return this.sources =null;
+  }
+
 
 
 
@@ -34,14 +38,8 @@ class SourceStoreClass extends EventEmitter {
         // knows that a change has been made
         this.emit(CHANGE_EVENT);
         break;
-
-      // case "GET_ARTCLES":
-      //   this.articles = action.articles
-      //   this.emit(CHANGE_EVENT);
-      //   break;
-        
+   
       case "REMOVE_SOURCES":
-        this.setSources();
         this.emit(CHANGE_EVENT);
         break;
 
@@ -58,7 +56,5 @@ const SourceStore = new SourceStoreClass();
 // respond appropriately
 Dispatcher.register(SourceStore.handleActions.bind(SourceStore));
 
-window.dispatcher11 = Dispatcher;
-window.teststore = SourceStore;
 
 export default SourceStore;

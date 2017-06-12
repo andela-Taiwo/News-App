@@ -1,23 +1,23 @@
-// src/components/Contacts.js
 
 import React, { Component } from 'react';
 //import { ListGroup } from 'react-bootstrap';
 // import { Link } from 'react-router';
 import * as ArticleAction from '../actions/ArticleAction';
 import sourceStore from '../stores/SourceStore';
-import SourceListItem from './SourceListItem';
+// import SourceListItem from './SourceListItem';
+import Search from './Search';
 
 
 // We'll use this function to get a contact
 // list item for each of the contacts in our list
-function getSourceListItem(source) {
+/*function getSourceListItem(source) {
   return (
     <SourceListItem
       key={source.id}
       source={source}
     />
   );
-}
+}*/
 class Sources extends Component {
 
   constructor() {
@@ -34,9 +34,9 @@ class Sources extends Component {
 
   componentWillMount() {
     ArticleAction.getSources();
-    sourceStore.on("change",()=>{
+    sourceStore.on("change",() => {
       this.setState({
-        sources:sourceStore.getSources()
+        sources: sourceStore.getSources()
       })
     })
     //sourceStore.addChangeListener(this.onChange);
@@ -44,7 +44,7 @@ class Sources extends Component {
 
   componentWillUnmount() {
    //
-    sourceStore.removeChangeListener(this.onChange);
+    sourceStore.removeListener('change', this.onChange);
   }
 
   onChange() {
@@ -68,25 +68,28 @@ class Sources extends Component {
     //   SourceListItems = this.state.sources.map(source => getSourceListItem(source));
     // }
     return (
-      <div className="row">
-        {/*{sourceComponent} */}
-        {sources.map((source) => {
-          return (
-            <div key={source.id} className="col s12 m7 card">
-              {source.name}
-              {source.sortBysAvailable.map((sortBy) => {
-                return (
-                  <div key={sortBy}>
+      <div className="container">
+        <div className="row">
+          <h1> Articles Available </h1>
+          <Search />
+          {sources.map((source) => {
+            return (
+              <div key={source.id} className="col s12 m7 card">
+                {source.name}
+                {source.sortBysAvailable.map((sortBy) => {
+                  return (
+                    <div key={sortBy}>
 
-                    <a href={`#/articles/${source.id}/${sortBy}`}>{sortBy}</a>
-                  </div>
-                )
-              })
-              }
-            </div>
-          )
-        }
-        )}
+                      <a href={`#/articles/${source.id}/${sortBy}`}>{sortBy}</a>
+                    </div>
+                  )
+                })
+                }
+              </div>
+            )
+          }
+          )}
+        </div>
       </div>
     );
   }

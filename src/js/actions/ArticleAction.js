@@ -32,3 +32,14 @@ export function getArticles(src_id, sort_query){
 
 }
 
+export function setSources(){
+    NewsAPI.setSources(url)
+    .then((sources)=> {
+      Dispatcher.dispatch({
+      actionType: "REMOVE_SOURCES",
+      sources: null
+    });
+  });
+
+}
+

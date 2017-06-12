@@ -10,12 +10,12 @@ export  default class Login extends React.Component{
   }
 
   responseGoogle(response) {
-    const loginProfile = response.getBasicProfile();
-    const userProfile = {};
-    userProfile.name = loginProfile.getName();
-    userProfile.email = loginProfile.getEmail();
-    userProfile.idToken = response.googleId;
-    localStorage.setItem('userProfile', JSON.stringify(userProfile));
+    const login_profile = response.getBasicProfile();
+    const user_profile = {};
+    user_profile.name = login_profile.getName();
+    user_profile.email = login_profile.getEmail();
+    user_profile.idToken = response.googleId;
+    localStorage.setItem('userProfile', JSON.stringify(user_profile));
     this.props.history.push('/sources');
   }
 
@@ -31,18 +31,26 @@ export  default class Login extends React.Component{
 
   
     return(
-      <div>
-      <GoogleLogin
-          clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
-          buttonText="Login"
-          onSuccess={responseGoogle}
-          onFailure={responseGoogle}
-        >
-        <FontAwesome
-        name='google'
-      />
-      <span> Login with Google</span>
-    </GoogleLogin>
+      <div className="container">
+        <div className="row">
+          <div className="">
+            <div className="card-panel" id="loging-box">
+              <GoogleLogin
+                  clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+                  buttonText="Login"
+                  onSuccess={responseGoogle}
+                  onFailure={responseGoogle}
+                >
+                <FontAwesome name='google'/>
+                <span> Login with Google</span>
+              </GoogleLogin>
+
+            </div> 
+
+          </div>
+        </div>
+
+
 
 
     </div>
