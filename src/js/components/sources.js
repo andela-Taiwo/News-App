@@ -6,7 +6,7 @@ import * as ArticleAction from '../actions/ArticleAction';
 import sourceStore from '../stores/SourceStore';
 // import SourceListItem from './SourceListItem';
 import Search from './Search';
-
+import Header from './Header'
 
 // We'll use this function to get a contact
 // list item for each of the contacts in our list
@@ -68,6 +68,8 @@ class Sources extends Component {
     //   SourceListItems = this.state.sources.map(source => getSourceListItem(source));
     // }
     return (
+      <div>
+      <Header />
       <div className="container">
         <div className="row">
           <h1> Articles Available </h1>
@@ -90,6 +92,7 @@ class Sources extends Component {
           }
           )}
         </div>
+      </div>
       </div>
     );
   }

@@ -2,8 +2,13 @@ import React from 'react';
 import GoogleLogin from 'react-google-login';
 import FontAwesome  from 'react-fontawesome';
 import sourceStore from '../stores/SourceStore';
+import Header from './Header';
 
 export  default class Login extends React.Component{
+  constructor() {
+    super();
+    this.responseGoogle = this.responseGoogle.bind(this);
+  }
   
   logIn (e) {
    this.props.history.push('/sources');
@@ -16,44 +21,40 @@ export  default class Login extends React.Component{
     user_profile.email = login_profile.getEmail();
     user_profile.idToken = response.googleId;
     localStorage.setItem('userProfile', JSON.stringify(user_profile));
-    this.props.history.push('/sources');
+    location.reload();
   }
 
   render(){
-    const responseGoogle = (response) => {
-      const {tokenId} = response;
-      if(tokenId){
-        this.props.history.push('./sources');
-      }else{
-        this.props.history.push('./features')
-      }
-     }
-
   
     return(
+      <div>
+        <div className="section section__hero" id="index-banner">
       <div className="container">
         <div className="row">
-          <div className="">
-            <div className="card-panel" id="loging-box">
-              <GoogleLogin
+          <div className="col s12 m7">
+            <h1 className="header">Article Hub</h1>
+            <h3 className="header">Get Live Headlines</h3>
+            
+          </div>
+          <div className="col s12 m5 gorilla"> </div>
+        </div>
+        <div className="row center">
+            <a id="cta__main" href="#!" className="btn btn-large"><GoogleLogin
+                  className="btn btn-large"
                   clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
                   buttonText="Login"
-                  onSuccess={responseGoogle}
-                  onFailure={responseGoogle}
+                  onSuccess={this.responseGoogle}
+                  onFailure={this.responseGoogle}
                 >
-                <FontAwesome name='google'/>
+                <FontAwesome name="google"/>
                 <span> Login with Google</span>
-              </GoogleLogin>
-
-            </div> 
-
-          </div>
+              </GoogleLogin></a>
         </div>
-
-
-
-
+      </div>
     </div>
+
+</div>
+      
   );
   }
 }

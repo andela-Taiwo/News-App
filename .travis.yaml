@@ -1,11 +1,8 @@
 language: node_js
-node_js:
-    - "6.9.2"
-before_script:
-    - npm install
-script:
-    - jasmine 
+node_js: “stable”
+install: npm install
+script: npm test
 after_success:
-    - gulp coverage
-
-skip_cleanup: true
+  - npm install -g codeclimate-test-reporter
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+  - codeclimate-test-reporter < lcov.info

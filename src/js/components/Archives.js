@@ -8,6 +8,8 @@ export default class Archives extends React.Component{
 
     return(
       <div>
+
+        <Header />
         <h1>Archives  ({articles})</h1>
         <h3>date: {date}, filter:{filter}</h3>
       </div>
