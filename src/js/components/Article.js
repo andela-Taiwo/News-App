@@ -1,4 +1,4 @@
-// src/components/Contacts.js
+// src/components/Article.js
 
 import React, { Component } from 'react';
 //import { ListGroup } from 'react-bootstrap';
@@ -7,6 +7,7 @@ import * as ArticleAction from '../actions/ArticleAction';
 import sourceStore from '../stores/SourceStore';
 import articleStore from '../stores//ArticleStore';
 import SourceListItem from './SourceListItem';
+import Header from './Header';
 import PropTypes from 'prop-types';
 
     function getId(path_name){
@@ -50,36 +51,20 @@ export default class Articles extends React.Component {
 
     return (
       <div>
-       
+        
+      <Header />
         <div >
         <br /><h5 >{sortBy}{' articles from '}{newsName}</h5>
         <br /> <br />
 
-
-            
-
-
-
-
-        {/*<div className="container">
-          <div className="row">
-            <div className="col m4">
-           
-              </div>
-          </div>
-        </div>*/}
-
-
-        
-
         <div className="container">
           <div className="row">
-            {this.state.articles.map( item => (
+            {this.state.articles.map(item => (
               <div className="col m4" key={item.title}>
                 <div className="card medium grey lighten-5">
                   <div className="card-image">
                     <img
-src={item.urlToImage} alt={item.title}
+                    src={item.urlToImage} alt={item.title}
                        />
                   </div>
                   <div className="card-content">
@@ -87,7 +72,7 @@ src={item.urlToImage} alt={item.title}
                     <p>{item.description}</p>
                   </div>
                   <div className="card-action">
-                    <a href={item.url} target={'#'}>{'Read...'}</a>
+                    <a href={item.url} className="btn btn-small" target={'#'}>{'Read...'}</a>
                   </div>
                 </div>
               </div>
