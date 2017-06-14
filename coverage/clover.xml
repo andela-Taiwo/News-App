@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1497294568186" clover="3.2.0">
-  <project timestamp="1497294568186" name="All files">
-    <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="0" coveredelements="0" complexity="0" loc="0" ncloc="0" packages="0" files="0" classes="0">
+<coverage generated="1497375096905" clover="3.2.0">
+  <project timestamp="1497375096906" name="All files">
+    <metrics statements="18" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="2" elements="31" coveredelements="6" complexity="0" loc="18" ncloc="18" packages="1" files="2" classes="2">
+      <file name="Header.js" path="/Users/andeladeveloper/Desktop/Test-News-App/src/js/components/Header.js">
+        <metrics statements="7" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="24" count="3" type="stmt"/>
+      </file>
+      <file name="Save.js" path="/Users/andeladeveloper/Desktop/Test-News-App/src/js/components/Save.js">
+        <metrics statements="11" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+      </file>
     </metrics>
   </project>
 </coverage>
