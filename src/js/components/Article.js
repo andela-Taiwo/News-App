@@ -45,8 +45,8 @@ export default class Articles extends React.Component {
   }
 
   render() {
-    const sortBy = this.state.sortBy;
-    const sourceName = this.state.sourceId;
+    const sortBy = (this.state.sortBy).toUpperCase();
+    const sourceName = (this.state.sourceId).toUpperCase();
     const newsName = sourceName;
 
     return (
@@ -54,13 +54,13 @@ export default class Articles extends React.Component {
         
       <Header />
         <div >
-        <br /><h5 >{sortBy}{' articles from '}{newsName}</h5>
+        <br /><h5  className="center">{sortBy}{' ARTICLES FROM '}{newsName}</h5>
         <br /> <br />
 
         <div className="container">
-          <div className="row">
+          <div className="row"> 
             {this.state.articles.map(item => (
-              <div className="col m4" key={item.title}>
+              <div className="col m3" key={item.title}>
                 <div className="card medium grey lighten-5">
                   <div className="card-image">
                     <img

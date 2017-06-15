@@ -5,7 +5,6 @@ import React, { Component } from 'react';
 import * as ArticleAction from '../actions/ArticleAction';
 import sourceStore from '../stores/SourceStore';
 // import SourceListItem from './SourceListItem';
-import Search from './Search';
 import Header from './Header'
 
 // We'll use this function to get a contact
@@ -25,7 +24,8 @@ class Sources extends Component {
     // For our initial state, we just want
     // an empty array of contacts
     this.state = {
-      sources: sourceStore.getSources()
+      sources: sourceStore.getSources(),
+      searchInput: ""
     }
     // We need to bind this to onChange so we can have
     // the proper this reference inside the method
@@ -53,8 +53,22 @@ class Sources extends Component {
     });
   }
 
+  updateSearch(event) {
+        event.preventDefault();
+        this.setState({searchInput: event.target.value.substr(0,20)});
+    }
+   onSearch(){
+     this.setState({searchInput: event.target.value});
+   }
+
   render() {
     let { sources } = this.state
+    let filteredContent = sources.filter(
+      (source) => {
+        return source.id.indexOf(this.state.searchInput.toLocaleLowerCase()) !== -1 ;
+
+      }
+    );
     //console.log(sources);
 
     
@@ -72,22 +86,35 @@ class Sources extends Component {
       <Header />
       <div className="container">
         <div className="row">
-          <h1> Articles Available </h1>
-          <Search />
-          {sources.map((source) => {
+          <h1> News Sources Available </h1>
+          <form>
+            <input
+              className=""
+              type="text"
+              value={this.state.searchInput.toLocaleLowerCase()}
+              onChange={this.updateSearch.bind(this)}
+              placeholder="Search for a source"
+            >
+            </input>
+            {/*<button onClick={this.handleSearch}>Search</button>*/}
+        </form>
+          {filteredContent.map((source) => {
             return (
               <div key={source.id} className="col s12 m7 card">
                 {source.name}
-                {source.sortBysAvailable.map((sortBy) => {
+                <div className="row sort">
+                  {source.sortBysAvailable.map((sortBy) => {
                   return (
                     <div key={sortBy}>
 
-                      <a href={`#/articles/${source.id}/${sortBy}`}>{sortBy}</a>
+                      <a className="col s3 center" href={`#/articles/${source.id}/${sortBy}`}>{sortBy}</a>
                     </div>
                   )
                 })
                 }
               </div>
+            </div>
+
             )
           }
           )}

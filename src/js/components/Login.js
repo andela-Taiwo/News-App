@@ -10,9 +10,9 @@ export  default class Login extends React.Component{
     this.responseGoogle = this.responseGoogle.bind(this);
   }
   
-  logIn (e) {
-   this.props.history.push('/sources');
-  }
+  // logIn (e) {
+  //  this.props.history.push('/sources');
+  // }
 
   responseGoogle(response) {
     const login_profile = response.getBasicProfile();

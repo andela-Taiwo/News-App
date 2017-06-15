@@ -11,6 +11,9 @@ class ArticleStore extends EventEmitter {
   getArticles() {
     return this.articles;
   }
+  setArticles(){
+    return null;
+  }
 
 handleActions(action) {
     switch(action.actionType) {
