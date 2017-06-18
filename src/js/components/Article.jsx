@@ -47,12 +47,10 @@ export default class Articles extends React.Component {
   render() {
     const sort_query = (this.state.sort_query).toUpperCase();
     const sourceName = (this.state.src_id).toUpperCase();
-    const newsName = sourceName;
-
+    
     return (
-      <div>
-        
-      <Header />
+      <div>   
+        <Header />
         <div >
         <br /><h5  className="center">{sort_query}{' ARTICLES FROM '}{sourceName}</h5>
         <br /> <br />
