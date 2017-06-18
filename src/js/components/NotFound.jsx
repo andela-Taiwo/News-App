@@ -1,16 +1,15 @@
-// src/components/NotFound.js
-import React from 'react';
-import { Link } from 'react-router-dom';
+// src/components/NotFound.jsx
 
+import React from 'react';
+import {Link}  from 'react-router-dom';
+import { ContextTypes, PropTypes } from 'prop-types';
 
 export default class NotFound extends React.Component {
     constructor(props){
       super(props);
       this.state = {}
     }
-    componentDidMount(){
-      
-    }
+
 
   render() {
     return (
@@ -18,9 +17,13 @@ export default class NotFound extends React.Component {
         <h1>404</h1>
         <h2>Page not found!</h2>
         <p>
-          <Link to="/">Go back to the main page</Link>
+          <Link to="/">Go back to the news sources page</Link>
         </p>
       </div>
     );
   }
 }
+
+contextTypes: {
+    router: PropTypes.object
+  }

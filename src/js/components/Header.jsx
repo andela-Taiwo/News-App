@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, HashRouter } from 'react-router-dom';
-import Saved from './Save';
+// import Saved from './Save';
 class Header extends React.Component {
   constructor() {
     super();
@@ -30,8 +30,8 @@ class Header extends React.Component {
                 </div>
                   <ul id="nav-mobile" className="right hide-on-med-and-down">
                     <li  onClick={this.navigate.bind(this)}><Link to="/sources">Latest News</Link></li>
-                    <li>  <Link to="/archives">archives</Link></li>
-                    <li>  <Link to="/saved" >Saved</Link></li>
+                    {/*<li>  <Link to="/archives">archives</Link></li>
+                    <li>  <Link to="/saved" >Saved</Link></li>*/}
                     <li ><Link to="/" onClick={this.logout}>Logout</Link></li>
 
                   

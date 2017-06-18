@@ -15,29 +15,43 @@ class ArticleStore extends EventEmitter {
     return null;
   }
 
-handleActions(action) {
-    switch(action.actionType) {
-      case "GET_ARTICLES":
-        this.articles = action.articles;
-    
-        // We need to call emitChange so the event listener
-        // knows that a change has been made
-        this.emit(CHANGE_EVENT);
-        break;
 
-      // case "GET_ARTCLES":
-      //   this.articles = action.articles
-      //   this.emit(CHANGE_EVENT);
-      //   break;
-        
-      case "REMOVE_ARTICLES":
-        this.setArticles();
-        this.emit(CHANGE_EVENT);
-        break;
-
-      default:
+ handleActions(action) {
+    if (action.actionType === 'GET_ARTICLES') {
+      this.articles = action.articles;
+      this.emit(CHANGE_EVENT);
     }
   }
+//  handleActions(action) {
+//     if (action.actionType === 'GET_ARTICLES') {
+//       this.articles = action.articles;
+//       this.emit(CHANGE_EVENT);
+//     }
+//   }
+
+// handleActions(action) {
+//     switch(action.actionType) {
+//       case "GET_ARTICLES":
+//         this.articles = action.articles;
+    
+//         // We need to call emitChange so the event listener
+//         // knows that a change has been made
+//         this.emit(CHANGE_EVENT);
+//         break;
+
+//       // case "GET_ARTCLES":
+//       //   this.articles = action.articles
+//       //   this.emit(CHANGE_EVENT);
+//       //   break;
+        
+//       case "REMOVE_ARTICLES":
+//         this.setArticles();
+//         this.emit(CHANGE_EVENT);
+//         break;
+
+//       default:
+//     }
+//   }
 
 }
 const articleStore = new ArticleStore();

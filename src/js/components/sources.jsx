@@ -1,28 +1,16 @@
 
 import React, { Component } from 'react';
-//import { ListGroup } from 'react-bootstrap';
-// import { Link } from 'react-router';
 import * as ArticleAction from '../actions/ArticleAction';
 import sourceStore from '../stores/SourceStore';
-// import SourceListItem from './SourceListItem';
-import Header from './Header'
+import Header from './Header.jsx'
+import PropTypes from 'prop-types';
 
-// We'll use this function to get a contact
-// list item for each of the contacts in our list
-/*function getSourceListItem(source) {
-  return (
-    <SourceListItem
-      key={source.id}
-      source={source}
-    />
-  );
-}*/
-class Sources extends Component {
+export default class Sources extends Component {
 
   constructor() {
     super();
     // For our initial state, we just want
-    // an empty array of contacts
+    // an empty array of News Sources
     this.state = {
       sources: sourceStore.getSources(),
       searchInput: ""
@@ -39,7 +27,7 @@ class Sources extends Component {
         sources: sourceStore.getSources()
       })
     })
-    //sourceStore.addChangeListener(this.onChange);
+  
   }
 
   componentWillUnmount() {
@@ -69,18 +57,7 @@ class Sources extends Component {
 
       }
     );
-    //console.log(sources);
-
-    
-    
-    /*const sourceComponent = sources.map(sourceItem => <SourceListItem 
-      key={sourceItem.id}{...sourceItem} />);*/
-    
-    // let SourceListItems;
-    // if (this.state.sources) {
-    //   // Map over the contacts and get an element for each of them
-    //   SourceListItems = this.state.sources.map(source => getSourceListItem(source));
-    // }
+ 
     return (
       <div>
       <Header />
@@ -125,4 +102,34 @@ class Sources extends Component {
   }
 }
 
-export default Sources;
+Sources.PropTypes = {
+      searchInput: PropTypes.string,
+      sources: PropTypes.Object,
+
+};
+
+Sources.defaultProps = {
+  match: {
+    params: {
+      searchInput: 'bbc-news',
+      sources: [
+    {
+      "id": "abc-news-au",
+      "name": "ABC News (AU)",
+      "description": "Australia's most trusted source of local, national and world news. Comprehensive, independent, in-depth analysis, the latest business, sport, weather and more.",
+      "url": "http://www.abc.net.au/news",
+      "category": "general",
+      "language": "en",
+      "country": "au",
+      "urlsToLogos": {
+        "small": "",
+        "medium": "",
+        "large": ""
+      },
+      "sortBysAvailable": [
+        "top"
+      ],
+    }],
+  } ,
+}
+}

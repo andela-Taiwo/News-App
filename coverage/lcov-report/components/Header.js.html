@@ -54,137 +54,35 @@
 9
 10
 11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
-import { Link, HashRouter } from 'react-router-dom';
-import Saved from './Save';
-class Header extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      authenticated: false
-    }
-    this.logout = this.logout.bind(this);
-  }
-&nbsp;
-<span class="fstat-no" title="function not covered" >  lo</span>gout() {
-<span class="cstat-no" title="statement not covered" >    localStorage.removeItem('userProfile');</span>
-<span class="cstat-no" title="statement not covered" >    location.reload();</span>
-  }
-<span class="fstat-no" title="function not covered" >  na</span>vigate(){
-  
-<span class="cstat-no" title="statement not covered" >    this.props.history.push('/sources');</span>
-&nbsp;
-  }
-&nbsp;
-    render() {
-        return (
-            &lt;nav&gt;
-              &lt;HashRouter&gt;
-              &lt;div className="nav-wrapper"&gt;  
-                &lt;div className="navbar-header"&gt;
-                  &lt;a href="" className="brand-logo" to="/"&gt;Articles Hub&lt;/a&gt;
-                &lt;/div&gt;
-                  &lt;ul id="nav-mobile" className="right hide-on-med-and-down"&gt;
-                    &lt;li  onClick={this.navigate.bind(this)}&gt;&lt;Link to="/sources"&gt;Latest News&lt;/Link&gt;&lt;/li&gt;
-                    &lt;li&gt;  &lt;Link to="/archives"&gt;archives&lt;/Link&gt;&lt;/li&gt;
-                    &lt;li&gt;  &lt;Link to="/saved" &gt;Saved&lt;/Link&gt;&lt;/li&gt;
-                    &lt;li &gt;&lt;Link to="/" onClick={this.logout}&gt;Logout&lt;/Link&gt;&lt;/li&gt;
-&nbsp;
-                  
-                  &lt;/ul&gt;
-            &lt;/div&gt;
-            &lt;/HashRouter&gt;
-          &lt;/nav&gt;
-        );
-    }
-}
-&nbsp;
-export default Header;</pre></td></tr>
+12</td><td class="line-coverage quiet"><span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span></td><td class="text"><pre class="prettyprint lang-js">Unable to lookup source: /Users/andeladeveloper/Desktop/Test-News-App/src/js/components/Header.js(ENOENT: no such file or directory, open '/Users/andeladeveloper/Desktop/Test-News-App/src/js/components/Header.js')
+Error: Unable to lookup source: /Users/andeladeveloper/Desktop/Test-News-App/src/js/components/Header.js(ENOENT: no such file or directory, open '/Users/andeladeveloper/Desktop/Test-News-App/src/js/components/Header.js')
+    at Context.defaultSourceLookup [as sourceFinder] (/Users/andeladeveloper/Desktop/Test-News-App/node_modules/istanbul-lib-report/lib/context.js:15:15)
+    at Context.getSource (/Users/andeladeveloper/Desktop/Test-News-App/node_modules/istanbul-lib-report/lib/context.js:74:17)
+    at Object.annotateSourceCode (/Users/andeladeveloper/Desktop/Test-News-App/node_modules/istanbul-reports/lib/html/annotator.js:175:38)
+    at HtmlReport.onDetail (/Users/andeladeveloper/Desktop/Test-News-App/node_modules/istanbul-reports/lib/html/index.js:217:39)
+    at LcovReport.(anonymous function) [as onDetail] (/Users/andeladeveloper/Desktop/Test-News-App/node_modules/istanbul-reports/lib/lcov/index.js:24:24)
+    at Visitor.(anonymous function) [as onDetail] (/Users/andeladeveloper/Desktop/Test-News-App/node_modules/istanbul-lib-report/lib/tree.js:34:30)
+    at ReportNode.Node.visit (/Users/andeladeveloper/Desktop/Test-News-App/node_modules/istanbul-lib-report/lib/tree.js:123:17)
+    at /Users/andeladeveloper/Desktop/Test-News-App/node_modules/istanbul-lib-report/lib/tree.js:116:23
+    at Array.forEach (native)
+    at visitChildren (/Users/andeladeveloper/Desktop/Test-News-App/node_modules/istanbul-lib-report/lib/tree.js:115:32)</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Jun 15 2017 12:50:46 GMT+0100 (WAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Jun 17 2017 20:53:49 GMT+0100 (WAT)
 </div>
 </div>
 <script src="../prettify.js"></script>

@@ -7,7 +7,7 @@ import NewsAPI from '../utils/NewsAPI';
  */
 export function getSources(){
   const url = 'https://newsapi.org/v1/sources?language=en';
-  NewsAPI.getSources(url)
+   return NewsAPI.getSources(url)
     .then((sources)=> {
       Dispatcher.dispatch({
       actionType: "GET_SOURCES",
@@ -22,7 +22,7 @@ export function getArticles(src_id, sort_query){
   const API_KEY = '213327409d384371851777e7c7f78dfe';
   const url = 'https://newsapi.org/v1/articles?source='+src_id+ 
   '&sortBy='+sort_query+'&apiKey='+API_KEY;
-  NewsAPI.getArticles(url)
+  return NewsAPI.getArticles(url)
     .then((articles)=> {
       Dispatcher.dispatch({
       actionType: "GET_ARTICLES",
@@ -33,7 +33,8 @@ export function getArticles(src_id, sort_query){
 }
 
 export function setSources(){
-    NewsAPI.setSources(url)
+     const url = 'https://newsapi.org/v1/sources?language=en';
+    return NewsAPI.setSources(url)
     .then((sources)=> {
       Dispatcher.dispatch({
       actionType: "REMOVE_SOURCES",

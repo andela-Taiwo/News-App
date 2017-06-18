@@ -1,8 +1,8 @@
   
 import React from 'react';
 import { HashRouter as Router, Route, Switch, Link} from 'react-router-dom';
-import Header from './Header' ;
-
+import Header from './Header.jsx' ;
+import { ContextTypes, PropTypes } from 'prop-types';
 export default class LoginMessage extends React.Component {
 
   render(){
@@ -23,3 +23,7 @@ export default class LoginMessage extends React.Component {
   } 
 
 }
+
+contextTypes: {
+    router: PropTypes.object
+  }

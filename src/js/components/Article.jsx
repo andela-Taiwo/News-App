@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import * as ArticleAction from '../actions/ArticleAction';
 import sourceStore from '../stores/SourceStore';
 import articleStore from '../stores//ArticleStore';
-import SourceListItem from './SourceListItem';
+
 import Header from './Header';
 import PropTypes from 'prop-types';
 
@@ -16,10 +16,10 @@ import PropTypes from 'prop-types';
 export default class Articles extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.match.url);
+    //console.log(this.props.match.url);
     this.state = {
-      sourceId: getId(this.props.match.url),
-      sortBy: props.match.params.sortBy,
+      src_id: getId(this.props.match.url),
+      sort_query: props.match.params.sortBy,
       articles: [],
     };
 
@@ -27,8 +27,8 @@ export default class Articles extends React.Component {
   }
 
   componentDidMount() {
-    console.log("Hello");
-    ArticleAction.getArticles(this.state.sourceId, this.state.sortBy);
+    
+    ArticleAction.getArticles(this.state.src_id, this.state.sort_query);
     articleStore.on('change', this.updateArticles);
   }
 
@@ -45,8 +45,8 @@ export default class Articles extends React.Component {
   }
 
   render() {
-    const sortBy = (this.state.sortBy).toUpperCase();
-    const sourceName = (this.state.sourceId).toUpperCase();
+    const sort_query = (this.state.sort_query).toUpperCase();
+    const sourceName = (this.state.src_id).toUpperCase();
     const newsName = sourceName;
 
     return (
@@ -54,7 +54,7 @@ export default class Articles extends React.Component {
         
       <Header />
         <div >
-        <br /><h5  className="center">{sortBy}{' ARTICLES FROM '}{newsName}</h5>
+        <br /><h5  className="center">{sort_query}{' ARTICLES FROM '}{sourceName}</h5>
         <br /> <br />
 
         <div className="container">
@@ -86,20 +86,18 @@ export default class Articles extends React.Component {
 }
 
 
-Articles.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      sortBy: PropTypes.string,
-      source: PropTypes.string,
-    }),
-  }),
+Articles.PropTypes = {
+
+      sort_query: PropTypes.string,
+      articles: PropTypes.Object,
+
 };
 
 Articles.defaultProps = {
   match: {
     params: {
-      sortBy: 'top',
-      sourceId: 'cnn',
+      sort_query: 'top',
+      src_id: 'cnn',
     },
   },
 };

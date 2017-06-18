@@ -2,7 +2,7 @@ import React from 'react';
 import GoogleLogin from 'react-google-login';
 import FontAwesome  from 'react-fontawesome';
 import sourceStore from '../stores/SourceStore';
-import Header from './Header';
+import Header from './Header.jsx';
 
 export  default class Login extends React.Component{
   constructor() {

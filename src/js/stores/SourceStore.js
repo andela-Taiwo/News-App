@@ -29,21 +29,28 @@ class SourceStoreClass extends EventEmitter {
 
 
 
-  handleActions(action) {
-    switch(action.actionType) {
-      case "GET_SOURCES":
-        this.sources = action.sources;
+  // handleActions(action) {
+  //   switch(action.actionType) {
+  //     case "GET_SOURCES":
+  //       this.sources = action.sources;
     
-        // We need to call emitChange so the event listener
-        // knows that a change has been made
-        this.emit(CHANGE_EVENT);
-        break;
+  //       // We need to call emitChange so the event listener
+  //       // knows that a change has been made
+  //       this.emit(CHANGE_EVENT);
+  //       break;
    
-      case "REMOVE_SOURCES":
-        this.emit(CHANGE_EVENT);
-        break;
+  //     case "REMOVE_SOURCES":
+  //       this.emit(CHANGE_EVENT);
+  //       break;
 
-      default:
+  //     default:
+  //   }
+  // }
+
+  handleActions(action) {
+    if (action.actionType === 'GET_SOURCES') {
+      this.sources = action.sources;
+      this.emit(CHANGE_EVENT);
     }
   }
 
