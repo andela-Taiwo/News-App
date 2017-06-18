@@ -65,7 +65,7 @@ export default class Articles extends React.Component {
                     src={item.urlToImage} alt={item.title}
                        />
                   </div>
-                  <div className="card-content">
+                  <div className="card-cgitontent">
                     <span className="card-title">{item.title}</span>
                     <p>{item.description}</p>
                   </div>
