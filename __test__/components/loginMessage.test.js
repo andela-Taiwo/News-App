@@ -19,7 +19,7 @@ describe('LoginMesage', () => {
      it('Login Message', () => {
      const wrapper = mount(<LoginMessage />);
       it('Login should render without error', () => {
-     shallow(<LoginMessage {...props} />);
+     shallow(<LoginMessage {...window.localStorage} />);
   });  
   //   it('Found Link', () => {
   //    const wrapper = shallow(<LoginMessage />);

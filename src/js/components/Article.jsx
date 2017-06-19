@@ -58,7 +58,7 @@ export default class Articles extends React.Component {
         <div className="">
           <div className="row"> 
             {this.state.articles.map(item => (
-              <div className="col m3" key={item.title}>
+              <div className=" mainBg col m3" key={item.title}>
                 <div className="card medium grey lighten-5">
                   <div className="card-image">
                     <img
