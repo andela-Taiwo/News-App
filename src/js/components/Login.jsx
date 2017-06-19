@@ -42,7 +42,7 @@ export  default class Login extends React.Component{
         <div className="row center">
             <a id="cta__main" href="#!" className="btn btn-large"><GoogleLogin
                   className="btn btn-large"
-                  clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+                  clientId="226325792863-va7su4fhusp1v9lgnbetlgpjc6ggb8fj.apps.googleusercontent.com"
                   buttonText="Login"
                   onSuccess={this.responseGoogle}
                   onFailure={this.responseGoogle}
