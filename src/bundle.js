@@ -14531,7 +14531,7 @@ var Login = function (_React$Component) {
                   _reactGoogleLogin2.default,
                   {
                     className: 'btn btn-large',
-                    clientId: '658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com',
+                    clientId: '226325792863-va7su4fhusp1v9lgnbetlgpjc6ggb8fj.apps.googleusercontent.com',
                     buttonText: 'Login',
                     onSuccess: this.responseGoogle,
                     onFailure: this.responseGoogle
