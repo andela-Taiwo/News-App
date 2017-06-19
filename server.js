@@ -1,17 +1,20 @@
-const express = require('express')
-const path = require('path')
-const webpack = require('webpack');
-const port = process.env.PORT || 3000
-const app = express()
+require('dotenv').config();
+const express = require('express');
+const path = require('path');
 
-// serve static assets normally
-app.use(express.static(__dirname + '/dist'))
+const app = express();
 
-// handle every other route with index.html, which will contain
-// a script tag to your application's JavaScript file(s).
-app.get('*', function (request, response){
-  response.sendFile(path.resolve(__dirname, 'src', 'index.html'))
-})
 
-app.listen(port)
-console.log("server started on port " + port)
+app.set('port', process.env.PORT || 3000);
+app.use(express.static(path.join(__dirname, 'src')));
+
+// app.get('*', function (request, response){
+app.get('*', (request, response) => {
+  response.sendFile(path.resolve(__dirname, 'src', 'index.html'));
+});
+
+app.listen(app.get('port'), () => {
+  console.log('Node app is running on port', app.get('port'));
+});
+
+module.exports = app;

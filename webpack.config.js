@@ -26,8 +26,8 @@ module.exports = {
     extensions: [ '.js', '.json', '.jsx']
   },
   output: {
-    path: __dirname+ '/dist',
-    filename:'bundle.js',
+    path: __dirname+ '/src',
+    filename: 'bundle.js',
     publicPath: '/public/'
   },
   
