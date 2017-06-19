@@ -22,7 +22,7 @@ class Header extends React.Component {
   }
 
     render() {
-        //const user = JSON.parse(localStorage.getItem('userProfile'));
+        const user = JSON.parse(localStorage.getItem('userProfile'));
         return (
             <nav>
               <HashRouter>
@@ -32,7 +32,7 @@ class Header extends React.Component {
                 </div>
                   <ul id="nav-mobile" className="right hide-on-med-and-down">
                     <li  onClick={this.navigate.bind(this)}><Link to="/sources">Latest News</Link></li>
-                    {/*<li> {user.name}</li>*/}
+                    <li> {user.name}</li>
                    {/* <li>  <Link to="/saved" >Saved</Link></li>*/}
                     <li ><Link to="/" onClick={this.logout}>Logout</Link></li>
 

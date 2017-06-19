@@ -3476,7 +3476,7 @@ var Header = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      //const user = JSON.parse(localStorage.getItem('userProfile'));
+      var user = JSON.parse(localStorage.getItem('userProfile'));
       return _react2.default.createElement(
         'nav',
         null,
@@ -3506,6 +3506,12 @@ var Header = function (_React$Component) {
                   { to: '/sources' },
                   'Latest News'
                 )
+              ),
+              _react2.default.createElement(
+                'li',
+                null,
+                ' ',
+                user.name
               ),
               _react2.default.createElement(
                 'li',
