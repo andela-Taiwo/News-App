@@ -2,6 +2,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const args = require('minimist')(process.argv.slice(2));
+const Dotenv = require('dotenv-webpack');
 
 // List of allowed environments
 const allowedEnvs = ['dev', 'dist', 'test'];
@@ -53,5 +54,11 @@ module.exports = {
       },
     ]
   },
+    plugins: [
+    new Dotenv({
+      path: './.env', // Path to .env file (this is the default) 
+      safe: false // load .env.example (defaults to "false" which does not use dotenv-safe) 
+    })
+  ]
 
 }

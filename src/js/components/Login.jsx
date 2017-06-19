@@ -26,7 +26,7 @@ export  default class Login extends React.Component{
   }
 
   render(){
-   
+   console.log(process.env.API_KEY);
     return(
       <div>
         <div className="section section__hero" id="index-banner">
@@ -42,7 +42,7 @@ export  default class Login extends React.Component{
         <div className="row center">
             <a id="cta__main" href="#!" className="btn btn-large"><GoogleLogin
                   className="btn btn-large"
-                  clientId="226325792863-va7su4fhusp1v9lgnbetlgpjc6ggb8fj.apps.googleusercontent.com"
+                  clientId= {process.env.CLIENT_ID}
                   buttonText="Login"
                   onSuccess={this.responseGoogle}
                   onFailure={this.responseGoogle}

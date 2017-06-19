@@ -19,9 +19,9 @@ export function getSources(){
 
 
 export function getArticles(src_id, sort_query){
-  const API_KEY = '213327409d384371851777e7c7f78dfe';
+  //const API_KEY = '213327409d384371851777e7c7f78dfe';
   const url = 'https://newsapi.org/v1/articles?source='+src_id+ 
-  '&sortBy='+sort_query+'&apiKey='+API_KEY;
+  '&sortBy='+sort_query+'&apiKey='+process.env.API_KEY;
   return NewsAPI.getArticles(url)
     .then((articles)=> {
       Dispatcher.dispatch({

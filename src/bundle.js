@@ -4293,8 +4293,8 @@ function getSources() {
 }
 
 function getArticles(src_id, sort_query) {
-  var API_KEY = '213327409d384371851777e7c7f78dfe';
-  var url = 'https://newsapi.org/v1/articles?source=' + src_id + '&sortBy=' + sort_query + '&apiKey=' + API_KEY;
+  //const API_KEY = '213327409d384371851777e7c7f78dfe';
+  var url = 'https://newsapi.org/v1/articles?source=' + src_id + '&sortBy=' + sort_query + '&apiKey=' + "213327409d384371851777e7c7f78dfe";
   return _NewsAPI2.default.getArticles(url).then(function (articles) {
     _Dispatcher2.default.dispatch({
       actionType: "GET_ARTICLES",
@@ -14488,7 +14488,7 @@ var Login = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-
+      console.log("213327409d384371851777e7c7f78dfe");
       return _react2.default.createElement(
         'div',
         null,
@@ -14531,7 +14531,7 @@ var Login = function (_React$Component) {
                   _reactGoogleLogin2.default,
                   {
                     className: 'btn btn-large',
-                    clientId: '226325792863-va7su4fhusp1v9lgnbetlgpjc6ggb8fj.apps.googleusercontent.com',
+                    clientId: "658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com",
                     buttonText: 'Login',
                     onSuccess: this.responseGoogle,
                     onFailure: this.responseGoogle
