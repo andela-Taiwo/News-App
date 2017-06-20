@@ -55,29 +55,33 @@ export default class Articles extends React.Component {
         <br /><h5  className="center">{sort_query}{' ARTICLES FROM '}{sourceName}</h5>
         <br /> <br />
 
-        <div className="">
-          <div className="row"> 
+        <div className="article-row">
+          <div className=" row"> 
             {this.state.articles.map(item => (
               <div className=" mainBg col m3" key={item.title}>
                 <div className="card medium grey lighten-5">
                   <div className="card-image">
-                    <img
+                   <a href={item.url} target={'#'}> <img
                     src={item.urlToImage} alt={item.title}
-                       />
+                       /> </a>
                   </div>
-                  <div className="card-cgitontent">
+                  <div className="card-content">
                     <span className="card-title">{item.title}</span>
-                    <p>{item.description}</p>
+                    <a href={item.url} target={'#'}><p>{item.description}</p></a>
                   </div>
                   <div className="card-action">
                     <a href={item.url} className="btn btn-small" target={'#'}>{'Read...'}</a>
                   </div>
                 </div>
               </div>
+               
             ))}
+           
           </div>
           </div>
+          
         </div>
+        
       </div>
     );
   }

@@ -1,8 +1,8 @@
 import React from 'react';
 import GoogleLogin from 'react-google-login';
 import FontAwesome  from 'react-fontawesome';
-import sourceStore from '../stores/SourceStore';
-import Header from './Header.jsx';
+// import sourceStore from '../stores/SourceStore';
+// import Header from './Header.jsx';
 
 export  default class Login extends React.Component{
   constructor() {
@@ -27,33 +27,29 @@ export  default class Login extends React.Component{
 
   render(){
     return(
-      <div>
-        <div className="section section__hero" id="index-banner">
+
       <div className="container">
-        <div className="row">
-          <div className="col s12 m7">
-            <h1 className="header">Article Hub</h1>
-            <h3 className="header">Get Live Headlines</h3>
-            
-          </div>
-          <div className="col s12 m5 gorilla"> </div>
+      
+        <div className="row"> <div className="head col s6"> <h1 className="">Article Hub</h1></div>
+            <div className="google_log col s6">
+                          <a id="login_button" href="#!" className="btn btn-large"><GoogleLogin
+                        className="btn btn-large"
+                        clientId= {process.env.CLIENT_ID}
+                        buttonText="Login"
+                        onSuccess={this.responseGoogle}
+                        onFailure={this.responseGoogle}
+                      >
+                      <FontAwesome name="google"/>
+                      <span> Login with Google</span>
+                    </GoogleLogin></a>
+
+            </div>
         </div>
-        <div className="row center">
-            <a id="cta__main" href="#!" className="btn btn-large"><GoogleLogin
-                  className="btn btn-large"
-                  clientId= {process.env.CLIENT_ID}
-                  buttonText="Login"
-                  onSuccess={this.responseGoogle}
-                  onFailure={this.responseGoogle}
-                >
-                <FontAwesome name="google"/>
-                <span> Login with Google</span>
-              </GoogleLogin></a>
-        </div>
-      </div>
+        <div className="col s6"><h3 className="">Get Live Headlines</h3></div>
+
     </div>
 
-</div>
+
       
   );
   }
