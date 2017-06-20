@@ -8,7 +8,7 @@ import Dispatcher from '../../src/js/dispatch/Dispatcher';
 import { shallow,mount } from 'enzyme';
 import sinon from 'sinon';
 import sources from '../mockData/sourceData.json'
-import localStorageMock from '../__mocks__/localStorageMock';
+import localStorageMock from './../__mocks__/LocalStorageMock';
 
 
 window.localStorage = localStorageMock;

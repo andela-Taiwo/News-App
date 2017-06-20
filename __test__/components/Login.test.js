@@ -24,7 +24,7 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 import renderer from 'react-test-renderer';
 import Login from '../../src/js/components/Login.jsx';
-import localStorageMock from '../__mocks__/localStorageMock';
+import localStorageMock from './../__mocks__/LocalStorageMock';
 import { shallow, mount} from 'enzyme';
 
 // var localStorageMock = (function() {

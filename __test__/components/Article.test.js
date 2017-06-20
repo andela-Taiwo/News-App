@@ -62,7 +62,7 @@ import ArticleAction from '../../src/js/actions/ArticleAction';
 import ArticleStore from '../../src/js/stores/ArticleStore';
 import { shallow,mount } from 'enzyme';
 import articles from '../mockData/articleData.json'
-import localStorageMock from '../__mocks__/localStorageMock';
+import localStorageMock from './../__mocks__/LocalStorageMock';
 
 
 window.localStorage = localStorageMock;
