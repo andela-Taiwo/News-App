@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 import renderer from 'react-test-renderer';
-import localStorageMock from '../__mocks__/localStorageMock';
+import localStorageMock from './../__mocks__/LocalStorageMock';
 import Header from '../../src/js/components/Header.jsx';
 import { shallow, mount } from 'enzyme';
 

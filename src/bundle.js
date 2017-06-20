@@ -14231,10 +14231,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 //import { ListGroup } from 'react-bootstrap';
 
 
-function getId(path_name) {
-  return path_name.split('/')[2];
-}
-
+// function getId(path_name){
+//   return  path_name.split('/')[2];
+// }
 var Articles = function (_React$Component) {
   _inherits(Articles, _React$Component);
 
@@ -14276,8 +14275,8 @@ var Articles = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var sort_query = this.state.sort_query.toUpperCase();
-      var sourceName = this.state.src_id.toUpperCase();
+      var sort_query = this.state.sort_query;
+      var sourceName = this.state.src_id;
 
       return _react2.default.createElement(
         'div',
