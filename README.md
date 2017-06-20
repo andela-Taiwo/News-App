@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/andela-Taiwo/Test-News-App.svg?branch=master)](https://travis-ci.org/andela-Taiwo/Test-News-App)ß
 # Test-News-App
 This is an app that provide news headlines for user 
 
