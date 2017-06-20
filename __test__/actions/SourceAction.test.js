@@ -1,6 +1,6 @@
 // import React from 'react'
 // import Sources from '../../src/js/components/sources';
-import * as ArticleAction from '../../src/js/actions/ArticleAction';
+import * as ArticleAction from '../../src/js/actions/ArticleAction.js';
 import axios from 'axios';
 import expect from 'expect';
 // import SourceStore from '../../src/js/stores/SourceStore';

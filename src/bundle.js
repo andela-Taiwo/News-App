@@ -13227,7 +13227,7 @@ var Layout = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Layout.__proto__ || Object.getPrototypeOf(Layout)).call(this));
 
     _this.state = {};
-    console.log(localStorage.getItem('userProfile'));
+    // console.log(localStorage.getItem('userProfile'));
     return _this;
   }
 
@@ -14241,11 +14241,11 @@ var Articles = function (_React$Component) {
   function Articles(props) {
     _classCallCheck(this, Articles);
 
-    //console.log(this.props.match.url);
     var _this = _possibleConstructorReturn(this, (Articles.__proto__ || Object.getPrototypeOf(Articles)).call(this, props));
 
+    console.log(_this.props.match.params.article);
     _this.state = {
-      src_id: getId(_this.props.match.url),
+      src_id: props.match.params.article,
       sort_query: props.match.params.sortBy,
       articles: []
     };
@@ -14494,7 +14494,6 @@ var Login = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      console.log("213327409d384371851777e7c7f78dfe");
       return _react2.default.createElement(
         'div',
         null,
@@ -14609,6 +14608,7 @@ var LoginMessage = function (_React$Component) {
     value: function render() {
 
       var user = JSON.parse(localStorage.getItem('userProfile'));
+      var name = user.name;
 
       return _react2.default.createElement(
         'div',
@@ -14621,7 +14621,7 @@ var LoginMessage = function (_React$Component) {
             'h2',
             null,
             ' Welcome ',
-            user.name,
+            name,
             ' '
           ),
           _react2.default.createElement(
@@ -14951,7 +14951,7 @@ var Sources = function (_Component) {
     }
   }, {
     key: 'onSearch',
-    value: function onSearch() {
+    value: function onSearch(event) {
       this.setState({ searchInput: event.target.value });
     }
   }, {

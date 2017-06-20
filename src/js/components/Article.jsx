@@ -10,15 +10,15 @@ import articleStore from '../stores//ArticleStore';
 import Header from './Header';
 import PropTypes from 'prop-types';
 
-    function getId(path_name){
-      return  path_name.split('/')[2];
-    }
+    // function getId(path_name){
+    //   return  path_name.split('/')[2];
+    // }
 export default class Articles extends React.Component {
   constructor(props) {
     super(props);
-    //console.log(this.props.match.url);
+    console.log(this.props.match.params.article);
     this.state = {
-      src_id: getId(this.props.match.url),
+      src_id: props.match.params.article,
       sort_query: props.match.params.sortBy,
       articles: [],
     };
@@ -45,8 +45,8 @@ export default class Articles extends React.Component {
   }
 
   render() {
-    const sort_query = (this.state.sort_query).toUpperCase();
-    const sourceName = (this.state.src_id).toUpperCase();
+    const sort_query = (this.state.sort_query);
+    const sourceName = (this.state.src_id);
     
     return (
       <div>   

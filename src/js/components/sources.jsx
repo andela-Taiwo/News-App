@@ -45,7 +45,7 @@ export default class Sources extends Component {
         event.preventDefault();
         this.setState({searchInput: event.target.value.substr(0,20)});
     }
-   onSearch(){
+   onSearch(event){
      this.setState({searchInput: event.target.value});
    }
 

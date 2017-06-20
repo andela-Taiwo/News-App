@@ -60,30 +60,40 @@ import renderer from 'react-test-renderer';
 import Articles from '../../src/js/components/Article';
 import ArticleAction from '../../src/js/actions/ArticleAction';
 import ArticleStore from '../../src/js/stores/ArticleStore';
-import Dispatcher from '../../src/js/dispatch/Dispatcher';
 import { shallow,mount } from 'enzyme';
-import sinon from 'sinon';
+import articles from '../mockData/articleData.json'
+import localStorageMock from '../__mocks__/localStorageMock';
 
-function getId(path_name){
-      return  path_name.split('/')[2];
-    }
+
+window.localStorage = localStorageMock;
+    
 const props  = {
-      sourceId: getId("sources/article/abc-news/abc"),
+      sourceId: "bbc-news",
       sortBy: "top",
-      articles: [],
+      articles: articles,
     };
   
 describe('Article', () => {
+    // beforeEach( ()  => {
+    //    getId("sources/article/abc-news/abc");
+    // });
+    beforeEach( ()=> {
+    window.localStorage.setItem('userProfile',JSON.stringify({
+      name: "Taiwo Memunat",
+      email: "sokunbitaiwo82@gmail.com"
+    }));
+
+  });
   const wrapper = shallow(<Articles />);
   it('Articles should render without error', () => {
-     mount(<Article {...props}/>)
+     shallow(<Articles {...props}/>)
   });  
 
-  it('Article should render without error', () => {
-     const spy = jest.spyOn(Article.prototype, 'componentDidMount');
-     const wrapper = mount(<Articles {...props} />);
-      expect(wrapper.instance().updateArticles()).toBeDefined();
-  });
+  // it('Article should render without error', () => {
+  //    const spy = jest.spyOn(Articles.prototype, 'componentDidMount');
+  //    const wrapper = (<Articles {...props} />);
+  //     expect(wrapper.instance().updateArticles()).toBe(props.articles);
+  // });
 
 
 

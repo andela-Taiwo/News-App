@@ -20,7 +20,7 @@ class Layout extends React.Component{
   constructor(){
     super();
     this.state ={};
-    console.log(localStorage.getItem('userProfile'));
+    // console.log(localStorage.getItem('userProfile'));
   }
 
 

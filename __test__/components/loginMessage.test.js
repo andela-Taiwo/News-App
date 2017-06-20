@@ -11,15 +11,21 @@ const props = {
 }
 
 describe('LoginMesage', () => {
+  beforeEach( ()=> {
+    window.localStorage.setItem('userProfile',JSON.stringify({
+      name: "Taiwo Memunat",
+      email: "sokunbitaiwo82@gmail.com"
+    }));
+  });
   //   it('Login', () => {
   //    const wrapper = shallow(<Login />);
   //     it('Login should render without error', () => {
   //    mount(<Login />)
   // });  
      it('Login Message', () => {
-     const wrapper = mount(<LoginMessage />);
+        shallow(<LoginMessage />);
       it('Login should render without error', () => {
-     shallow(<LoginMessage {...window.localStorage} />);
+     shallow(<LoginMessage  />);
   });  
   //   it('Found Link', () => {
   //    const wrapper = shallow(<LoginMessage />);

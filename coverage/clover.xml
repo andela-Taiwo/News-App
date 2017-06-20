@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1497849581795" clover="3.2.0">
-  <project timestamp="1497849581795" name="All files">
-    <metrics statements="114" coveredstatements="84" conditionals="12" coveredconditionals="7" methods="56" coveredmethods="40" elements="182" coveredelements="131" complexity="0" loc="114" ncloc="114" packages="6" files="15" classes="15">
+<coverage generated="1497931916809" clover="3.2.0">
+  <project timestamp="1497931916809" name="All files">
+    <metrics statements="114" coveredstatements="87" conditionals="12" coveredconditionals="7" methods="55" coveredmethods="39" elements="181" coveredelements="133" complexity="0" loc="114" ncloc="114" packages="6" files="15" classes="15">
       <package name="actions">
-        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
         <file name="ArticleAction.js" path="/Users/andeladeveloper/Desktop/Test-News-App/src/js/actions/ArticleAction.js">
-          <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
-          <line num="9" count="5" type="stmt"/>
-          <line num="10" count="5" type="stmt"/>
+          <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
+          <line num="9" count="4" type="stmt"/>
+          <line num="10" count="4" type="stmt"/>
           <line num="12" count="1" type="stmt"/>
-          <line num="22" count="1" type="stmt"/>
           <line num="23" count="1" type="stmt"/>
           <line num="25" count="1" type="stmt"/>
           <line num="27" count="1" type="stmt"/>
@@ -19,20 +18,20 @@
         </file>
       </package>
       <package name="components">
-        <metrics statements="75" coveredstatements="45" conditionals="8" coveredconditionals="4" methods="35" coveredmethods="19"/>
+        <metrics statements="76" coveredstatements="49" conditionals="8" coveredconditionals="4" methods="34" coveredmethods="18"/>
         <file name="Article.jsx" path="/Users/andeladeveloper/Desktop/Test-News-App/src/js/components/Article.jsx">
-          <metrics statements="14" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="2"/>
-          <line num="14" count="1" type="stmt"/>
-          <line num="18" count="1" type="stmt"/>
-          <line num="20" count="1" type="stmt"/>
-          <line num="26" count="0" type="stmt"/>
+          <metrics statements="14" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="2"/>
+          <line num="18" count="2" type="stmt"/>
+          <line num="19" count="2" type="stmt"/>
+          <line num="20" count="2" type="stmt"/>
+          <line num="26" count="2" type="stmt"/>
           <line num="31" count="0" type="stmt"/>
           <line num="32" count="0" type="stmt"/>
           <line num="37" count="0" type="stmt"/>
           <line num="42" count="0" type="stmt"/>
-          <line num="48" count="0" type="stmt"/>
-          <line num="49" count="0" type="stmt"/>
-          <line num="51" count="0" type="stmt"/>
+          <line num="48" count="2" type="stmt"/>
+          <line num="49" count="2" type="stmt"/>
+          <line num="51" count="2" type="stmt"/>
           <line num="61" count="0" type="stmt"/>
           <line num="87" count="2" type="stmt"/>
           <line num="94" count="2" type="stmt"/>
@@ -42,13 +41,14 @@
           <line num="6" count="1" type="stmt"/>
         </file>
         <file name="Header.jsx" path="/Users/andeladeveloper/Desktop/Test-News-App/src/js/components/Header.jsx">
-          <metrics statements="7" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
+          <metrics statements="8" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
           <line num="6" count="3" type="stmt"/>
           <line num="8" count="3" type="stmt"/>
           <line num="11" count="3" type="stmt"/>
           <line num="15" count="0" type="stmt"/>
           <line num="16" count="0" type="stmt"/>
           <line num="20" count="0" type="stmt"/>
+          <line num="25" count="4" type="stmt"/>
           <line num="26" count="4" type="stmt"/>
         </file>
         <file name="Login.jsx" path="/Users/andeladeveloper/Desktop/Test-News-App/src/js/components/Login.jsx">
@@ -63,14 +63,15 @@
           <line num="23" count="0" type="stmt"/>
           <line num="24" count="0" type="stmt"/>
           <line num="25" count="0" type="stmt"/>
-          <line num="30" count="1" type="stmt"/>
+          <line num="29" count="1" type="stmt"/>
         </file>
         <file name="LoginMessage.jsx" path="/Users/andeladeveloper/Desktop/Test-News-App/src/js/components/LoginMessage.jsx">
-          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="13" count="1" type="stmt"/>
-          <line num="15" count="1" type="stmt"/>
-          <line num="48" count="2" type="stmt"/>
-          <line num="49" count="2" type="stmt"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="41" count="2" type="stmt"/>
+          <line num="42" count="2" type="stmt"/>
         </file>
         <file name="NotFound.jsx" path="/Users/andeladeveloper/Desktop/Test-News-App/src/js/components/NotFound.jsx">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -80,7 +81,7 @@
           <line num="27" count="2" type="stmt"/>
           <line num="28" count="2" type="stmt"/>
         </file>
-        <file name="Search.js" path="/Users/andeladeveloper/Desktop/Test-News-App/src/js/components/Search.js">
+        <file name="Search.jsx" path="/Users/andeladeveloper/Desktop/Test-News-App/src/js/components/Search.jsx">
           <metrics statements="9" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
           <line num="6" count="1" type="stmt"/>
           <line num="7" count="1" type="stmt"/>
@@ -93,30 +94,29 @@
           <line num="25" count="1" type="stmt"/>
         </file>
         <file name="layout.jsx" path="/Users/andeladeveloper/Desktop/Test-News-App/src/js/components/layout.jsx">
-          <metrics statements="5" coveredstatements="5" conditionals="8" coveredconditionals="4" methods="2" coveredmethods="2"/>
+          <metrics statements="4" coveredstatements="4" conditionals="8" coveredconditionals="4" methods="2" coveredmethods="2"/>
           <line num="18" count="1" type="stmt"/>
           <line num="21" count="3" type="stmt"/>
           <line num="22" count="3" type="stmt"/>
-          <line num="23" count="3" type="stmt"/>
           <line num="30" count="3" type="stmt"/>
         </file>
         <file name="sources.jsx" path="/Users/andeladeveloper/Desktop/Test-News-App/src/js/components/sources.jsx">
-          <metrics statements="19" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="11" coveredmethods="5"/>
-          <line num="11" count="4" type="stmt"/>
-          <line num="14" count="4" type="stmt"/>
-          <line num="20" count="4" type="stmt"/>
-          <line num="24" count="4" type="stmt"/>
-          <line num="25" count="4" type="stmt"/>
+          <metrics statements="19" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="11" coveredmethods="4"/>
+          <line num="11" count="3" type="stmt"/>
+          <line num="14" count="3" type="stmt"/>
+          <line num="20" count="3" type="stmt"/>
+          <line num="24" count="3" type="stmt"/>
+          <line num="25" count="3" type="stmt"/>
           <line num="26" count="0" type="stmt"/>
           <line num="35" count="0" type="stmt"/>
           <line num="39" count="1" type="stmt"/>
-          <line num="45" count="1" type="stmt"/>
+          <line num="45" count="0" type="stmt"/>
           <line num="46" count="0" type="stmt"/>
           <line num="49" count="0" type="stmt"/>
-          <line num="53" count="5" type="stmt"/>
-          <line num="54" count="5" type="stmt"/>
+          <line num="53" count="4" type="stmt"/>
+          <line num="54" count="4" type="stmt"/>
           <line num="56" count="0" type="stmt"/>
-          <line num="61" count="5" type="stmt"/>
+          <line num="61" count="4" type="stmt"/>
           <line num="79" count="0" type="stmt"/>
           <line num="84" count="0" type="stmt"/>
           <line num="105" count="2" type="stmt"/>
@@ -155,7 +155,7 @@
           <line num="8" count="6" type="stmt"/>
           <line num="15" count="6" type="stmt"/>
           <line num="16" count="6" type="stmt"/>
-          <line num="22" count="9" type="stmt"/>
+          <line num="22" count="8" type="stmt"/>
           <line num="26" count="1" type="stmt"/>
           <line num="51" count="4" type="cond" truecount="2" falsecount="0"/>
           <line num="52" count="1" type="stmt"/>
@@ -168,8 +168,8 @@
         <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7"/>
         <file name="NewsAPI.js" path="/Users/andeladeveloper/Desktop/Test-News-App/src/js/utils/NewsAPI.js">
           <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7"/>
-          <line num="38" count="5" type="stmt"/>
-          <line num="39" count="5" type="stmt"/>
+          <line num="38" count="4" type="stmt"/>
+          <line num="39" count="4" type="stmt"/>
           <line num="41" count="1" type="stmt"/>
           <line num="50" count="1" type="stmt"/>
           <line num="51" count="1" type="stmt"/>

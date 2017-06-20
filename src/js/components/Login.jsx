@@ -17,7 +17,7 @@ export  default class Login extends React.Component{
   responseGoogle(response) {
     const login_profile = response.getBasicProfile();
     const user_profile = {};
-    user_profile.name = login_profile.getName();
+     user_profile.name = login_profile.getName();
     user_profile.email = login_profile.getEmail();
     user_profile.image = login_profile.getImageUrl();
     user_profile.idToken = response.googleId;
@@ -26,7 +26,6 @@ export  default class Login extends React.Component{
   }
 
   render(){
-   console.log(process.env.API_KEY);
     return(
       <div>
         <div className="section section__hero" id="index-banner">

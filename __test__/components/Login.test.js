@@ -52,7 +52,7 @@ const props = {
 }
 describe('Login', () => {
   beforeEach( ()=> {
-    window.localStorage.setItem('user_profile',JSON.stringify({
+    window.localStorage.setItem('userProfile',JSON.stringify({
       name: "Taiwo Memunat",
       email: "sokunbitaiwo82@gmail.com"
     }));

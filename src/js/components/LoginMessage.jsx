@@ -11,15 +11,13 @@ export default class LoginMessage extends React.Component {
   render(){
     
     const user = JSON.parse(localStorage.getItem('userProfile'));
+    const name = user.name;
     
-    return(
-      
-        
-        <div >
-             
+    return(  
+        <div >   
           <Header />
           <div className="message">
-            <h2> Welcome {user.name} </h2>
+            <h2> Welcome {name} </h2>
             <h5> You are currently logged in </h5>
            
             <div className="carousel">
@@ -30,16 +28,11 @@ export default class LoginMessage extends React.Component {
               <a className="carousel-item" href="#five!"><img src="http://lorempixel.com/250/250/nature/5" /></a>
                  <p> <Link to="/sources" >View News HeadLines </Link> </p>
             </div>
-          
 
           </div>
 
-
-          
         </div>
 
-        
-      
     );
   } 
 
