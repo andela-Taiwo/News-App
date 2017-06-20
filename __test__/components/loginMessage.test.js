@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 import renderer from 'react-test-renderer';
 import LoginMessage from '../../src/js/components/LoginMessage.jsx';
-import localStorageMock from '../__mocks__/localStorageMock';
+import localStorageMock from './../__mocks__/LocalStorageMock';
 import { shallow, mount, expect } from 'enzyme';
 
 window.localStorage = localStorageMock;
