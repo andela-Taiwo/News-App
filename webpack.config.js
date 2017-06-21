@@ -39,7 +39,7 @@ module.exports = {
   },
   plugins: [
     new Dotenv({
-      path: './.env', // Path to .env file (this is the default) 
+      path: './.env', // Path to .env file (this is the default)
       safe: false
     }),
     new webpack.DefinePlugin({
