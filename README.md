@@ -1,4 +1,7 @@
-[![Build Status](https://travis-ci.org/andela-Taiwo/Test-News-App.svg?branch=test)](https://travis-ci.org/andela-Taiwo/Test-News-App)ß
+[![Build Status](https://travis-ci.org/andela-Taiwo/Test-News-App.svg?branch=test)](https://travis-ci.org/andela-Taiwo/Test-News-App)
+
+[![Coverage Status](https://coveralls.io/repos/github/andela-Taiwo/Test-News-App/badge.svg?branch=test)](https://coveralls.io/github/andela-Taiwo/Test-News-App?branch=master)
+
 # Test-News-App
 This is an app that provide news headlines for user 
 

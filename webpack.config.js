@@ -1,64 +1,55 @@
-'use strict';
 const webpack = require('webpack');
 const path = require('path');
-const args = require('minimist')(process.argv.slice(2));
 const Dotenv = require('dotenv-webpack');
 
-// List of allowed environments
-const allowedEnvs = ['dev', 'dist', 'test'];
-
-// Set the correct environment
-let env;
-if (args._.length > 0 && args._.indexOf('start') !== -1) {
-  env = 'test';
-} else if (args.env) {
-  env = args.env;
-} else {
-  env = 'dev';
-}
-process.env.REACT_WEBPACK_ENV = env;
 
 module.exports = {
   entry: './src/js/app.js',
-    resolve: {
-
+  resolve: {
     // allows you to require without the .js at end of filenames
-    // import Component from 'component' vs. import Component from 'component.js'
-    extensions: [ '.js', '.json', '.jsx']
+    // import Component from 'component' vs.import Component from 'component.js'
+    extensions: ['.js', '.json', '.jsx']
   },
   output: {
     path: __dirname+ '/src',
     filename: 'bundle.js',
     publicPath: '/public/'
   },
-  
-	devServer: {
-		inline:true,
+  devServer: {
+    inline: true,
     port: 3000
-},
-  module:{
+  },
+  module: {
     loaders: [
       {
         test: /\.(png|woff|woff2|eot|ttf|svg|jpg)$/,
         loader: 'url-loader?limit=8192'
       },
-      { test: /\.css$/, loader: "style-loader!css-loader" },
+      { test: /\.css$/, loader: 'style-loader!css-loader' },
+      { test: /\.sass$/, loader: 'style-loader!css-loader!sass-loader',
+      },
       {
-				test:/\.sass$/,
-				loader:'style-loader!css-loader!sass-loader',
-			},
-      {
-        test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/,
-         query:{presets: ['es2015','react'],
+        test: /\.jsx?$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        query: { presets: ['es2015', 'react'],
        }
       },
     ]
   },
-    plugins: [
+  plugins: [
     new Dotenv({
       path: './.env', // Path to .env file (this is the default) 
-      safe: false // load .env.example (defaults to "false" which does not use dotenv-safe) 
-    })
+      safe: false
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+        API_KEY: JSON.stringify(process.env.API_KEY),
+        CLIENT_ID: JSON.stringify(process.env.CLIENT_ID)
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin()
   ]
 
-}
+};

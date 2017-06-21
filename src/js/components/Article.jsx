@@ -1,13 +1,11 @@
 // src/components/Article.js
 
 import React, { Component } from 'react';
-//import { ListGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import * as ArticleAction from '../actions/ArticleAction';
-import sourceStore from '../stores/SourceStore';
 import articleStore from '../stores//ArticleStore';
 
-import Header from './Header';
+import Header from './Header.jsx';
 import PropTypes from 'prop-types';
 
     // function getId(path_name){
@@ -19,7 +17,7 @@ export default class Articles extends React.Component {
     console.log(this.props.match.params.article);
     this.state = {
       src_id: props.match.params.article,
-      sort_query: props.match.params.sortBy,
+      sortQuery: props.match.params.sortBy,
       articles: [],
     };
 
@@ -27,8 +25,7 @@ export default class Articles extends React.Component {
   }
 
   componentDidMount() {
-    
-    ArticleAction.getArticles(this.state.src_id, this.state.sort_query);
+   ArticleAction.getArticles(this.state.src_id, this.state.sortQuery);
     articleStore.on('change', this.updateArticles);
   }
 
@@ -45,14 +42,13 @@ export default class Articles extends React.Component {
   }
 
   render() {
-    const sort_query = (this.state.sort_query);
-    const sourceName = (this.state.src_id);
-    
+    const sortQuery = (this.state.sortQuery);
+    const sourceName = (this.state.src_id);  
     return (
       <div>   
         <Header />
         <div >
-        <br /><h5  className="center">{sort_query}{' ARTICLES FROM '}{sourceName}</h5>
+        <br /><h5 className ="center">{sortQuery}{' ARTICLES FROM '}{sourceName}</h5>
         <br /> <br />
 
         <div className="article-row">
@@ -90,7 +86,7 @@ export default class Articles extends React.Component {
 
 Articles.PropTypes = {
 
-      sort_query: PropTypes.string,
+      sortQuery: PropTypes.string,
       articles: PropTypes.Object,
 
 };
@@ -98,7 +94,7 @@ Articles.PropTypes = {
 Articles.defaultProps = {
   match: {
     params: {
-      sort_query: 'top',
+      sortQuery: 'top',
       src_id: 'cnn',
     },
   },
