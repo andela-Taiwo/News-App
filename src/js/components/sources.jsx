@@ -1,26 +1,29 @@
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import * as ArticleAction from '../actions/ArticleAction';
 import sourceStore from '../stores/SourceStore';
 import Header from './Header.jsx';
-import PropTypes from 'prop-types';
+
 
 export default class Sources extends Component {
 
   constructor() {
     super();
-    /*For our initial state, we just want
-     * an empty array of News Sources
-     */
+
     this.state = {
       sources: sourceStore.getSources(),
       searchInput: ''
-    }
-    // We need to bind this to onChange so we can have
-    // the proper this reference inside the method
+    };
+    /**
+     * We need to bind this to onChange so we can have
+     * the proper this reference inside the method
+     */
     this.onChange = this.onChange.bind(this);
   }
-
+/**
+ * @memberof Sources
+ */
   componentWillMount() {
     ArticleAction.getSources();
     sourceStore.on('change', () => {
@@ -29,40 +32,48 @@ export default class Sources extends Component {
       });
     });
   }
-
+/**
+ * @memberof Sources
+ */
   componentWillUnmount() {
    //
     sourceStore.removeListener('change', this.onChange);
   }
-  
-  /**
-   * Set the source state to content of the SourceStore when the store emit 'change' event
-   */
+/**
+ * Set the source state to content of the SourceStore when the store emit
+ * 'change' event
+ * @memberof Sources
+ */
   onChange() {
     this.setState({
       sources: sourceStore.getSources()
     });
   }
-  /**
+  /*
+  *
    * set the sources based on user search input
    */
   updateSearch(event) {
-        event.preventDefault();
-        this.setState({searchInput: event.target.value.substr(0,20)});
-    }
-   onSearch(event){
-     this.setState({searchInput: event.target.value});
-   }
+    event.preventDefault();
+    this.setState({ searchInput: event.target.value.substr(0,20) });
+  }
+  onSearch(event) {
+    this.setState({ searchInput: event.target.value });
+  }
 
+/*
+*
+ * @returns {sources component}
+ * @memberof Sources
+ */
   render() {
     let { sources } = this.state;
     let filteredContent = sources.filter(
       (source) => {
-        return source.id.indexOf(this.state.searchInput.toLocaleLowerCase()) !== -1 ;
-
+        return source.id.indexOf(this.state.searchInput
+        .toLocaleLowerCase()) !== -1;
       }
     );
- 
     return (
       <div>
       <Header />
@@ -71,33 +82,33 @@ export default class Sources extends Component {
           <h1> News Sources Available </h1>
           <form>
             <input
-              className=''
-              type='text'
+              className=""
+              type="text"
               value={this.state.searchInput.toLocaleLowerCase()}
-              onChange={this.updateSearch.bind(this)}
-              placeholder='Search for a source'
-            >
+              onChange= {this.updateSearch.bind(this)}
+              placeholder="Search for a source" >
             </input>
-            {/*<button onClick={this.handleSearch}>Search</button>*/}
-        </form>
+            </form>
           {filteredContent.map((source) => {
             return (
-              <div key={source.id} className='col s12 m7 card'>
+              <div key={source.id} className="col s12 m7 card">
                 {source.name}
                 <div className='row sort'>
                   {source.sortBysAvailable.map((sortBy) => {
-                  return (
+                    return (
                     <div key={sortBy}>
 
-                      <a className='col s3 center' href={`#/articles/${source.id}/${sortBy}`}>{sortBy}</a>
+                      <a className="col s3 center"
+                        href={`#/articles/${source.id}/${sortBy}`}>{sortBy}
+                      </a>
                     </div>
-                  )
-                })
+                    );
+                  })
                 }
               </div>
             </div>
 
-            )
+            );
           }
           )}
         </div>
@@ -108,8 +119,8 @@ export default class Sources extends Component {
 }
 
 Sources.PropTypes = {
-      searchInput: PropTypes.string,
-      sources: PropTypes.Object,
+  searchInput: PropTypes.string,
+  sources: PropTypes.Object,
 
 };
 
@@ -118,24 +129,24 @@ Sources.defaultProps = {
     params: {
       searchInput: 'bbc-news',
       sources: [
-                  {
-                    'id': 'abc-news-au',
-                    'name': 'ABC News (AU)',
-                    'description': 'Australia\'s most trusted source of local, national and world news. Comprehensive, independent, in-depth analysis, the latest business, sport, weather and more.',
-                    'url': 'http://www.abc.net.au/news',
-                    'category': 'general',
-                    'language': 'en',
-                    'country': 'au',
-                    'urlsToLogos': {
-                      'small': '',
-                      'medium': '',
-                      'large': ''
-                    },
-                    'sortBysAvailable': [
-                      'top'
-                    ],
-                  }
-              ],
-            } ,
-          }
-}
+        {
+          id: 'abc-news-au',
+          name: 'ABC News (AU)',
+          description: 'Australia\'s most trusted source of local, national and world news. Comprehensive, independent, in-depth analysis, the latest business, sport, weather and more.',
+          url: 'http://www.abc.net.au/news',
+          category: 'general',
+          language: 'en',
+          country: 'au',
+          urlsToLogos: {
+            small: '',
+            medium: '',
+            large: ''
+          },
+          sortBysAvailable: [
+            'top'
+          ],
+        }
+      ],
+    },
+  }
+};

@@ -1,20 +1,14 @@
 // src/components/Article.js
 
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import PropTypes from 'prop-types';
 import * as ArticleAction from '../actions/ArticleAction';
 import articleStore from '../stores//ArticleStore';
-
 import Header from './Header.jsx';
-import PropTypes from 'prop-types';
 
-    // function getId(path_name){
-    //   return  path_name.split('/')[2];
-    // }
 export default class Articles extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.match.params.article);
     this.state = {
       src_id: props.match.params.article,
       sortQuery: props.match.params.sortBy,
@@ -23,36 +17,49 @@ export default class Articles extends React.Component {
 
     this.updateArticles = this.updateArticles.bind(this);
   }
-
+/**
+ * @return {array}
+ * @memberof Articles
+ */
   componentDidMount() {
-   ArticleAction.getArticles(this.state.src_id, this.state.sortQuery);
+    ArticleAction.getArticles(this.state.src_id, this.state.sortQuery);
     articleStore.on('change', this.updateArticles);
   }
 
-
+/**
+ * @
+ * @memberof Articles
+ */
   componentWillUnmount() {
     articleStore.removeListener('change', this.updateArticles);
   }
 
-
+/**
+ * @return {array}
+ * @memberof Articles
+ */
   updateArticles() {
     this.setState({
       articles: articleStore.getArticles(),
     });
   }
-
+  /**
+   * @returns {article component}
+   * @memberof Articles
+   */
   render() {
-    const sortQuery = (this.state.sortQuery);
-    const sourceName = (this.state.src_id);  
+    const sortQuery = (this.state.sortQuery).toUpperCase();
+    const sourceName = (this.state.src_id).toUpperCase();
+    
     return (
-      <div>   
+      <div>
         <Header />
         <div >
-        <br /><h5 className ="center">{sortQuery}{' ARTICLES FROM '}{sourceName}</h5>
+        <br/><h5 className ="center">{sortQuery}{' ARTICLES FROM '}{sourceName}</h5>
         <br /> <br />
 
         <div className="article-row">
-          <div className=" row"> 
+          <div className=" row">
             {this.state.articles.map(item => (
               <div className=" mainBg col m3" key={item.title}>
                 <div className="card medium grey lighten-5">
@@ -70,25 +77,23 @@ export default class Articles extends React.Component {
                   </div>
                 </div>
               </div>
-               
-            ))}
-           
-          </div>
-          </div>
-          
-        </div>
-        
-      </div>
+              ))}
+              </div>
+               </div>
+                </div>
+                 </div>
     );
   }
 }
 
 
 Articles.PropTypes = {
-
+  match: {
+    params: {
       sortQuery: PropTypes.string,
       articles: PropTypes.Object,
-
+    }
+  }
 };
 
 Articles.defaultProps = {

@@ -1,16 +1,19 @@
 // src/components/NotFound.jsx
 
 import React from 'react';
-import {Link}  from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ContextTypes, PropTypes } from 'prop-types';
 
 export default class NotFound extends React.Component {
-    constructor(props){
-      super(props);
-      this.state = {}
-    }
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-
+/*
+ * @returns{<NotFoun />}
+ * @memberof NotFound
+ */
   render() {
     return (
       <div className="not-found">
@@ -24,6 +27,6 @@ export default class NotFound extends React.Component {
   }
 }
 
-contextTypes: {
-    router: PropTypes.object
+ContextTypes: {
+  router: PropTypes.object
   }
