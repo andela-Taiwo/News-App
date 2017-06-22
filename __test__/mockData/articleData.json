@@ -1,0 +1,87 @@
+{
+  "status": "ok",
+  "source": "the-next-web",
+  "sortBy": "latest",
+  "articles": [
+    {
+      "author": "Lauren Gilmore",
+      "title": "The internet of insecure things",
+      "description": "In 2016, attacks against vulnerable IoT devices featured prominently in the daily news headlines. Hundreds of thousands of IoT devices were used to build botnets and wage some of the ...",
+      "url": "https://thenextweb.com/worldofbanking/2017/06/16/internet-insecure-things/",
+      "urlToImage": "https://cdn1.tnwcdn.com/wp-content/blogs.dir/1/files/2017/06/TNW_Mikko.jpg",
+      "publishedAt": "2017-06-16T16:32:54Z"
+    },
+    {
+      "author": "Melissa Thompson",
+      "title": "The 3 words that every business creator should constantly ask themselves",
+      "description": "For some time now, businesses have operated around traditional, time-proven frameworks. At some point a plan is built and then it is either scrapped or revised depending on the needs ...",
+      "url": "https://thenextweb.com/contributors/2017/06/16/3-words-every-business-creator-constantly-ask/",
+      "urlToImage": "https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2017/06/font-705667_1920.jpg",
+      "publishedAt": "2017-06-16T16:11:05Z"
+    },
+    {
+      "author": "Mix",
+      "title": "YouTube is down for many users – get back to work [Update: It’s mostly back]",
+      "description": "Nope, it is not just you: YouTube is down for numerous users across the web.\r\n\r\nIt remains unclear precisely what is causing the outage, but reports from affected users suggest the ...",
+      "url": "https://thenextweb.com/google/2017/06/16/youtube-down-get-back-work/",
+      "urlToImage": "https://cdn3.tnwcdn.com/wp-content/blogs.dir/1/files/2017/06/W7Sxdz9hkJSeLgASLwKBDOk-gpI1bskawqU99iKt-24.png",
+      "publishedAt": "2017-06-16T15:53:19Z"
+    },
+    {
+      "author": "Matthew Hughes",
+      "title": "A guinea pig rescue center had a neural network brilliantly name their fluffballs of joy",
+      "description": "Neural networks are good at a lot of things. The technology is used in a variety of contexts, from finance to self-driving cars. I'm going to go out on a limb here, but I think this ...",
+      "url": "https://thenextweb.com/artificial-intelligence/2017/06/16/a-guinea-pig-rescue-center-had-a-neural-network-name-their-little-fluffballs-of-joy/",
+      "urlToImage": "https://cdn1.tnwcdn.com/wp-content/blogs.dir/1/files/2017/06/giphy-2-1.gif",
+      "publishedAt": "2017-06-16T15:32:40Z"
+    },
+    {
+      "author": "Mix",
+      "title": "Amazon is buying Whole Foods in a massive $13.7 billion deal",
+      "description": "Following speculation last month, Amazon has reportedly acquired Whole Foods in a massive deal valued at $13.7 billion.\r\n\r\nFor more context, that equals about $42 per share.\r\n\r\nWhole ...",
+      "url": "https://thenextweb.com/insider/2017/06/16/amazon-acquires-whole-foods/",
+      "urlToImage": "https://cdn2.tnwcdn.com/wp-content/blogs.dir/1/files/2017/06/Screen-Shot-2017-06-16-at-15.09.48.png",
+      "publishedAt": "2017-06-16T15:12:24Z"
+    },
+    {
+      "author": "Mix",
+      "title": "Pokémon Go slated for huge update as gyms will soon be temporarily closing",
+      "description": "Pokemon Go players might be in for a huge surprise as creator Niantic has announced on its official support page that in-game gyms will soon be closing temporarily.\r\n\r\nWhile the company ...",
+      "url": "https://thenextweb.com/augmented-reality/2017/06/16/pokemon-go-gyms-closed-update/",
+      "urlToImage": "https://cdn2.tnwcdn.com/wp-content/blogs.dir/1/files/2017/06/pokemon-go.jpg",
+      "publishedAt": "2017-06-16T14:15:54Z"
+    },
+    {
+      "author": "Mix",
+      "title": "Germany tongue-lashes Google for abusing people’s ‘right to be forgotten’",
+      "description": "A few years back the European Union enacted a law that entitled netizens to the 'right to be forgotten,' obligating Google to act on user requests to remove \"outdated\" and ...",
+      "url": "https://thenextweb.com/google/2017/06/16/google-germany-right-forgotten-abuse/",
+      "urlToImage": "https://cdn2.tnwcdn.com/wp-content/blogs.dir/1/files/2017/06/germanFlag.jpg",
+      "publishedAt": "2017-06-16T12:57:04Z"
+    },
+    {
+      "author": "Matthew Hughes",
+      "title": "Apple’s ex-CEO John Sculley is on a mission: “The US healthcare system is totally fixable.”",
+      "description": "Ten years as Apple's CEO left John Sculley with an insatiable appetite for tackling big problems. Now, the septuagenarian tech icon is the head of RXAdvance, which he describes as \"the ...",
+      "url": "https://thenextweb.com/apple/2017/06/16/apples-ex-ceo-john-sculley-is-on-a-mission-the-american-healthcare-system-is-totally-fixable/",
+      "urlToImage": "https://cdn1.tnwcdn.com/wp-content/blogs.dir/1/files/2017/06/sculley-banner-xs.jpg",
+      "publishedAt": "2017-06-16T12:38:56Z"
+    },
+    {
+      "author": "Abhimanyu Ghoshal",
+      "title": "Inside Facebook’s war against terrorism",
+      "description": "Over the past few years, Facebook has been trying to answer a difficult question: How do you stop terrorists from spreading their hate online?\r\n\r\nThe social network, which now has more ...",
+      "url": "https://thenextweb.com/facebook/2017/06/16/inside-facebooks-war-against-terrorism/",
+      "urlToImage": "https://cdn3.tnwcdn.com/wp-content/blogs.dir/1/files/2017/01/image_uploaded_from_ios.jpg",
+      "publishedAt": "2017-06-16T10:45:15Z"
+    },
+    {
+      "author": "Marty Puranik",
+      "title": "Tim Cook was right to fight the FBI",
+      "description": "In this day and age of fast food journalism, with technology pundits vapidly expunging their opinions on that day’s technology fare, we sometimes miss something that is truly seminal ...",
+      "url": "https://thenextweb.com/apple/2017/06/16/tim-cook-right-fight-fbi/",
+      "urlToImage": "https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2017/06/22522566994_4be49aaea5_b.jpg",
+      "publishedAt": "2017-06-16T10:07:51Z"
+    }
+  ]
+}

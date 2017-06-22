@@ -10,7 +10,34 @@
 
 
     <title>News|Liner</title>
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css">
+       <!-- Jquery CDN -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous">
+    </script>
+      <!-- Compiled and minified CSS -->
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+
+      <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js">
+    </script>
+
+ 
+
+    <!-- Materialize Carousel -->
+    <script type="text/javascript">
+        
+          $(document).ready(function(){
+        $('.carousel').carousel();
+        // $('.carousel.carousel-slider').carousel({fullWidth: true});
+           });
+    </script>
+  
+          
+      <!-- Firebase JS -->
+   <script src="https://cdn.firebase.com/js/client/1.0.17/firebase.js"></script>
+    <!--<link rel="stylesheet" type="text/css" 
+    href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css">-->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -22,7 +49,7 @@
   <body>
 
     
-    <div class="container">
+    <div class="">
 
       <div class="blog-header" id="app">
 
@@ -45,6 +72,6 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 
-  <script src='public/bundle.js' ></script>
+  <script src='bundle.js' ></script>
   </body>
 </html>
