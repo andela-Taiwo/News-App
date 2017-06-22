@@ -16,12 +16,12 @@ export default class LoginMessage extends React.Component {
             <h2> Welcome {name} </h2>
             <h5> You are currently logged in</h5>         
             <div className="carousel">
-              <a className="carousel-item" href="#/sources"><Link to="/sources" ></Link><img src="http://lorempixel.com/250/250/nature/1" /></a>
-              <a className="carousel-item" href="#two!"><img src="http://lorempixel.com/250/250/nature/2" /></a>
-              <a className="carousel-item" href="#three!"><img src="http://lorempixel.com/250/250/nature/3" /></a>
-              <a className="carousel-item" href="#four!"><img src="http://lorempixel.com/250/250/nature/4" /></a>
-              <a className="carousel-item" href="#five!"><img src="http://lorempixel.com/250/250/nature/5" /></a>
-                 <p> <Link to="/sources" >View News HeadLines </Link> </p>
+              <Link to="/sources"><a className="carousel-item" href="#/sources"><img src= "../../img/aj.png" /></a></Link>
+              <Link to="/sources"><a className="carousel-item" href="#/sources"><img src="../../img/bbc.png" /></a></Link>
+              <Link to="/sources"><a className="carousel-item" href="#/sources"><img src="../../img/espn.png" /></a></Link>
+              <Link to="/sources"><a className="carousel-item" href="#/sources"><img src="../../img/abc.png" /></a></Link>
+              <Link to="/sources"><a className="carousel-item" href="#/sources"><img src="../../img/bbcs.png" /></a></Link>
+                 <p> <Link to="/sources">View News HeadLines </Link> </p>
             </div>
 
           </div>
