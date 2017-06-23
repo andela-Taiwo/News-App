@@ -89,23 +89,14 @@
 44
 45
 46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+47</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
@@ -113,7 +104,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
@@ -121,39 +112,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -165,56 +139,43 @@
 import Dispatcher from '../dispatch/Dispatcher';
 &nbsp;
 const CHANGE_EVENT = 'change';
+&nbsp;
+/**
+ * initialize the articles to an  empty array
+ */
 class ArticleStore extends EventEmitter {
   constructor() {
     super();
     this.articles = [];
   }
 &nbsp;
+ /**
+    *  Get the articles for the calling components
+    */
   getArticles() {
     return this.articles;
   }
-  setArticles(){
+   /**
+    * Reset the articles array to null
+    */
+  setArticles() {
     return null;
   }
 &nbsp;
+/**
+ * @param {*} action GET_ARTICLES
+ * listening to the dispather to get action look GET_ARTICLES action types */
 &nbsp;
  handleActions(action) {
     <span class="missing-if-branch" title="else path not taken" >E</span>if (action.actionType === 'GET_ARTICLES') {
       this.articles = action.articles;
+      /**
+       *  We need to call emit('change') so that articles component
+/        knows that a change has been made
+       */
       this.emit(CHANGE_EVENT);
     }
   }
-//  handleActions(action) {
-//     if (action.actionType === 'GET_ARTICLES') {
-//       this.articles = action.articles;
-//       this.emit(CHANGE_EVENT);
-//     }
-//   }
-&nbsp;
-// handleActions(action) {
-//     switch(action.actionType) {
-//       case "GET_ARTICLES":
-//         this.articles = action.articles;
-    
-//         // We need to call emitChange so the event listener
-//         // knows that a change has been made
-//         this.emit(CHANGE_EVENT);
-//         break;
-&nbsp;
-//       // case "GET_ARTCLES":
-//       //   this.articles = action.articles
-//       //   this.emit(CHANGE_EVENT);
-//       //   break;
-        
-//       case "REMOVE_ARTICLES":
-//         this.setArticles();
-//         this.emit(CHANGE_EVENT);
-//         break;
-&nbsp;
-//       default:
-//     }
-//   }
 &nbsp;
 }
 const articleStore = new ArticleStore();
@@ -226,7 +187,7 @@ export default articleStore;</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jun 20 2017 05:29:02 GMT+0100 (WAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jun 23 2017 11:24:10 GMT+0100 (WAT)
 </div>
 </div>
 <script src="../prettify.js"></script>

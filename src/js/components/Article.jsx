@@ -10,8 +10,8 @@ export default class Articles extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      src_id: props.match.params.article,
-      sortQuery: props.match.params.sortBy,
+      src_id: (props.match.params.article),
+      sortQuery: (props.match.params.sortBy),
       articles: [],
     };
 
@@ -48,14 +48,14 @@ export default class Articles extends React.Component {
    * @memberof Articles
    */
   render() {
-    const sortQuery = (this.state.sortQuery).toUpperCase();
-    const sourceName = (this.state.src_id).toUpperCase();
+    const sortQuery = (this.state.sortQuery);
+    const sourceName = (this.state.src_id);
     
     return (
       <div>
         <Header />
         <div >
-        <br/><h5 className ="center">{sortQuery}{' ARTICLES FROM '}{sourceName}</h5>
+        <br/><h5 className="articleTitle">{sortQuery}{' articles from '}{sourceName}</h5>
         <br /> <br />
 
         <div className="article-row">
@@ -91,7 +91,8 @@ Articles.PropTypes = {
   match: {
     params: {
       sortQuery: PropTypes.string,
-      articles: PropTypes.Object,
+      articles: PropTypes.object,
+      src_id: PropTypes.string,
     }
   }
 };

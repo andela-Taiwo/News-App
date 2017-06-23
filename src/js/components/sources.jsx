@@ -77,9 +77,9 @@ export default class Sources extends Component {
     return (
       <div>
       <Header />
-      <div className='container'>
-        <div className='row'>
-          <h1> News Sources Available </h1>
+      <div className="container">
+        <div className="row">
+          <h4 className="sourceTitle"> News Sources Available </h4>
           <form>
             <input
               className=""
@@ -93,7 +93,7 @@ export default class Sources extends Component {
             return (
               <div key={source.id} className="col s12 m7 card">
                 {source.name}
-                <div className='row sort'>
+                <div className="row sort">
                   {source.sortBysAvailable.map((sortBy) => {
                     return (
                     <div key={sortBy}>

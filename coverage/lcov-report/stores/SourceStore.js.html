@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>10/10</span>
+        <span class='fraction'>11/11</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>10/10</span>
+        <span class='fraction'>11/11</span>
       </div>
     </div>
   </div>
@@ -96,35 +96,23 @@
 51
 52
 53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+54</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -134,24 +122,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -167,62 +142,49 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// src/stores/ContactStore.js
 &nbsp;
 import Dispatcher from '../dispatch/Dispatcher';
-import Constants from '../constants/Constants';
 import { EventEmitter } from 'events';
 &nbsp;
+const CHANGE_EVENT = 'change'; 
 &nbsp;
-const CHANGE_EVENT = 'change';  
 class SourceStoreClass extends EventEmitter {
 &nbsp;
-  // emitChange() {
-  //   this.emit(CHANGE_EVENT);
-  // }
+/**
+ *  initialize source array
+ */
   constructor() {
     super();
-    this.sources =[];  
+    this.sources = [];  
   }
 &nbsp;
- 
+ /**
+  * Get the souces from the dispatcher
+  */
 &nbsp;
   getSources() {
     return this.sources;
   }
 &nbsp;
-  setSources(){
-    return this.sources =null;
+/**
+ * Reset the  source object to an empty array
+ */
+  setSources() {
+    this.sources = null;
+    return this.sources;
   }
 &nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-  // handleActions(action) {
-  //   switch(action.actionType) {
-  //     case "GET_SOURCES":
-  //       this.sources = action.sources;
-    
-  //       // We need to call emitChange so the event listener
-  //       // knows that a change has been made
-  //       this.emit(CHANGE_EVENT);
-  //       break;
-   
-  //     case "REMOVE_SOURCES":
-  //       this.emit(CHANGE_EVENT);
-  //       break;
-&nbsp;
-  //     default:
-  //   }
-  // }
+/**
+ * @param {*} action GET_SOURCES
+ * listening to the dispather to get action look GET_SOURCES action types */
 &nbsp;
   handleActions(action) {
     if (action.actionType === 'GET_SOURCES') {
@@ -235,19 +197,18 @@ class SourceStoreClass extends EventEmitter {
 &nbsp;
 const SourceStore = new SourceStoreClass();
 &nbsp;
-// Here we register a callback for the dispatcher
-// and look for our various action types so we can
-// respond appropriately
+/* SouceStore register a callback for the dispatcher
+*/
 Dispatcher.register(SourceStore.handleActions.bind(SourceStore));
 &nbsp;
-&nbsp;
-export default SourceStore;</pre></td></tr>
+export default SourceStore;
+&nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jun 20 2017 05:29:02 GMT+0100 (WAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jun 23 2017 11:24:10 GMT+0100 (WAT)
 </div>
 </div>
 <script src="../prettify.js"></script>
