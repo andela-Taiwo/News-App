@@ -91,7 +91,7 @@ Articles.PropTypes = {
   match: {
     params: {
       sortQuery: PropTypes.string,
-      articles: PropTypes.object,
+      articles: PropTypes.array,
       src_id: PropTypes.string,
     }
   }

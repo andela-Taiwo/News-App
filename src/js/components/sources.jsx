@@ -12,7 +12,7 @@ export default class Sources extends Component {
     super();
 
     this.state = {
-      sources: sourceStore.getSources(),
+      sources: [],
       searchInput: ''
     };
     /**
@@ -24,7 +24,7 @@ export default class Sources extends Component {
 /**
  * @memberof Sources
  */
-  componentWillMount() {
+  componentDidMount() {
     ArticleAction.getSources();
     sourceStore.on('change', () => {
       this.setState({
@@ -120,33 +120,30 @@ export default class Sources extends Component {
 
 Sources.PropTypes = {
   searchInput: PropTypes.string,
-  sources: PropTypes.Object,
+  sources: PropTypes.arrayOf(PropTypes.object),
 
 };
 
 Sources.defaultProps = {
-  match: {
-    params: {
-      searchInput: 'bbc-news',
-      sources: [
-        {
-          id: 'abc-news-au',
-          name: 'ABC News (AU)',
-          description: 'Australia\'s most trusted source of local, national and world news. Comprehensive, independent, in-depth analysis, the latest business, sport, weather and more.',
-          url: 'http://www.abc.net.au/news',
-          category: 'general',
-          language: 'en',
-          country: 'au',
-          urlsToLogos: {
-            small: '',
-            medium: '',
-            large: ''
-          },
-          sortBysAvailable: [
-            'top'
-          ],
-        }
+  searchInput: 'bbc-news',
+  sources: [
+    {
+      id: 'abc-news-au',
+      name: 'ABC News (AU)',
+      description: 'Australia\'s most trusted source of local, national and world news. Comprehensive, independent, in-depth analysis, the latest business, sport, weather and more.',
+      url: 'http://www.abc.net.au/news',
+      category: 'general',
+      language: 'en',
+      country: 'au',
+      urlsToLogos: {
+        small: '',
+        medium: '',
+        large: ''
+      },
+      sortBysAvailable: [
+        'top'
       ],
-    },
-  }
+    }
+  ],
 };
+

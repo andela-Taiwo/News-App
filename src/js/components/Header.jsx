@@ -7,7 +7,7 @@ class Header extends React.Component {
 
     this.state = {
       authenticated: false
-    }
+    };
     this.logout = this.logout.bind(this);
   }
 
@@ -16,27 +16,20 @@ class Header extends React.Component {
     location.reload();
   }
 
-  navigate(){
-    this.props.history.push('/sources');
-
-  }
-
     render() {
         const user = JSON.parse(localStorage.getItem('userProfile'));
         return (
             <nav>
               <HashRouter>
-              <div className="navBar">  
+              <div className="navBar">
                 <div className="navbar-header">
                   <a href="" className="brand-logo" to="/">Articles Hub</a>
                 </div>
                   <ul id="nav-mobile" className="right hide-on-med-and-down">
-                    <li  onClick={this.navigate.bind(this)}><Link to="/sources">Latest News</Link></li>
+                    <li><Link to="/sources" >Latest News</Link></li>
                     <li> {user.name}</li>
                    {/* <li>  <Link to="/saved" >Saved</Link></li>*/}
                     <li ><Link to="/" onClick={this.logout}>Logout</Link></li>
-
-                  
                   </ul>
             </div>
             </HashRouter>
