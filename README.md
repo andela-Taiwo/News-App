@@ -3,7 +3,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/andela-Taiwo/Test-News-App/badge.svg?branch=test)](https://coveralls.io/github/andela-Taiwo/Test-News-App?branch=master)
 
 # Articles-Hub
-Articles-hub is a web application that enables one view news from different media houses(e.g. Business Insider, CNN, Buzzfeed, Ars Technica, and many more). Articools makes sure you are up to date on all things news, with a simple and intuitive user interface.
+Articles-hub is a web application that enables user to view news from different media houses(e.g. BBC, ABC, Business Insider, CNN, Buzzfeed, Ars Technica, and many more). Articles-Hub makes sure you are up to date on all things news, with a simple and intuitive user interface.
 This is an app that provide news headlines for user 
 
 # Features of Articles-Hub
@@ -12,7 +12,8 @@ This is an app that provide news headlines for user
 - Search for a particular source.
 - Links to news on the source's site.
 
-
+# Prerequisites
+- Node JS and npm(Node Package Manager)
 # Getting Started
 - Clone this repository with "git clone https://github.com/andela-Taiwo/Test-News-App.git"
 - run npm install to install the dependencies.
@@ -23,19 +24,13 @@ This is an app that provide news headlines for user
 - on your browser enter [here](http://localhost:3000)
 - Login with your google account
 
-
-
-# Prerequisites
-- Node JS and npm(Node Package Manager)
-
-# Installation Guide
-- Run npm install
 ## Usage
 Click [here](https://articles-hub.herokuapp.com) to access the application
 # Running the app locally
 
 
 # Running Test
+- Navigate into the cloned project directory.
 - run "npm test"
 
 # Technologies
