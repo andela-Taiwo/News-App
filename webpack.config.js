@@ -11,9 +11,8 @@ module.exports = {
     extensions: ['.js', '.json', '.jsx']
   },
   output: {
-    path: path.join(__dirname, '/src'),
+    path: path.join(__dirname, '/public'),
     filename: 'bundle.js',
-    publicPath: '/public/'
   },
   devServer: {
     inline: true,
@@ -33,7 +32,7 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: { presets: ['es2015', 'react'],
-       }
+        }
       },
     ]
   },

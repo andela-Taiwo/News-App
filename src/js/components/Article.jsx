@@ -17,8 +17,7 @@ export default class Articles extends React.Component {
 
     this.updateArticles = this.updateArticles.bind(this);
   }
-/**
- * @return {array}
+/*
  * @memberof Articles
  */
   componentDidMount() {
@@ -43,19 +42,19 @@ export default class Articles extends React.Component {
       articles: articleStore.getArticles(),
     });
   }
-  /**
+  /*
    * @returns {article component}
    * @memberof Articles
    */
   render() {
     const sortQuery = (this.state.sortQuery);
     const sourceName = (this.state.src_id);
-    
     return (
       <div>
         <Header />
         <div >
-        <br/><h5 className="articleTitle">{sortQuery}{' articles from '}{sourceName}</h5>
+        <br/><h5 className="articleTitle">{sortQuery}{' articles from '}
+          {sourceName}</h5>
         <br /> <br />
 
         <div className="article-row">
@@ -70,10 +69,12 @@ export default class Articles extends React.Component {
                   </div>
                   <div className="card-content">
                     <span className="card-title">{item.title}</span>
-                    <a href={item.url} target={'#'}><p>{item.description}</p></a>
+                    <a href={item.url} target={'#'}><p>{item.description}</p>
+                    </a>
                   </div>
                   <div className="card-action">
-                    <a href={item.url} className="btn btn-small" target={'#'}>{'Read...'}</a>
+                    <a href={item.url} className="btn btn-small" target={'#'}>
+                      {'Read...'}</a>
                   </div>
                 </div>
               </div>

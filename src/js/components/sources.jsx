@@ -55,7 +55,7 @@ export default class Sources extends Component {
    */
   updateSearch(event) {
     event.preventDefault();
-    this.setState({ searchInput: event.target.value.substr(0,20) });
+    this.setState({ searchInput: event.target.value.substr(0, 20) });
   }
   onSearch(event) {
     this.setState({ searchInput: event.target.value });
@@ -67,8 +67,8 @@ export default class Sources extends Component {
  * @memberof Sources
  */
   render() {
-    let { sources } = this.state;
-    let filteredContent = sources.filter(
+    const { sources } = this.state;
+    const filteredContent = sources.filter(
       (source) => {
         return source.id.indexOf(this.state.searchInput
         .toLocaleLowerCase()) !== -1;
@@ -85,9 +85,8 @@ export default class Sources extends Component {
               className=""
               type="text"
               value={this.state.searchInput.toLocaleLowerCase()}
-              onChange= {this.updateSearch.bind(this)}
-              placeholder="Search for a source" >
-            </input>
+              onChange= {this.updateSearch}
+              placeholder="Search for a source" />
             </form>
           {filteredContent.map((source) => {
             return (
@@ -130,7 +129,7 @@ Sources.defaultProps = {
     {
       id: 'abc-news-au',
       name: 'ABC News (AU)',
-      description: 'Australia\'s most trusted source of local, national and world news. Comprehensive, independent, in-depth analysis, the latest business, sport, weather and more.',
+      description: 'Australia\'s most trusted source of local, national',
       url: 'http://www.abc.net.au/news',
       category: 'general',
       language: 'en',

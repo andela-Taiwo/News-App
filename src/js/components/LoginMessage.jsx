@@ -1,10 +1,6 @@
-  
 import React from 'react';
-import { HashRouter as Router, Route, Switch, Link} from 'react-router-dom';
-import { ContextTypes, PropTypes } from 'prop-types';
+import { Link } from 'react-router-dom';
 import Header from './Header.jsx';
-
-
 
 export default class LoginMessage extends React.Component {
   /*
@@ -22,16 +18,15 @@ export default class LoginMessage extends React.Component {
             <h5> You are currently logged in</h5>
             <div className="carousel">
               <Link to="/sources"><a className="carousel-item" href="#/sources">
-                <img src= "../../img/aj.png" /></a></Link>
+                <img src="" id="aj"/></a></Link>
               <Link to="/sources"><a className="carousel-item" href="#/sources">
-                <img src="../../img/bbc.png" /></a></Link>
+                <img src="" id="bbc" /></a></Link>
               <Link to="/sources"><a className="carousel-item" href="#/sources">
-                <img src="../../img/espn.png" /></a></Link>
+                <img src="" id="espn" /></a></Link>
               <Link to="/sources"><a className="carousel-item" href="#/sources">
-                <img src="../../img/abc.png" /></a></Link>
+                <img src="" id="abc"/></a></Link>
               <Link to="/sources"><a className="carousel-item" href="#/sources">
-                <img src="../../img/bbcs.png" /></a></Link>
-                 <p> <Link to="/sources">View News HeadLines </Link> </p>
+                <img src="" id="bbcs"/></a></Link>
             </div>
 
           </div>

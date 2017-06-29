@@ -77,7 +77,7 @@ NewsAPI: NewsAPI is an API that returns JSON metadata for published articles on 
 - News sources depend on the  sources from API used.
 
 # License
-This project is authored by Sokunbi Taiwo, and is licensed for use, distribution and modification under the ISC license
+This project is authored by Sokunbi Taiwo, and is licensed for use, distribution and modification under the MIT license
 
 
 
