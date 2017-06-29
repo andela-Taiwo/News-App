@@ -1,44 +1,38 @@
 import React from 'react';
-import { HashRouter as Router ,Link, Route } from 'react-router-dom'
-import renderer from 'react-test-renderer';
-import Layout from '../../src/js/components/layout.jsx';
 import { shallow } from 'enzyme';
-import sources from '../mockData/sourceData.json'
+import Layout from '../../src/js/components/layout.jsx';
 
-
-var localStorageMock = (function() {
-  var store = {};
+const localStorageMock = (() => {
+  let store = {};
   return {
-    getItem: function(key) {
+    getItem: (key) => {
       return store[key];
     },
-    setItem: function(key, value) {
+    setItem: (key, value) => {
       store[key] = value.toString();
     },
-    clear: function() {
+    clear: () => {
       store = {};
     },
-    removeItem: function(key) {
+    removeItem: (key) => {
       delete store[key];
     }
   };
 })();
 Object.defineProperty(window, 'localStorage', { value: localStorageMock });
- 
+
 describe('Layout', () => {
   it('Found Routes', () => {
-     const wrapper = shallow(<Layout />);
+    const wrapper = shallow(<Layout />);
     expect(wrapper.find('Route').length).toEqual(5);
   });
-    it('Found Router', () => {
-     const wrapper = shallow(<Layout />);
+  it('Found Router', () => {
+    const wrapper = shallow(<Layout />);
     expect(wrapper.find('HashRouter').length).toEqual(1);
   });
 
-      it('Found div', () => {
-     const wrapper = shallow(<Layout />);
+  it('Found div', () => {
+    const wrapper = shallow(<Layout />);
     expect(wrapper.find('div').length).toEqual(1);
   });
-
-  
 });

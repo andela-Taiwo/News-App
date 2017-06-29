@@ -35,8 +35,8 @@ describe('Source', () => {
   });
 
   it('Sources  onchange() should render  without error', () => {
-     const spy = jest.spyOn(Sources.prototype, 'componentDidMount');
-     const wrapper = mount(<Sources {...props} />);
-      expect(wrapper.instance().onChange()).toBeUndefined();
+    const spy = jest.spyOn(Sources.prototype, 'componentDidMount');
+    const wrapper = mount(<Sources {...props} />);
+    expect(wrapper.instance().onChange()).toBeUndefined();
   });
 });

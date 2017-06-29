@@ -1,7 +1,8 @@
 import React from 'react';
+import { shallow } from 'enzyme';
 import localStorageMock from './../__mocks__/LocalStorageMock';
 import Header from '../../src/js/components/Header.jsx';
-import { shallow } from 'enzyme';
+
 
 window.localStorage = localStorageMock;
 
@@ -13,7 +14,7 @@ describe('Header', () => {
     }));
   });
   it('Render without crashing', () => {
-     shallow(<Header />); 
-     });
+    shallow(<Header />);
+  });
 });
 
