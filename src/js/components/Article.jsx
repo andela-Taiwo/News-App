@@ -25,7 +25,7 @@ export default class Articles extends React.Component {
     articleStore.on('change', this.updateArticles);
   }
 
-/**
+/*
  * @
  * @memberof Articles
  */
@@ -33,8 +33,7 @@ export default class Articles extends React.Component {
     articleStore.removeListener('change', this.updateArticles);
   }
 
-/**
- * @return {array}
+/*
  * @memberof Articles
  */
   updateArticles() {

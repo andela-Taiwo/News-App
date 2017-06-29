@@ -22,7 +22,7 @@ export default class Sources extends Component {
     this.onChange = this.onChange.bind(this);
   }
 /**
- * @memberof Sources
+ * @memberof Sources notifies the component when there store emit an event
  */
   componentDidMount() {
     ArticleAction.getSources();

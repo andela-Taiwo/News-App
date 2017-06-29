@@ -2,17 +2,13 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ContextTypes, PropTypes } from 'prop-types';
 
 export default class NotFound extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+
 
 /*
- * @returns{<NotFoun />}
- * @memberof NotFound
+ * @returns{<NotFound />}
+ * @memberof NotFound renders UI for the NotFound component
  */
   render() {
     return (
@@ -27,6 +23,3 @@ export default class NotFound extends React.Component {
   }
 }
 
-ContextTypes: {
-  router: PropTypes.object
-  }

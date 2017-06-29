@@ -1,6 +1,6 @@
 import React from 'react';
-import * as ArticleAction from '../actions/ArticleAction';
 import sourceStore from '../stores/SourceStore';
+
 export default class Search extends React.Component {
   constructor(props) {
     super(props);
@@ -27,10 +27,9 @@ export default class Search extends React.Component {
 /*
 *
  * @returns{<Search/>}
- * @memberof Search
+ * @memberof Search that render the UI for the Search component
  */
   render() {
-    let filteredContent = this.state;
     return (
         <form>
           <input
@@ -38,9 +37,8 @@ export default class Search extends React.Component {
             type="text"
             name="name"
             value={this.state.searchInput}
-            onChange={this.onSearch.bind(this)}
-          >
-          </input>
+            onChange={this.onSearch}
+          />
           <button onClick={this.handleAdd}>Search</button>
         </form>
     );

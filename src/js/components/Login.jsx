@@ -41,7 +41,6 @@ export default class Login extends React.Component {
                       </GoogleLogin></a>
 
               </div>
-              
           </div>
 
       </div>
