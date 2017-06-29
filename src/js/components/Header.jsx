@@ -23,9 +23,9 @@ class Header extends React.Component {
               <HashRouter>
               <div className="navBar">
                 <div className="navbar-header">
-                  <a href="" className="brand-logo" to="/">Articles Hub</a>
+                  <a href="" className="brand-logo center" to="/">Articles Hub</a>
                 </div>
-                  <ul id="nav-mobile" className="right hide-on-med-and-down">
+                  <ul id="nav-mobile" className="left">
                     <li><Link to="/sources" >Latest News</Link></li>
                     <li> {user.name}</li>
                    {/* <li>  <Link to="/saved" >Saved</Link></li>*/}

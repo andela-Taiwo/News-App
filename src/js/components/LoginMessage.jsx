@@ -11,7 +11,7 @@ export default class LoginMessage extends React.Component {
     const user = JSON.parse(localStorage.getItem('userProfile'));
     const name = user.name;
     return (
-         <div>
+         <div className="dashBoard">
            <Header />
            <div className="message">
             <h2> Welcome {name} </h2>
