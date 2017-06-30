@@ -10,16 +10,13 @@ import Sources from './sources.jsx';
 import NotFound from './NotFound.jsx';
 
 const history = createBrowserHistory();
-class Layout extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
 
-
-  render() {
-    return (
-      <div>
+/**
+ * @returns{Routes}
+ */
+function Layout() {
+  return (
+    <div>
       <Router history={history}>
         <Switch>
           <Route exact path="/" component={localStorage.getItem('userProfile') ?
@@ -31,12 +28,11 @@ class Layout extends React.Component {
           <Route path="/sources" component={localStorage.getItem('userProfile')
             ? Sources : Login} />
           <Route path="*" component={NotFound}/>
-      </Switch>
-    </Router>
+        </Switch>
+      </Router>
       <Footer />
     </div>
-    );
-  }
+  );
 }
 
 export default Layout;

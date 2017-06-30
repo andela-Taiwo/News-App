@@ -15,14 +15,9 @@ export default class Sources extends Component {
       sources: [],
       searchInput: ''
     };
-    /**
-     * We need to bind this to onChange so we can have
-     * the proper this reference inside the method
-     */
-    this.onChange = this.onChange.bind(this);
   }
 /**
- * @memberof Sources notifies the component when there store emit an event
+ * @memberof Sources notifies the component when the store emit change an event
  */
   componentDidMount() {
     ArticleAction.getSources();
@@ -36,7 +31,6 @@ export default class Sources extends Component {
  * @memberof Sources
  */
   componentWillUnmount() {
-   //
     sourceStore.removeListener('change', this.onChange);
   }
 /**
@@ -44,7 +38,7 @@ export default class Sources extends Component {
  * 'change' event
  * @memberof Sources
  */
-  onChange() {
+  onChange= () => {
     this.setState({
       sources: sourceStore.getSources()
     });
@@ -53,21 +47,26 @@ export default class Sources extends Component {
   *
    * set the sources based on user search input
    */
-  updateSearch(event) {
+  updateSearch = (event) => {
     event.preventDefault();
     this.setState({ searchInput: event.target.value.substr(0, 20) });
   }
-  onSearch(event) {
+  onSearch = (event) => {
     this.setState({ searchInput: event.target.value });
   }
 
 /*
 *
  * @returns {sources component}
- * @memberof Sources
+ * @memberof Sources  renders the UI for the sources component
  */
   render() {
     const { sources } = this.state;
+/*
+*
+ * @returns {sources component}
+ * @memberof Sources render sources based on search query or the default sources
+ */
     const filteredContent = sources.filter(
       (source) => {
         return source.id.indexOf(this.state.searchInput

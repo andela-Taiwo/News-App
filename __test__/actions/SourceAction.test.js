@@ -11,7 +11,7 @@ const news = {
       id: 'abc-news-au',
       name: 'ABC News (AU)',
       description: `Australias most trusted source of local, national and 
-                  world news. Comprehensive, independent, in-depth analysis, the 
+                world news. Comprehensive, independent, in-depth analysis, the 
                   latest business, sport, weather and more.`,
       url: 'http://www.abc.net.au/news',
       category: 'general',
@@ -56,4 +56,4 @@ describe('Function \'getSources\'', () => {
         expect(requestMock.calledOnce).toBeTruthy();
       })
     ));
-  });
+});

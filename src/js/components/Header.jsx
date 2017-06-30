@@ -8,17 +8,16 @@ class Header extends React.Component {
     this.state = {
       authenticated: false
     };
-    this.logout = this.logout.bind(this);
   }
   /**
    * @memberof Header logs out the user when invoked
    */
-  logout() {
+  logout = () => {
     localStorage.removeItem('userProfile');
     location.reload();
   }
 /**
- * @returns {component}
+ * @returns {<Header />} A header that provides UI for the Header
  * @memberof Header  renders UI  for the Header component
  */
   render() {
@@ -26,18 +25,18 @@ class Header extends React.Component {
     return (
             <nav>
               <HashRouter>
-              <div className="navBar">
-                <div className="navbar-header">
-                  <a href="" className="brand-logo center" to="/">
-                    Articles Hub</a>
-                </div>
+                <div className="navBar">
+                  <div className="navbar-header">
+                    <a href="" className="brand-logo center" to="/">
+                      Articles Hub</a>
+                  </div>
                   <ul id="nav-mobile" className="left">
                     <li><Link to="/sources" >Latest News</Link></li>
                     <li> {user.name}</li>
                     <li ><Link to="/" onClick={this.logout}>Logout</Link></li>
                   </ul>
-            </div>
-            </HashRouter>
+                </div>
+              </HashRouter>
           </nav>
     );
   }

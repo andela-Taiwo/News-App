@@ -1,10 +1,9 @@
-// src/components/Article.js
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as ArticleAction from '../actions/ArticleAction';
 import articleStore from '../stores//ArticleStore';
 import Header from './Header.jsx';
+
 
 export default class Articles extends React.Component {
   constructor(props) {
@@ -14,8 +13,6 @@ export default class Articles extends React.Component {
       sortQuery: (props.match.params.sortBy),
       articles: [],
     };
-
-    this.updateArticles = this.updateArticles.bind(this);
   }
 /*
  * @memberof Articles
@@ -36,7 +33,7 @@ export default class Articles extends React.Component {
 /*
  * @memberof Articles
  */
-  updateArticles() {
+  updateArticles= () => {
     this.setState({
       articles: articleStore.getArticles(),
     });
@@ -52,36 +49,34 @@ export default class Articles extends React.Component {
       <div>
         <Header />
         <div >
-        <br/><h5 className="articleTitle">{sortQuery}{' articles from '}
+          <br/><h5 className="articleTitle">{sortQuery}{' articles from '}
           {sourceName}</h5>
-        <br /> <br />
+          <br /> <br />
 
-        <div className="article-row">
-          <div className=" row">
-            {this.state.articles.map(item => (
+          <div className="article-row">
+            <div className=" row">
+              {this.state.articles.map(item => (
               <div className=" mainBg col m3" key={item.title}>
                 <div className="card medium grey lighten-5">
                   <div className="card-image">
-                   <a href={item.url} target={'#'}> <img
+                    <a href={item.url} target={'#'}> <img
                     src={item.urlToImage} alt={item.title}
                        /> </a>
                   </div>
                   <div className="card-content">
                     <span className="card-title">{item.title}</span>
-                    <a href={item.url} target={'#'}><p>{item.description}</p>
-                    </a>
                   </div>
                   <div className="card-action">
                     <a href={item.url} className="btn btn-small" target={'#'}>
                       {'Read...'}</a>
                   </div>
                 </div>
-              </div>
+            </div>
               ))}
-              </div>
-               </div>
-                </div>
-                 </div>
+          </div>
+        </div>
+      </div>
+    </div>
     );
   }
 }

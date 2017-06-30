@@ -1,9 +1,8 @@
-// src/stores/ContactStore.js
 
-import Dispatcher from '../dispatch/Dispatcher';
 import { EventEmitter } from 'events';
+import Dispatcher from '../dispatch/Dispatcher';
 
-const CHANGE_EVENT = 'change'; 
+const CHANGE_EVENT = 'change';
 
 class SourceStoreClass extends EventEmitter {
 
@@ -12,7 +11,7 @@ class SourceStoreClass extends EventEmitter {
  */
   constructor() {
     super();
-    this.sources = [];  
+    this.sources = [];
   }
 
  /**
@@ -46,7 +45,7 @@ class SourceStoreClass extends EventEmitter {
 
 const SourceStore = new SourceStoreClass();
 
-/* SouceStore register a callback for the dispatcher
+/* SouceStore register a callback to the dispatcher
 */
 Dispatcher.register(SourceStore.handleActions.bind(SourceStore));
 

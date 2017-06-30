@@ -6,8 +6,6 @@ import localStorageMock from './../__mocks__/LocalStorageMock';
 
 window.localStorage = localStorageMock;
 
-let event;
-
 const props = {
   searchInput: 'abc',
   sources: sources.sources,
@@ -20,20 +18,7 @@ describe('Source', () => {
       name: 'Taiwo Memunat',
       email: 'sokunbitaiwo82@gmail.com'
     }));
-    event = {
-      preventDefault: () => {
-        //
-      },
-      target: {
-        value: 'sources',
-      }
-    };
   });
-  const wrapper = shallow(<Sources />);
-  it('Sources child components should render without error', () => {
-    mount(<Sources {...props}/>);
-  });
-
   it('Sources  onchange() should render  without error', () => {
     const spy = jest.spyOn(Sources.prototype, 'componentDidMount');
     const wrapper = mount(<Sources {...props} />);

@@ -11,10 +11,10 @@ class ArticleStore extends EventEmitter {
     super();
     this.articles = [];
   }
-
- /**
-    *  Get the articles for the calling components
-    */
+/**
+ * @returns{array} Get the articles for the calling components
+ * @memberof ArticleStore
+ */
   getArticles() {
     return this.articles;
   }
@@ -29,9 +29,11 @@ class ArticleStore extends EventEmitter {
  * @param {*} action GET_ARTICLES
  * listening to the dispather to get action look GET_ARTICLES action types */
 
- handleActions(action) {
+  handleActions(action) {
     if (action.actionType === 'GET_ARTICLES') {
       this.articles = action.articles;
+
+
       /**
        *  We need to call emit('change') so that articles component
 /        knows that a change has been made

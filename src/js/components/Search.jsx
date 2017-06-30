@@ -8,20 +8,19 @@ export default class Search extends React.Component {
       sources: sourceStore.getSources(),
       searchInput: ''
     };
-    this.handleSearch = this.handleSearch.bind(this);
   }
 /**
  * @param {any} e
  * @memberof Search
  */
-  handleSearch(e) {
+  handleSearch= (e) => {
     e.preventDefault();
     this.props.onSearch(this.state.sources);
   }
 /**
  * @memberof Search
  */
-  onSearch() {
+  onSearch = () => {
     this.setState({ searchInput: event.target.value });
   }
 /*
@@ -39,7 +38,7 @@ export default class Search extends React.Component {
             value={this.state.searchInput}
             onChange={this.onSearch}
           />
-          <button onClick={this.handleAdd}>Search</button>
+          <button onClick={this.handleSearch}>Search</button>
         </form>
     );
   }

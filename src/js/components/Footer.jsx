@@ -1,17 +1,15 @@
 import React from 'react';
 
 /**
- * @export Footer component
- * @class Footer renders the UI for the Footer component
- * @extends {React.Component}
+ *
+ *
+ * @export {Footer} Footer component
+ * @returns {<Footer />}
  */
-
-export default class Footer extends React.Component {
-  render() {
-    return (
-      <footer className="page-footer">
+export default function Footer() {
+  return (
+    <footer className="page-footer">
         Sokunbi Memunat ©2017.
-      </footer>
-    );
-  }
+    </footer>
+  );
 }
