@@ -16,6 +16,7 @@ export default class Articles extends React.Component {
   }
 /*
  * @memberof Articles
+ * listen for change in article store
  */
   componentDidMount() {
     ArticleAction.getArticles(this.state.src_id, this.state.sortQuery);
@@ -25,6 +26,7 @@ export default class Articles extends React.Component {
 /*
  * @
  * @memberof Articles
+ * Unbind change listener
  */
   componentWillUnmount() {
     articleStore.removeListener('change', this.updateArticles);
@@ -41,6 +43,7 @@ export default class Articles extends React.Component {
   /*
    * @returns {article component}
    * @memberof Articles
+   * @returns {}
    */
   render() {
     const sortQuery = (this.state.sortQuery);

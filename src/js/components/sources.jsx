@@ -79,9 +79,8 @@ export default class Sources extends Component {
       <div className="container">
         <div className="row">
           <h4 className="sourceTitle"> News Sources Available </h4>
-          <form>
+          <form className="searchBox">
             <input
-              className=""
               type="text"
               value={this.state.searchInput.toLocaleLowerCase()}
               onChange= {this.updateSearch}
