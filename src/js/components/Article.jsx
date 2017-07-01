@@ -51,7 +51,14 @@ export default class Articles extends React.Component {
     return (
       <div>
         <Header />
-        <div >
+        <div className="article">
+          <div className="input-field col s12">
+            <select>
+              <option value="" disabled selected>sortBy</option>
+              <option value="1">Top</option>
+              <option value="2">Latest</option>
+            </select>
+          </div>
           <br/><h5 className="articleTitle">{sortQuery}{' articles from '}
           {sourceName}</h5>
           <br /> <br />

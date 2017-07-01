@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import Sources from '../../src/js/components/sources.jsx';
+import Sources from '../../src/js/components/Sources.jsx';
 import sources from '../mockData/sourceData.json';
 import localStorageMock from './../__mocks__/LocalStorageMock';
 

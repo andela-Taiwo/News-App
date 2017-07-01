@@ -25,16 +25,21 @@ class Header extends React.Component {
     return (
             <nav>
               <HashRouter>
-                <div className="navBar">
-                  <div className="navbar-header">
-                    <a href="" className="brand-logo center" to="/">
-                      Articles Hub</a>
+                <div className="">
+                  <div className="navBar">
+                    <div className="">
+                      <a href="" className="brand-logo center" to="/">
+                        Articles Hub</a>
+                    </div>
+                    <ul id="nav-mobile" className="left">
+                      <li><Link to="/sources" >Sources</Link></li>
+                      <li> {user.name}</li>
+                    </ul>
+                    <ul id="nav-mobile" className="right">
+                      <li> {user.name}</li>
+                      <li ><Link to="/" onClick={this.logout}>Logout</Link></li>
+                    </ul>
                   </div>
-                  <ul id="nav-mobile" className="left">
-                    <li><Link to="/sources" >Latest News</Link></li>
-                    <li> {user.name}</li>
-                    <li ><Link to="/" onClick={this.logout}>Logout</Link></li>
-                  </ul>
                 </div>
               </HashRouter>
           </nav>

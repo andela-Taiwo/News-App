@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Layout from '../../src/js/components/layout.jsx';
+import Layout from '../../src/js/components/Layout.jsx';
 
 const localStorageMock = (() => {
   let store = {};
@@ -24,7 +24,7 @@ Object.defineProperty(window, 'localStorage', { value: localStorageMock });
 describe('Layout', () => {
   it('Found Routes', () => {
     const wrapper = shallow(<Layout />);
-    expect(wrapper.find('Route').length).toEqual(5);
+    expect(wrapper.find('Route').length).toEqual(4);
   });
   it('Found Router', () => {
     const wrapper = shallow(<Layout />);

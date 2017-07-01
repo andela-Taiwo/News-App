@@ -8,8 +8,8 @@ import React from 'react';
  */
 export default function Footer() {
   return (
-    <footer className="page-footer">
+    <div className="footer">
         Sokunbi Memunat ©2017.
-    </footer>
+    </div>
   );
 }

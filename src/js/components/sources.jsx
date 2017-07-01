@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import * as ArticleAction from '../actions/ArticleAction';
 import sourceStore from '../stores/SourceStore';
 import Header from './Header.jsx';
@@ -90,12 +91,12 @@ export default class Sources extends Component {
             return (
               <div key={source.id} className="col s12 m7 card">
                 {source.name}
-                <div className="row sort">
+                <div className="row sort center">
                   {source.sortBysAvailable.map((sortBy) => {
                     return (
-                    <div key={sortBy}>
+                    <div key={sortBy} className="center">
 
-                      <a className="col s3 center"
+                      <a className="col s4 center"
                         href={`#/articles/${source.id}/${sortBy}`}>{sortBy}
                       </a>
                     </div>

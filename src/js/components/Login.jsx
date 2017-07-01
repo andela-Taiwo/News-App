@@ -6,13 +6,12 @@ import FontAwesome from 'react-fontawesome';
 export default class Login extends React.Component {
 
   responseGoogle= (response) => {
-    const login_profile = response.getBasicProfile();
-    const user_profile = {};
-    user_profile.name = login_profile.getName();
-    user_profile.email = login_profile.getEmail();
-    user_profile.image = login_profile.getImageUrl();
-    user_profile.idToken = response.googleId;
-    localStorage.setItem('userProfile', JSON.stringify(user_profile));
+    const loginProfile = response.getBasicProfile();
+    const userInfo = {};
+    userInfo.name = loginProfile.getName();
+    userInfo.email = loginProfile.getEmail();
+    userInfo.idToken = response.googleId;
+    localStorage.setItem('userProfile', JSON.stringify(userInfo));
     location.reload();
   }
 
