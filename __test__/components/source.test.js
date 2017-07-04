@@ -2,8 +2,8 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { assert } from 'chai';
 import { spy } from 'sinon';
-import Sources from '../../src/js/components/Sources.jsx';
-import sources from '../mockData/sourceData.json';
+import Sources from './../../src/js/components/Sources.jsx';
+import sources from './../mockData/sourceData.json';
 import localStorageMock from './../__mocks__/LocalStorageMock';
 
 window.localStorage = localStorageMock;
