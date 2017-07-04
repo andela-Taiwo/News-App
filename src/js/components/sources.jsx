@@ -9,8 +9,8 @@ import Header from './Header.jsx';
 
 export default class Sources extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       sources: [],
@@ -94,12 +94,13 @@ export default class Sources extends Component {
                 <div className="row sort center">
                   {source.sortBysAvailable.map((sortBy) => {
                     return (
-                    <div key={sortBy} className="center">
+                    <li key={sortBy} >
 
-                      <a className="col s4 center"
-                        href={`#/articles/${source.id}/${sortBy}`}>{sortBy}
+                      <a className="col s5 center"
+                        href={`#/articles/${source.id}/${sortBy}`} >
+                          {sortBy} News
                       </a>
-                    </div>
+                    </li>
                     );
                   })
                 }

@@ -1,52 +1,39 @@
+import BaseStore from './BaseStore';
 
-import { EventEmitter } from 'events';
-import Dispatcher from '../dispatch/Dispatcher';
-
-const CHANGE_EVENT = 'change';
-
-class SourceStoreClass extends EventEmitter {
-
-/**
- *  initialize source array
- */
+class SourceStoreClass extends BaseStore {
   constructor() {
     super();
     this.sources = [];
+    this.subscribe(() => this.handler.bind(this));
   }
-
- /**
-  * Get the souces from the dispatcher
-  */
-
+    /**
+     * Register callback to handle all updates
+     *
+     * @param  {Object} action
+     */
+  handler(action) {
+    if (action.actionType === 'GET_SOURCES') {
+      this.sources = action.sources;
+      this.emitChange();
+    }
+  }
+/**
+ * @returns{array} Get the sources for the calling components
+ * @memberof sourceStore
+ */
   getSources() {
     return this.sources;
   }
 
-/**
- * Reset the  source object to an empty array
- */
+    /**
+    * Reset the sources array to null
+    */
   setSources() {
-    this.sources = null;
-    return this.sources;
-  }
-
-/**
- * @param {*} action GET_SOURCES
- * listening to the dispather to get action look GET_SOURCES action types */
-
-  handleActions(action) {
-    if (action.actionType === 'GET_SOURCES') {
-      this.sources = action.sources;
-      this.emit(CHANGE_EVENT);
-    }
+    return null;
   }
 
 }
-
 const SourceStore = new SourceStoreClass();
 
-/* SouceStore register a callback to the dispatcher
-*/
-Dispatcher.register(SourceStore.handleActions.bind(SourceStore));
-
 export default SourceStore;
+

@@ -14,6 +14,9 @@ class Header extends React.Component {
    */
   logout = () => {
     localStorage.removeItem('userProfile');
+    this.setState(() => {
+      this.state = false;
+    });
     location.reload();
   }
 /**

@@ -36,6 +36,13 @@ module.exports = {
       },
     ]
   },
+
+  externals:
+  {
+    'react/addons': true,
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': true
+  },
   plugins: [
     new Dotenv({
       path: './.env', // Path to .env file (this is the default)

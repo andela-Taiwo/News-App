@@ -12,6 +12,7 @@ export default class Articles extends React.Component {
       src_id: (props.match.params.article),
       sortQuery: (props.match.params.sortBy),
       articles: [],
+      value: 'top'
     };
   }
 /*
@@ -31,7 +32,9 @@ export default class Articles extends React.Component {
   componentWillUnmount() {
     articleStore.removeListener('change', this.updateArticles);
   }
-
+  handleChange= (event) => {
+    this.setState({ value: event.target.value });
+  }
 /*
  * @memberof Articles
  */
@@ -54,9 +57,9 @@ export default class Articles extends React.Component {
         <div className="article">
           <div className="input-field col s12">
             <select>
-              <option value="" disabled selected>sortBy</option>
-              <option value="1">Top</option>
-              <option value="2">Latest</option>
+              <option defaultValue={sortQuery} disabled >sortBy</option>
+              <option value="Top">Top</option>
+              <option value="Latest">Latest</option>
             </select>
           </div>
           <br/><h5 className="articleTitle">{sortQuery}{' articles from '}
@@ -77,7 +80,7 @@ export default class Articles extends React.Component {
                     <span className="card-title">{item.title}</span>
                   </div>
                   <div className="card-action">
-                    <a href={item.url} className="btn btn-small" target={'#'}>
+                    <a href={item.url} className="btn waves-effect waves-light purple" target={'#'}>
                       {'Read...'}</a>
                   </div>
                 </div>
@@ -96,7 +99,7 @@ Articles.PropTypes = {
   match: {
     params: {
       sortQuery: PropTypes.string,
-      articles: PropTypes.array,
+      articles: PropTypes.arrayOf(PropTypes.object),
       src_id: PropTypes.string,
     }
   }
@@ -107,6 +110,22 @@ Articles.defaultProps = {
     params: {
       sortQuery: 'top',
       src_id: 'cnn',
+      articles: [
+        {
+          author: 'TNW Deals',
+          title: 'Be a digital entrepreneur – and do it the right way \
+                       for only $39',
+          description: 'Opening and running a traditional brick-and-mortar \
+                          storefront works off knowledge built through \
+                          literally centuries of business successes and\
+                           failures. But if you’re trying to make ...',
+          url: 'https://thenextweb.com/offers\
+                /2017/07/01/digital-entrepreneur-right-way-39/',
+          urlToImage: 'https://cdn3.tnwcdn.com/wp-content/blogs.dir/1/files/\
+                      2017/07/mfOopaP.jpg',
+          publishedAt: '2017-07-01T17:33:42Z'
+        },
+      ]
     },
   },
 };
