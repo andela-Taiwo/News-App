@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/andela-Taiwo/News-App.svg?branch=test)](https://travis-ci.org/andela-Taiwo/News-App)
+[![Build Status](https://travis-ci.org/andela-Taiwo/News-App.svg?branch=feedback)](https://travis-ci.org/andela-Taiwo/News-App)
 
-[![Coverage Status](https://coveralls.io/repos/github/andela-Taiwo/Test-News-App/badge.svg?branch=test)](https://coveralls.io/github/andela-Taiwo/Test-News-App?branch=test)[![Code Climate](https://codeclimate.com/github/andela-Taiwo/Test-News-App/badges/gpa.svg)](https://codeclimate.com/github/andela-Taiwo/Test-News-App) 
+[![Coverage Status](https://coveralls.io/repos/github/andela-Taiwo/Test-News-App/badge.svg?branch=feedback)](https://coveralls.io/github/andela-Taiwo/Test-News-App?branch=test)[![Code Climate](https://codeclimate.com/github/andela-Taiwo/Test-News-App/badges/gpa.svg)](https://codeclimate.com/github/andela-Taiwo/Test-News-App) 
 
 # Articles-Hub
 Articles-hub is a web application that enables user to view news from different media houses(e.g. BBC, ABC, Business Insider, CNN, Buzzfeed, Ars Technica, and many more). Articles-Hub makes sure you are up to date on all things news, with a simple and intuitive user interface.
