@@ -7,7 +7,7 @@ window.localStorage = localStorageMock;
 describe('Layout', () => {
   it('Found Routes', () => {
     const wrapper = shallow(<Layout />);
-    expect(wrapper.find('Route').length).toEqual(4);
+    expect(wrapper.find('Route').length).toEqual(5);
   });
   it('Found Router', () => {
     const wrapper = shallow(<Layout />);
@@ -20,6 +20,6 @@ describe('Layout', () => {
   });
   it('Found Routes', () => {
     const wrapper = shallow(<Layout />);
-    expect(wrapper.find('Route').length).toEqual(4);
+    expect(wrapper.find('Route').length).toEqual(5);
   });
 });

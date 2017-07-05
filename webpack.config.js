@@ -9,6 +9,7 @@ module.exports = {
     // allows you to require without the .js at end of filenames
     extensions: ['.js', '.json', '.jsx']
   },
+  watch: true,
   output: {
     path: path.join(__dirname, '/public'),
     filename: 'bundle.js',

@@ -62,9 +62,8 @@ export default class Articles extends React.Component {
               <option value="Latest">Latest</option>
             </select>
           </div>
-          <br/><h5 className="articleTitle">{sortQuery}{' articles from '}
+            <h5 className="articleTitle">{sortQuery}{' articles from '}
           {sourceName}</h5>
-          <br /> <br />
 
           <div className="article-row">
             <div className=" row">
@@ -80,7 +79,8 @@ export default class Articles extends React.Component {
                     <span className="card-title">{item.title}</span>
                   </div>
                   <div className="card-action">
-                    <a href={item.url} className="btn waves-effect waves-light purple" target={'#'}>
+                    <a href={item.url}
+                  className="btn waves-effect waves-light purple" target={'#'}>
                       {'Read...'}</a>
                   </div>
                 </div>

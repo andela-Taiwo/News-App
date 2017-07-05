@@ -74,6 +74,9 @@ export default class Sources extends Component {
         .toLocaleLowerCase()) !== -1;
       }
     );
+    if (filteredContent === false) {
+      return (<h1>Hello</h1>);
+    }
     return (
       <div>
       <Header />
@@ -90,17 +93,15 @@ export default class Sources extends Component {
           {filteredContent.map((source) => {
             return (
               <div key={source.id} className="col s12 m7 card">
-                {source.name}
-                <div className="row sort center">
+                <div className="source-name nav">{source.name}</div>
+                <div className="col s12 sort center">
                   {source.sortBysAvailable.map((sortBy) => {
                     return (
-                    <li key={sortBy} >
-
-                      <a className="col s5 center"
+                      <a className="breadcrumb" key={sortBy}
                         href={`#/articles/${source.id}/${sortBy}`} >
                           {sortBy} News
                       </a>
-                    </li>
+                    
                     );
                   })
                 }

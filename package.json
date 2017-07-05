@@ -7,7 +7,7 @@
     "test": "jest --coverage",
     "lint": "eslint src",
     "start": "node server.js",
-    "build": "webpack",
+    "build": "webpack --optimize-minimize --define process.env.NODE_ENV=production",
     "dev": "webpack-dev-server --content-base src --inline --hot"
   },
   "jest": {

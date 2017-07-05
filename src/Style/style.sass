@@ -7,7 +7,9 @@ li
   display: list-item
   list-style: none
  
-
+/*****************logo**************/
+.brand-logo,h2
+  font-family: 'Lobster Two', cursive;
 
 /******************** footer rule************************************/
 .footer
@@ -15,10 +17,10 @@ li
   background-color: transparent
   width : 100%
   bottom: 0
-
+  font-family: 'Average', serif
   border-radius: 2px;
   background-image: -moz-linear-gradient( 90deg, rgb(82,20,175) 0%, rgb(162,80,239) 100%);
-  background-image: -webkit-linear-gradient( 90deg, rgb(82,20,175) 0%, rgb(162,80,239) 100%);
+  background-image: -webkit-linear-gradient( 45deg, rgb(82,20,175) 0%, rgb(162,80,239) 100%);
   background-image: -ms-linear-gradient( 90deg, rgb(82,20,175) 0%, rgb(162,80,239) 100%);
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.55);
   left: 0px
@@ -28,7 +30,7 @@ li
   padding-top: 2%
   clear:top
   text-align: center
-  color: rgba(256,243,215,0.5)
+  color: rgba(256,243,215,0.85)
   overflow: hidden
 
 
@@ -50,7 +52,9 @@ nav
   margin-bottom: 40px !important
   width: 100%
   background-color: transparent
- 
+#nav-mobile
+   font-family: 'Poppins', sans-serif;
+  
 .row .col.m7 
     width: 20%
     margin-left: auto
@@ -64,8 +68,8 @@ nav
 
 /***********sortby rule***********/
 .sort
-  padding-left: 40px
   padding-top: 10px
+  margin-top: 20px;
   text-align: center
   a
     color: #d50000
@@ -76,9 +80,8 @@ nav
 
 .thumbnail
   padding-top: 6px
-.navBar 
 
-  
+.navBar 
   border-radius: 3px;
   background-image: -moz-linear-gradient( 90deg, rgb(82,20,175) 0%, rgb(162,80,239) 100%);
   background-image: -webkit-linear-gradient( 90deg, rgb(82,20,175) 0%, rgb(162,80,239) 100%);
@@ -145,6 +148,8 @@ nav
 .card .card-title 
   font-size: 18px
   font-weight: bold
+  font-family: 'Andada', serif
+
 .card.medium .card-image, .card.large .card-image 
     max-height: 50%;
 
@@ -153,9 +158,21 @@ nav
 
 /*********************************Title*********************************/
 .sourceTitle, .articleTitle
-  text-transform: capitalize 
+  text-transform: capitalize
+  font-family: 'Kreon', serif;
   text-align: center
-  margin-top: 30px
+  margin-top: 20px
+
+.sourceTitle, .articleTitle 
+ 
+/***************souce-name***********/
+.source-name
+  font-family: 'Cabin', sans-serif;
+  font-weight: bold
+  font-size: 18px
+.sort
+  font-family: 'Nunito', sans-serif;
+
 
 .container 
     width: 90%
@@ -197,6 +214,15 @@ nav
 /***********************Media Queries*********************************/
 
 @media (max-width: 600px) and (min-width: 240px) 
+  nav ul a
+    font-size: 10px
+  
+  nav .brand-logo
+    font-size: medium
+  #nav-mobile
+    font-size: 10px
+    li
+      padding: 5px
   .login_content
     max-width: 250px
     min-width: 120px
@@ -213,7 +239,8 @@ nav
   .sort
     padding-left: 28px
     padding-top: 8px
-
+  .brand-logo
+    font-size: 16px
   .sort a 
     font-size: 12px
     text-align: center
@@ -274,3 +301,14 @@ btn2, .btn-big, .btn-medium1, .btn-small1
 
 .btn2, .btn-big, .btn-medium1, .btn-small1
   height: 70px !important
+
+.breadcrumb:last-child
+  color: #d92a00
+
+/****************Table rule*****************************/
+
+td
+  padding: 12px 3px
+  display: inline-block
+  text-align: left
+  width: 70%;
