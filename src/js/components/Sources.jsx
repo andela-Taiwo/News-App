@@ -74,7 +74,7 @@ export default class Sources extends Component {
         .toLocaleLowerCase()) !== -1;
       }
     );
-    if (filteredContent === null) {
+    if (filteredContent[0] === '') {
       return (<h1>Hello</h1>);
     }
     return (
