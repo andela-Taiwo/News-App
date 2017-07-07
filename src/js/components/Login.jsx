@@ -1,7 +1,6 @@
 import React from 'react';
 import GoogleLogin from 'react-google-login';
 import FontAwesome from 'react-fontawesome';
-import { Link } from 'react-router-dom';
 
 export default class Login extends React.Component {
 

@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
@@ -9,7 +10,7 @@ module.exports = {
     // allows you to require without the .js at end of filenames
     extensions: ['.js', '.json', '.jsx']
   },
-  watch: true,
+  watch: false,
   output: {
     path: path.join(__dirname, '/public'),
     filename: 'bundle.js',
@@ -35,6 +36,7 @@ module.exports = {
         query: { presets: ['es2015', 'react', 'stage-0'],
         }
       },
+
     ]
   },
 
@@ -54,7 +56,11 @@ module.exports = {
         NODE_ENV: JSON.stringify('production'),
       }
     }),
-    new webpack.optimize.UglifyJsPlugin()
-  ]
+    new webpack.optimize.UglifyJsPlugin(),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'src/index.html'
+    })
+  ],
 
 };

@@ -12,6 +12,7 @@ const props = {
   src_id: ('bbc-news'),
   sortQuery: ('top'),
   articles: articles.articles,
+
 };
 describe('Article', () => {
   beforeEach(() => {

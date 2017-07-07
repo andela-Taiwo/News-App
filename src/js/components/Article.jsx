@@ -4,6 +4,16 @@ import * as ArticleAction from '../actions/ArticleAction';
 import articleStore from '../stores//ArticleStore';
 import Header from './Header.jsx';
 
+/**
+ * @param {any} available
+ * @returns {any} sortArray
+ */
+function getSortsAvailable(available) {
+  const sorts = available.split('/');
+  const sorting = sorts.pop();
+  const sortArray = sorting.split(',');
+  return (sortArray);
+ }
 
 export default class Articles extends React.Component {
   constructor(props) {
@@ -11,8 +21,8 @@ export default class Articles extends React.Component {
     this.state = {
       src_id: (props.match.params.article),
       sortQuery: (props.match.params.sortBy),
+      sortByAvailable: getSortsAvailable(props.location.pathname),
       articles: [],
-      value: 'top'
     };
   }
 /*
@@ -33,7 +43,12 @@ export default class Articles extends React.Component {
     articleStore.removeListener('change', this.updateArticles);
   }
   handleChange= (event) => {
-    this.setState({ value: event.target.value });
+    const value = event.target.value;
+    ArticleAction.getArticles(this.state.src_id, value);
+    this.setState({ articles: this.state.articles,
+      sortQuery: event.target.value,
+      value
+    });
   }
 /*
  * @memberof Articles
@@ -43,6 +58,7 @@ export default class Articles extends React.Component {
       articles: articleStore.getArticles(),
     });
   }
+
   /*
    * @returns {article component}
    * @memberof Articles
@@ -51,23 +67,44 @@ export default class Articles extends React.Component {
   render() {
     const sortQuery = (this.state.sortQuery);
     const sourceName = (this.state.src_id);
+    const articles = this.state.articles;
     return (
       <div>
         <Header />
         <div className="article">
-          <div className="input-field col s12">
-            <select>
-              <option defaultValue={sortQuery} disabled >sortBy</option>
-              <option value="Top">Top</option>
-              <option value="Latest">Latest</option>
-            </select>
+          <nav className="row"
+          style={{
+            boxShadow: 'none',
+            color: '#000'
+          }}>
+           <div className="col l8"> <h5 className="articleTitle">{sortQuery}{' articles from '}
+                {sourceName}</h5>
           </div>
-            <h5 className="articleTitle">{sortQuery}{' articles from '}
-          {sourceName}</h5>
-
+          <div className="col l4">
+            <div className="row">
+              {this.state.sortByAvailable.map(sortBy => (
+              <ul className="right" key={sortBy}>
+                <li>
+                  <button
+                  className="sortBy btn waves-effect waves-light"
+                  style ={{
+                    color: '',
+                    borderColor: 'purple',
+                    backgroundColor: '#6D29C5',
+                    fontSize: '12px'
+                  }}
+                  onClick={this.handleChange}
+                  value={sortBy}>View {sortBy} News
+                  </button>
+                </li>
+              </ul>
+              ))}
+            </div>
+          </div>
+           </nav>
           <div className="article-row">
             <div className=" row">
-              {this.state.articles.map(item => (
+              {articles.map(item => (
               <div className=" mainBg col m3" key={item.title}>
                 <div className="card medium grey lighten-5">
                   <div className="card-image">
@@ -113,19 +150,22 @@ Articles.defaultProps = {
       articles: [
         {
           author: 'TNW Deals',
-          title: 'Be a digital entrepreneur – and do it the right way \
-                       for only $39',
-          description: 'Opening and running a traditional brick-and-mortar \
-                          storefront works off knowledge built through \
-                          literally centuries of business successes and\
-                           failures. But if you’re trying to make ...',
-          url: 'https://thenextweb.com/offers\
-                /2017/07/01/digital-entrepreneur-right-way-39/',
-          urlToImage: 'https://cdn3.tnwcdn.com/wp-content/blogs.dir/1/files/\
-                      2017/07/mfOopaP.jpg',
+          title: `Be a digital entrepreneur – and do it the right way 
+                       for only $39`,
+          description: ` Opening and running a traditional brick-and-mortar 
+                          storefront works off knowledge built through 
+                          literally centuries of business successes and
+                           failures. But if you’re trying to make ...`,
+          url: `https://thenextweb.com/offers
+                /2017/07/01/digital-entrepreneur-right-way-39/`,
+          urlToImage: `https://cdn3.tnwcdn.com/wp-content/blogs.dir/1/files/
+                      2017/07/mfOopaP.jpg`,
           publishedAt: '2017-07-01T17:33:42Z'
         },
       ]
     },
   },
+  location: {
+    pathname: '/articles/ars-technica/latest/top,latest'
+  }
 };

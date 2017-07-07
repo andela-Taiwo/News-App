@@ -6,7 +6,8 @@ html, body
 li
   display: list-item
   list-style: none
- 
+Select
+  padding-bottom: 80px
 /*****************logo**************/
 .brand-logo,h2
   font-family: 'Lobster Two', cursive;
@@ -119,6 +120,7 @@ nav
 
 .article-row
   margin-bottom: 40px !important
+  padding-top: 40px !important
 
 
 .google_log
@@ -139,6 +141,13 @@ nav
 .btn1:hover , .btn-big:hover
   background-color: red
 
+.sortBy
+  border-color:red
+
+.sortBy .btn .waves-effect .waves-light
+  background-image: -moz-linear-gradient( 90deg, rgb(82,20,175) 0%, rgb(162,80,239) 100%)
+  background-image: -webkit-linear-gradient( 45deg, rgb(82,20,175) 0%, rgb(162,80,239) 100%)
+  background-image: -ms-linear-gradient( 90deg, rgb(82,20,175) 0%, rgb(162,80,239) 100%)
 
 /************************** Card Rules*****************************************/
 
@@ -161,9 +170,10 @@ nav
   text-transform: capitalize
   font-family: 'Kreon', serif;
   text-align: center
-  margin-top: 20px
+  margin-top: 15px
 
-.sourceTitle, .articleTitle 
+.articleTitle 
+  text-align: right
  
 /***************souce-name***********/
 .source-name
@@ -269,6 +279,7 @@ nav
 
   .row .col.m7 
     width: 49.5%
+
   button
     font-size: 24px
 
