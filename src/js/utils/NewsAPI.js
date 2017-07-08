@@ -13,7 +13,7 @@ export default {
     });
   },
 
- getArticles(url) {
+  getArticles(url) {
     return new Promise((resolve, reject) => {
       axios.get(url)
       .then((res) => {
@@ -25,7 +25,7 @@ export default {
     });
   },
 
-   setSources(url) {
+  setSources(url) {
     return new Promise((resolve, reject) => {
       axios.get(url)
       .then((res) => {

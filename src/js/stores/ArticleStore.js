@@ -26,8 +26,9 @@ class ArticleStore extends BaseStore {
     return this.articles;
   }
 
-  /**
-   * Reset the articles array to null
+ /**
+  * @returns {null}
+  * @memberof ArticleStore
   */
   setArticles() {
     return null;

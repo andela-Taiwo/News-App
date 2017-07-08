@@ -11,6 +11,14 @@ const localStorageMock = (() => {
         store[key] = value.toString();
       }
     },
+    getBasicProfile(key, value) {
+      if (value == null) {
+        store[key] = value;
+      } else {
+        store[key] = value.toString();
+      }
+    },
+    
     clear() {
       store = {};
     },

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link, HashRouter } from 'react-router-dom';
 
@@ -39,7 +40,6 @@ class Header extends React.Component {
                       <li> {user.name}</li>
                     </ul>
                     <ul id="nav-mobile" className="right">
-                      <li> {user.name}</li>
                       <li ><Link to="/" onClick={this.logout}>Logout</Link></li>
                     </ul>
                   </div>

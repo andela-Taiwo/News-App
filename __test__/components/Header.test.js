@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link, } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import { shallow, render } from 'enzyme';
 import localStorageMock from './../__mocks__/LocalStorageMock';

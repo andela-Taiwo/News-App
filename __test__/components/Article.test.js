@@ -34,7 +34,7 @@ describe('Article', () => {
   });
   it('calls componentDidMount() lifecycle method', () => {
     const componentDidMountSpy = spy(Articles.prototype, 'componentDidMount');
-    const wrapper = mount(<Articles />);
+    const component = mount(<Articles />);
     assert.ok(Articles.prototype.componentDidMount.calledOnce);
     componentDidMountSpy.restore();
   });
@@ -44,11 +44,7 @@ describe('Article', () => {
     expect(wrapper).toBeDefined();
     expect(Articles.prototype.componentDidMount).toHaveBeenCalledTimes(1);
   });
-
-  // it('should check that the handleChange method is getting called', () => {
-  //   spyOn(Articles.prototype, 'handleChange').and.callThrough();
-  //   const wrapper = mount(<Articles />);
-  //   expect(wrapper).toBeDefined();
-  //   expect(Articles.prototype.handleChange).toBeDefined();
-  // });
+  it('should check that the render method is getting called', () => {
+    const wrapper = shallow(<Articles />); wrapper.instance().render();
+  });
 });

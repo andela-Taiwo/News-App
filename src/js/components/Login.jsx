@@ -1,11 +1,11 @@
 import React from 'react';
 import GoogleLogin from 'react-google-login';
 import FontAwesome from 'react-fontawesome';
-import { Link } from 'react-router-dom';
 
 export default class Login extends React.Component {
 
   responseGoogle= (response) => {
+    localStorage.authenticated = true;
     const loginProfile = response.getBasicProfile();
     const userInfo = {};
     userInfo.name = loginProfile.getName();
@@ -26,7 +26,7 @@ export default class Login extends React.Component {
             <div className="col s10 l10"><h2>
               Articles Hub</h2></div>
               <div className="google_log">
-                  <a id="" href="#!">
+                  <a id="" to="/#!">
                     <GoogleLogin
                         className="btn btn-big btn waves-effect waves-light red"
                         clientId= {process.env.CLIENT_ID}
@@ -34,7 +34,7 @@ export default class Login extends React.Component {
                         onSuccess={this.responseGoogle}
                         onFailure={this.responseGoogle} >
                       <FontAwesome name="google"/>
-                      <span> Login with Google</span>
+                      <span className="logBtn">  Login with Google</span>
                     </GoogleLogin>
                   </a>
 
@@ -49,3 +49,17 @@ export default class Login extends React.Component {
     );
   }
 }
+
+Login.defaultProps = {
+  userInfo: {
+    name: 'Taiwo',
+    email: 'taiwo@gmail.com',
+    idToken: 'dfjf1j3b1j4b4b4b4j44'
+  },
+  getBasicProfile: {
+    name: 'Taiwo',
+    email: 'taiwo@gmail.com',
+    idToken: 'dfjf1j3b1j4b4b4b4j44'
+  }
+};
+

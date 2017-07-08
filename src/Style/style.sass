@@ -1,4 +1,5 @@
-
+* a:hover
+  color: #e1bee7 
 html, body
   background-color: #dfdddd
   width: 100%;
@@ -6,10 +7,14 @@ html, body
 li
   display: list-item
   list-style: none
- 
+Select
+  padding-bottom: 80px
 /*****************logo**************/
 .brand-logo,h2
   font-family: 'Lobster Two', cursive;
+  padding-top: 15%;
+  padding-bottom: 10%;
+  color: #6D29C5
 
 /******************** footer rule************************************/
 .footer
@@ -41,13 +46,14 @@ li
 /******************** sources rule************************************/
 
 .sources.card-panel
-  width: 40%;
+  width: 40%
 
 #sources
   margin-left: 15px
 
 /******************** Nav rule************************************/
-  
+nav ul a:hover
+  color: #e1bee7 
 nav
   margin-bottom: 40px !important
   width: 100%
@@ -119,6 +125,7 @@ nav
 
 .article-row
   margin-bottom: 40px !important
+  padding-top: 40px !important
 
 
 .google_log
@@ -139,6 +146,13 @@ nav
 .btn1:hover , .btn-big:hover
   background-color: red
 
+.sortBy
+  border-color:red
+
+.sortBy .btn .waves-effect .waves-light
+  background-image: -moz-linear-gradient( 90deg, rgb(82,20,175) 0%, rgb(162,80,239) 100%)
+  background-image: -webkit-linear-gradient( 45deg, rgb(82,20,175) 0%, rgb(162,80,239) 100%)
+  background-image: -ms-linear-gradient( 90deg, rgb(82,20,175) 0%, rgb(162,80,239) 100%)
 
 /************************** Card Rules*****************************************/
 
@@ -161,9 +175,10 @@ nav
   text-transform: capitalize
   font-family: 'Kreon', serif;
   text-align: center
-  margin-top: 20px
+  margin-top: 15px
 
-.sourceTitle, .articleTitle 
+.articleTitle 
+  text-align: right
  
 /***************souce-name***********/
 .source-name
@@ -196,8 +211,8 @@ nav
 
 .login_content
   border-radius: 5px;
-  background-color: rgba(238, 238, 238,0.3);
-  box-shadow: 1px 0px 2px 0px rgba(0, 0, 0, 0.69);
+  background-color: rgba(238, 238, 238,0.6);
+  box-shadow: 1px 0px 2px 0px rgba(0, 0, 0, 0.7);
   position: relative;
   padding-top: 25%;
   width: 400px;
@@ -216,7 +231,10 @@ nav
 @media (max-width: 600px) and (min-width: 240px) 
   nav ul a
     font-size: 10px
-  
+
+  .logBtn
+  font-size: 12px
+
   nav .brand-logo
     font-size: medium
   #nav-mobile
@@ -235,7 +253,9 @@ nav
 
   #sources
     margin-left: 5px
-
+  
+  .btn-big
+    height: 25px !important
   .sort
     padding-left: 28px
     padding-top: 8px
@@ -246,6 +266,7 @@ nav
     text-align: center
     font-weight: 500
     text-transform: capitalize
+
   
   .row .col.m7 
     width: 33.2%
@@ -269,9 +290,14 @@ nav
 
   .row .col.m7 
     width: 49.5%
+
   button
     font-size: 24px
-
+  .btn 
+    line-height: 12px
+  
+  .row .col.s10 
+    width: 100%
 
 @media (min-width: 601px) and (max-width: 910px)
   .row .col.m3 
@@ -279,12 +305,14 @@ nav
 
   .row .col.m7 
     width: 50%
+  .btn-big 
+    height: 33px !important
 
 btn2, .btn-big, .btn-medium1, .btn-small1
   border: none
   border-radius: 2px
   display: inline-block
-  line-height: 36px
+  
   padding: 0 2rem
   text-transform: uppercase
   vertical-align: middle
@@ -299,16 +327,9 @@ btn2, .btn-big, .btn-medium1, .btn-small1
 .btn-small1
   background-color: #3A3A3A
 
-.btn2, .btn-big, .btn-medium1, .btn-small1
-  height: 70px !important
+.btn-big, 
+  height: 50px !important
 
 .breadcrumb:last-child
   color: #d92a00
 
-/****************Table rule*****************************/
-
-td
-  padding: 12px 3px
-  display: inline-block
-  text-align: left
-  width: 70%;

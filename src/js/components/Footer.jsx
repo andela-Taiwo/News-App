@@ -1,10 +1,8 @@
 import React from 'react';
 
 /**
- *
- *
- * @export {Footer} Footer component
- * @returns {<Footer />}
+ * @export
+ * @returns {any}
  */
 export default function Footer() {
   return (

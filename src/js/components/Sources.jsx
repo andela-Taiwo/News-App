@@ -10,15 +10,17 @@ import Header from './Header.jsx';
 export default class Sources extends Component {
 
   constructor(props) {
+    
     super(props);
 
     this.state = {
       sources: [],
-      searchInput: ''
+      searchInput: '',
+      sortByAvailable: []
     };
   }
 /**
- * @memberof Sources notifies the component when the store emit change an event
+ * @memberof Sources
  */
   componentDidMount() {
     ArticleAction.getSources();
@@ -35,8 +37,7 @@ export default class Sources extends Component {
     sourceStore.removeListener('change', this.onChange);
   }
 /**
- * Set the source state to content of the SourceStore when the store emit
- * 'change' event
+/**
  * @memberof Sources
  */
   onChange= () => {
@@ -97,10 +98,13 @@ export default class Sources extends Component {
                 <div className="col s12 sort center">
                   {source.sortBysAvailable.map((sortBy) => {
                     return (
-                      <a className="breadcrumb" key={sortBy}
-                        href={`#/articles/${source.id}/${sortBy}`} >
+                      <Link className="breadcrumb" key={sortBy}
+                        to={{
+                          pathname: `/articles/${source.id}/${sortBy}/${source.sortBysAvailable}`,
+                          sortByAvailable: `${source.sortBysAvailable}`
+                        }} >
                           {sortBy} News
-                      </a>
+                      </Link>
                     
                     );
                   })

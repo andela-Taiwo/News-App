@@ -40,7 +40,18 @@ describe('Source', () => {
   it('calls componentDidMount() lifecycle method', () => {
     const componentDidMountSpy = spy(Sources.prototype, 'componentDidMount');
     const wrapper = mount(<Sources />);
+    expect(wrapper).toBeDefined();
     assert.ok(Sources.prototype.componentDidMount.calledOnce);
     componentDidMountSpy.restore();
+  });
+  it('should check that the componentDidMount method is getting called', () => {
+    spyOn(Sources.prototype, 'componentDidMount').and.callThrough();
+    const wrapper = mount(<Sources />);
+    expect(wrapper).toBeDefined();
+    expect(Sources.prototype.componentDidMount).toHaveBeenCalledTimes(1);
+  });
+
+  it('should check that the render method is getting called', () => {
+    const wrapper = shallow(<Sources />); wrapper.instance().render();
   });
 });

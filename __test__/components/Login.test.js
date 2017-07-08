@@ -1,16 +1,23 @@
 import React from 'react';
 import { shallow, render } from 'enzyme';
-import renderer from 'react-test-renderer';
 import Login from '../../src/js/components/Login.jsx';
 import localStorageMock from './../__mocks__/LocalStorageMock';
 
 
 window.localStorage = localStorageMock;
+const response = {
+  getBasicProfile: {
+    givenName: 'Taiow',
+    email: 'raha@gmail.com',
+    idToken: '123i4i4j44jj4'
+  }
+};
 describe('Login', () => {
   beforeEach(() => {
-    window.localStorage.setItem('userDetails', JSON.stringify({
-      firstName: 'Taiwo',
+    window.localStorage.setItem('userProfile', JSON.stringify({
+      name: 'Taiwo',
       email: 'ME',
+      idToken: '12313104144949444'
     }));
   });
 
@@ -40,4 +47,9 @@ describe('Login', () => {
     const wrapper = shallow(<Login />);
     expect(wrapper.find('span').length).toEqual(1);
   });
+
+  it('should check that the responseGoogle method is getting called', () => {
+    const wrapper = shallow(<Login />); wrapper.instance().render();
+  });
+
 });

@@ -41,10 +41,6 @@ exports[`Header (Snapshot) Header render Logout 1`] = `
         id="nav-mobile"
       >
         <li>
-           
-          Taiwo Memunat
-        </li>
-        <li>
           <a
             href="#/"
             onClick={[Function]}
@@ -98,10 +94,6 @@ exports[`Header (Snapshot) Header renders Articles Hub 1`] = `
         className="right"
         id="nav-mobile"
       >
-        <li>
-           
-          Taiwo Memunat
-        </li>
         <li>
           <a
             href="#/"
