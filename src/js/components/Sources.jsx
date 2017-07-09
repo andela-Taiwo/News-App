@@ -10,13 +10,12 @@ import Header from './Header.jsx';
 export default class Sources extends Component {
 
   constructor(props) {
-    
     super(props);
-
     this.state = {
       sources: [],
       searchInput: '',
-      sortByAvailable: []
+      sortByAvailable: [],
+      errorMessage: ''
     };
   }
 /**
@@ -69,15 +68,18 @@ export default class Sources extends Component {
  * @returns {sources component}
  * @memberof Sources render sources based on search query or the default sources
  */
+    const error1 = sources.filter(
+      (source) => {
+        return (source.id.indexOf(this.state.searchInput.toLocaleLowerCase()) === -1)    
+      }
+    );
+    const message = (error1) ? 'Source not found' : '';
     const filteredContent = sources.filter(
       (source) => {
         return source.id.indexOf(this.state.searchInput
         .toLocaleLowerCase()) !== -1;
       }
     );
-    if (filteredContent === false) {
-      return (<h1>Hello</h1>);
-    }
     return (
       <div>
       <Header />
@@ -105,17 +107,18 @@ export default class Sources extends Component {
                         }} >
                           {sortBy} News
                       </Link>
-                    
                     );
                   })
                 }
               </div>
             </div>
-
             );
           }
+          
           )}
+          <div>{message}</div>
         </div>
+       
       </div>
       </div>
     );

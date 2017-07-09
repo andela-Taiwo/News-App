@@ -79,13 +79,14 @@ export default class Articles extends React.Component {
         <Header />
         <div className="article">
           <nav className="row"
-          style={{
-            boxShadow: 'none',
-            color: '#000'
-          }}>
-           <div className="col l8"> <h5 className="articleTitle">{sortQuery}{' articles from '}
-                {sourceName}</h5>
-          </div>
+            style={{
+              boxShadow: 'none',
+              color: '#000'
+            }}
+          >
+            <div className="col l8"> <h5 className="articleTitle">{sortQuery}{' articles from '}
+                  {sourceName}</h5>
+            </div>
           <div className="col l4">
             <div className="row">
               {this.state.sortByAvailable.map(sortBy => (
