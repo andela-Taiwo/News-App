@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/andela-Taiwo/News-App.svg?branch=feedback)](https://travis-ci.org/andela-Taiwo/News-App)
+[![Build Status](https://travis-ci.org/andela-Taiwo/News-App.svg?branch=test)](https://travis-ci.org/andela-Taiwo/Test-News-App)
 
 [![Coverage Status](https://coveralls.io/repos/github/andela-Taiwo/Test-News-App/badge.svg?branch=feedback)](https://coveralls.io/github/andela-Taiwo/Test-News-App?branch=test)[![Code Climate](https://codeclimate.com/github/andela-Taiwo/Test-News-App/badges/gpa.svg)](https://codeclimate.com/github/andela-Taiwo/Test-News-App) 
 
