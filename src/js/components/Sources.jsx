@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import * as ArticleAction from '../actions/ArticleAction';
 import sourceStore from '../stores/SourceStore';
 import Header from './Header.jsx';
@@ -8,16 +9,17 @@ import Header from './Header.jsx';
 
 export default class Sources extends Component {
 
-  constructor() {
-    super();
-
+  constructor(props) {
+    super(props);
     this.state = {
       sources: [],
-      searchInput: ''
+      searchInput: '',
+      sortByAvailable: [],
+      errorMessage: ''
     };
   }
 /**
- * @memberof Sources notifies the component when the store emit change an event
+ * @memberof Sources
  */
   componentDidMount() {
     ArticleAction.getSources();
@@ -34,8 +36,7 @@ export default class Sources extends Component {
     sourceStore.removeListener('change', this.onChange);
   }
 /**
- * Set the source state to content of the SourceStore when the store emit
- * 'change' event
+/**
  * @memberof Sources
  */
   onChange= () => {
@@ -67,6 +68,12 @@ export default class Sources extends Component {
  * @returns {sources component}
  * @memberof Sources render sources based on search query or the default sources
  */
+    const error1 = sources.filter(
+      (source) => {
+        return (source.id.indexOf(this.state.searchInput.toLocaleLowerCase()) === -1)    
+      }
+    );
+    const message = (error1) ? 'Source not found' : '';
     const filteredContent = sources.filter(
       (source) => {
         return source.id.indexOf(this.state.searchInput
@@ -89,26 +96,29 @@ export default class Sources extends Component {
           {filteredContent.map((source) => {
             return (
               <div key={source.id} className="col s12 m7 card">
-                {source.name}
-                <div className="row sort">
+                <div className="source-name nav">{source.name}</div>
+                <div className="col s12 sort center">
                   {source.sortBysAvailable.map((sortBy) => {
                     return (
-                    <div key={sortBy}>
-
-                      <a className="col s3 center"
-                        href={`#/articles/${source.id}/${sortBy}`}>{sortBy}
-                      </a>
-                    </div>
+                      <Link className="breadcrumb" key={sortBy}
+                        to={{
+                          pathname: `/articles/${source.id}/${sortBy}/${source.sortBysAvailable}`,
+                          sortByAvailable: `${source.sortBysAvailable}`
+                        }} >
+                          {sortBy} News
+                      </Link>
                     );
                   })
                 }
               </div>
             </div>
-
             );
           }
+          
           )}
+          <div>{message}</div>
         </div>
+       
       </div>
       </div>
     );

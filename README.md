@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/andela-Taiwo/News-App.svg?branch=test)](https://travis-ci.org/andela-Taiwo/Test-News-App)
 
-[![Coverage Status](https://coveralls.io/repos/github/andela-Taiwo/Test-News-App/badge.svg?branch=test)](https://coveralls.io/github/andela-Taiwo/Test-News-App?branch=test)[![Code Climate](https://codeclimate.com/github/andela-Taiwo/Test-News-App/badges/gpa.svg)](https://codeclimate.com/github/andela-Taiwo/Test-News-App) 
+[![Coverage Status](https://coveralls.io/repos/github/andela-Taiwo/Test-News-App/badge.svg?branch=feedback)](https://coveralls.io/github/andela-Taiwo/Test-News-App?branch=test)[![Code Climate](https://codeclimate.com/github/andela-Taiwo/Test-News-App/badges/gpa.svg)](https://codeclimate.com/github/andela-Taiwo/Test-News-App) 
 
 # Articles-Hub
 Articles-hub is a web application that enables user to view news from different media houses(e.g. BBC, ABC, Business Insider, CNN, Buzzfeed, Ars Technica, and many more). Articles-Hub makes sure you are up to date on all things news, with a simple and intuitive user interface.
@@ -12,16 +12,12 @@ This is an app that provide news headlines for user
 - Search for a particular source.
 - Links to news on the source's site.
 
-# Prerequisites
-- Node JS and npm(Node Package Manager)
-- Knowledge of Javascript
 
-# Getting Started
+# Installation Guide
+- Install Node JS and npm(Node Package Manager) [here](https://nodejs.org/en/) and install it.
 - Clone this repository with "git clone https://github.com/andela-Taiwo/News-App.git"
 - run npm install to install the dependencies.
-- If you don't have NodeJS already installed go [here](https://nodejs.org/en/) and install it.
 - Navigate into the cloned project directory.
-- Install all project dependencies by running "npm install.
 - Type npm start
 - Click [here](http://localhost:3000) to launch the app locally
 - Login with your google account

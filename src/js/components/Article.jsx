@@ -4,6 +4,16 @@ import * as ArticleAction from '../actions/ArticleAction';
 import articleStore from '../stores//ArticleStore';
 import Header from './Header.jsx';
 
+/**
+ * @param {any} available
+ * @returns {any} sortArray
+ */
+function getSortsAvailable(available) {
+  const sorts = available.split('/');
+  const sorting = sorts.pop();
+  const sortArray = sorting.split(',');
+  return (sortArray);
+ }
 
 export default class Articles extends React.Component {
   constructor(props) {
@@ -11,12 +21,14 @@ export default class Articles extends React.Component {
     this.state = {
       src_id: (props.match.params.article),
       sortQuery: (props.match.params.sortBy),
+      sortByAvailable: getSortsAvailable(props.location.pathname),
       articles: [],
     };
   }
 /*
  * @memberof Articles
- * listen for change in article store
+ * @return {none}
+ * @params{none}
  */
   componentDidMount() {
     ArticleAction.getArticles(this.state.src_id, this.state.sortQuery);
@@ -32,6 +44,18 @@ export default class Articles extends React.Component {
     articleStore.removeListener('change', this.updateArticles);
   }
 
+  /**
+   *  @params{none}
+   * @memberof Articles
+   */
+  handleChange= (event) => {
+    const value = event.target.value;
+    ArticleAction.getArticles(this.state.src_id, value);
+    this.setState({ articles: this.state.articles,
+      sortQuery: event.target.value,
+      value
+    });
+  }
 /*
  * @memberof Articles
  */
@@ -40,25 +64,54 @@ export default class Articles extends React.Component {
       articles: articleStore.getArticles(),
     });
   }
+
   /*
    * @returns {article component}
    * @memberof Articles
-   * @returns {}
+   * @returns {anay}
    */
   render() {
     const sortQuery = (this.state.sortQuery);
     const sourceName = (this.state.src_id);
+    const articles = this.state.articles;
     return (
       <div>
         <Header />
-        <div >
-          <br/><h5 className="articleTitle">{sortQuery}{' articles from '}
-          {sourceName}</h5>
-          <br /> <br />
-
+        <div className="article">
+          <nav className="row"
+            style={{
+              boxShadow: 'none',
+              color: '#000'
+            }}
+          >
+            <div className="col l8"> <h5 className="articleTitle">{sortQuery}{' articles from '}
+                  {sourceName}</h5>
+            </div>
+          <div className="col l4">
+            <div className="row">
+              {this.state.sortByAvailable.map(sortBy => (
+              <ul className="right" key={sortBy}>
+                <li>
+                  <button
+                  className="sortBy btn waves-effect waves-light"
+                  style ={{
+                    color: '',
+                    borderColor: 'purple',
+                    backgroundColor: '#6D29C5',
+                    fontSize: '12px'
+                  }}
+                  onClick={this.handleChange}
+                  value={sortBy}>View {sortBy} News
+                  </button>
+                </li>
+              </ul>
+              ))}
+            </div>
+          </div>
+           </nav>
           <div className="article-row">
             <div className=" row">
-              {this.state.articles.map(item => (
+              {articles.map(item => (
               <div className=" mainBg col m3" key={item.title}>
                 <div className="card medium grey lighten-5">
                   <div className="card-image">
@@ -70,7 +123,8 @@ export default class Articles extends React.Component {
                     <span className="card-title">{item.title}</span>
                   </div>
                   <div className="card-action">
-                    <a href={item.url} className="btn btn-small" target={'#'}>
+                    <a href={item.url}
+                  className="btn waves-effect waves-light purple" target={'#'}>
                       {'Read...'}</a>
                   </div>
                 </div>
@@ -89,7 +143,7 @@ Articles.PropTypes = {
   match: {
     params: {
       sortQuery: PropTypes.string,
-      articles: PropTypes.array,
+      articles: PropTypes.arrayOf(PropTypes.object),
       src_id: PropTypes.string,
     }
   }
@@ -100,6 +154,25 @@ Articles.defaultProps = {
     params: {
       sortQuery: 'top',
       src_id: 'cnn',
+      articles: [
+        {
+          author: 'TNW Deals',
+          title: `Be a digital entrepreneur – and do it the right way 
+                       for only $39`,
+          description: ` Opening and running a traditional brick-and-mortar 
+                          storefront works off knowledge built through 
+                          literally centuries of business successes and
+                           failures. But if you’re trying to make ...`,
+          url: `https://thenextweb.com/offers
+                /2017/07/01/digital-entrepreneur-right-way-39/`,
+          urlToImage: `https://cdn3.tnwcdn.com/wp-content/blogs.dir/1/files/
+                      2017/07/mfOopaP.jpg`,
+          publishedAt: '2017-07-01T17:33:42Z'
+        },
+      ]
     },
   },
+  location: {
+    pathname: '/articles/ars-technica/latest/top,latest'
+  }
 };

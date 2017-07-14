@@ -6,34 +6,34 @@ export default {
       axios.get(url)
       .then((res) => {
         resolve((res.data.sources));
+      })
+      .catch((error) => {
+        if (error) reject(error);
       });
-      // .catch((error) => {
-      //   if (error) reject(error);
-      // });
     });
   },
 
- getArticles(url) {
+  getArticles(url) {
     return new Promise((resolve, reject) => {
       axios.get(url)
       .then((res) => {
         resolve(res.data.articles);
       })
-      // .catch((error) => {
-      //   reject(error.response);
-      // });
+      .catch((error) => {
+        reject(error.response);
+      });
     });
   },
 
-   setSources(url) {
+  setSources(url) {
     return new Promise((resolve, reject) => {
       axios.get(url)
       .then((res) => {
         resolve(res.data.articles);
       })
-      // .catch((error) => {
-      //   reject(error.response);
-      // });
+      .catch((error) => {
+        reject(error.response);
+      });
     });
   },
 };

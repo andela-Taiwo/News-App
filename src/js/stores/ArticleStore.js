@@ -1,49 +1,40 @@
-import { EventEmitter } from 'events';
-import Dispatcher from '../dispatch/Dispatcher';
 
-const CHANGE_EVENT = 'change';
+import BaseStore from './BaseStore';
 
-/**
- * initialize the articles to an  empty array
- */
-class ArticleStore extends EventEmitter {
+class ArticleStore extends BaseStore {
   constructor() {
     super();
     this.articles = [];
+    this.subscribe(() => this.handler.bind(this));
   }
-/**
- * @returns{array} Get the articles for the calling components
- * @memberof ArticleStore
- */
+  /**
+  * Register callback to handle all updates
+  *
+  * @param  {Object} action
+   */
+  handler(action) {
+    if (action.actionType === 'GET_ARTICLES') {
+      this.articles = action.articles;
+      this.emitChange();
+    }
+  }
+  /**
+   * @returns{array} Get the articles for the calling components
+   * @memberof ArticleStore
+   */
   getArticles() {
     return this.articles;
   }
-   /**
-    * Reset the articles array to null
-    */
+
+ /**
+  * @returns {null}
+  * @memberof ArticleStore
+  */
   setArticles() {
     return null;
   }
 
-/**
- * @param {*} action GET_ARTICLES
- * listening to the dispather to get action look GET_ARTICLES action types */
-
-  handleActions(action) {
-    if (action.actionType === 'GET_ARTICLES') {
-      this.articles = action.articles;
-
-
-      /**
-       *  We need to call emit('change') so that articles component
-/        knows that a change has been made
-       */
-      this.emit(CHANGE_EVENT);
-    }
-  }
-
 }
 const articleStore = new ArticleStore();
-Dispatcher.register(articleStore.handleActions.bind(articleStore));
 
 export default articleStore;

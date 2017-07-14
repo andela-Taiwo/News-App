@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header (Snapshot) Header render Logout 1`] = `
+<nav>
+  <div
+    className=""
+  >
+    <div
+      className="navBar"
+    >
+      <div
+        className=""
+      >
+        <a
+          className="brand-logo center"
+          href=""
+          to="/"
+        >
+          Articles Hub
+        </a>
+      </div>
+      <ul
+        className="left"
+        id="nav-mobile"
+      >
+        <li>
+          <a
+            href="#/sources"
+            onClick={[Function]}
+          >
+            Sources
+          </a>
+        </li>
+        <li>
+           
+          Taiwo Memunat
+        </li>
+      </ul>
+      <ul
+        className="right"
+        id="nav-mobile"
+      >
+        <li>
+          <a
+            href="#/"
+            onClick={[Function]}
+          >
+            Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`Header (Snapshot) Header renders Articles Hub 1`] = `
+<nav>
+  <div
+    className=""
+  >
+    <div
+      className="navBar"
+    >
+      <div
+        className=""
+      >
+        <a
+          className="brand-logo center"
+          href=""
+          to="/"
+        >
+          Articles Hub
+        </a>
+      </div>
+      <ul
+        className="left"
+        id="nav-mobile"
+      >
+        <li>
+          <a
+            href="#/sources"
+            onClick={[Function]}
+          >
+            Sources
+          </a>
+        </li>
+        <li>
+           
+          Taiwo Memunat
+        </li>
+      </ul>
+      <ul
+        className="right"
+        id="nav-mobile"
+      >
+        <li>
+          <a
+            href="#/"
+            onClick={[Function]}
+          >
+            Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+`;

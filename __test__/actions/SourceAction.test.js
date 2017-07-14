@@ -4,31 +4,6 @@ import sinon from 'sinon';
 import * as ArticleAction from '../../src/js/actions/ArticleAction';
 import sources from '../mockData/sourceData.json';
 
-const news = {
-  searchInput: '',
-  sources: [
-    {
-      id: 'abc-news-au',
-      name: 'ABC News (AU)',
-      description: `Australias most trusted source of local, national and 
-                world news. Comprehensive, independent, in-depth analysis, the 
-                  latest business, sport, weather and more.`,
-      url: 'http://www.abc.net.au/news',
-      category: 'general',
-      language: 'en',
-      country: 'au',
-      urlsToLogos: {
-        small: '',
-        medium: '',
-        large: ''
-      },
-      sortBysAvailable: [
-        'top'
-      ]
-    }
-  ]
-
-};
 describe('Function \'getSources\'', () => {
   let requestMock;
   beforeEach(() => {
