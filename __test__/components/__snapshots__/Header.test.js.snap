@@ -31,15 +31,15 @@ exports[`Header (Snapshot) Header render Logout 1`] = `
             Sources
           </a>
         </li>
-        <li>
-           
-          Taiwo Memunat
-        </li>
       </ul>
       <ul
         className="right"
         id="nav-mobile"
       >
+        <li>
+           
+          Taiwo Memunat
+        </li>
         <li>
           <a
             href="#/"
@@ -85,15 +85,15 @@ exports[`Header (Snapshot) Header renders Articles Hub 1`] = `
             Sources
           </a>
         </li>
-        <li>
-           
-          Taiwo Memunat
-        </li>
       </ul>
       <ul
         className="right"
         id="nav-mobile"
       >
+        <li>
+           
+          Taiwo Memunat
+        </li>
         <li>
           <a
             href="#/"

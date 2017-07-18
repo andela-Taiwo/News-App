@@ -20,10 +20,13 @@ class Header extends React.Component {
     });
     location.reload();
   }
-/**
- * @returns {<Header />} A header that provides UI for the Header
- * @memberof Header  renders UI  for the Header component
- */
+  /**
+   *
+   *
+   * @returns Header  renders UI  for the Header component
+   * @memberof Header  Header  renders UI  for the Header component
+   */
+
   render() {
     const user = JSON.parse(localStorage.getItem('userProfile'));
     return (
@@ -37,9 +40,9 @@ class Header extends React.Component {
                     </div>
                     <ul id="nav-mobile" className="left">
                       <li><Link to="/sources" >Sources</Link></li>
-                      <li> {user.name}</li>
                     </ul>
                     <ul id="nav-mobile" className="right">
+                      <li> {user.name}</li>
                       <li ><Link to="/" onClick={this.logout}>Logout</Link></li>
                     </ul>
                   </div>

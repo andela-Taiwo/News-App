@@ -1,6 +1,9 @@
+import React from 'react';
+import { shallow } from 'enzyme';
 import ArticleStore from '../../src/js/stores/ArticleStore';
 import dispatcher from '../../src/js/dispatch/Dispatcher';
 // import * as ArticleAction from '../../src/js/actions/ArticleAction';
+
 
 jest.mock('../../src/js/dispatch/Dispatcher');
 jest.dontMock('../../src/js/stores/ArticleStore');
@@ -8,7 +11,6 @@ jest.dontMock('../../src/js/stores/ArticleStore');
 describe('ArticleAction', () => {
   let dispatchMock;
   let articles;
-  let sources;
 
   beforeEach(() => {
     dispatchMock = dispatcher.register.mock.calls[0][0];
@@ -25,10 +27,6 @@ describe('ArticleAction', () => {
                       2017/06/TNW_Mikko.jpg`,
         publishedAt: '2017-06-16T16:32:54Z' }
     ];
-    sources = [
-      { id: 'bbc-news', name: 'BBC News' },
-      { id: 'abc-news', name: 'ABC News' }
-    ];
   });
   afterEach(() => {
     ArticleStore.handler({ actionType: 'GET_ARTICLES', artcles: [] });
@@ -39,12 +37,12 @@ describe('ArticleAction', () => {
       expect(ArticleStore.getArticles()).toEqual([]);
     });
 
-    it('List articles out', () => {
+    it('returns an array of arcticles when action is dispatchedsssss', () => {
       dispatchMock({ actionType: 'GET_ARTICLES', articles });
       expect(ArticleStore.getArticles()).toEqual(articles);
     });
 
-    it('set article to null when setArticle is called', () => {
+    it('set articles to null when #setArticle is called', () => {
       ArticleStore.setArticles();
       expect(ArticleStore.setArticles()).toEqual(null);
     });

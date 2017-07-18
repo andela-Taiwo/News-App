@@ -6,7 +6,7 @@ const CHANGE_EVENT = 'change';
 export default class BaseStore extends EventEmitter {
   constructor() {
     super();
-    this.state = { data: [] };
+    this.state = { resources: [] };
   }
   subscribe(actionSubscribe) {
     this.dispatchToken = Dispatcher.register(actionSubscribe());

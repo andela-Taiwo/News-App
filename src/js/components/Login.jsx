@@ -14,7 +14,17 @@ export default class Login extends React.Component {
     localStorage.setItem('userProfile', JSON.stringify(userInfo));
     location.reload();
   }
-
+  /**
+   *
+   * renders the UI for the Login component
+   * @returns {Login components}
+   * @memberof Login
+   */
+/*
+ *  renders the UI for the Login component
+ * @returns {Login components}
+ * @memberof Login
+ */
   render() {
     return (
       <div className="mainBG">
@@ -39,7 +49,7 @@ export default class Login extends React.Component {
                   </a>
 
               </div>
-              <div className="col s1 l1"> </div>
+              <div className="col s1 l1"><span/> </div>
           </div>
         <div className="col s3 l3" />
 
@@ -62,4 +72,3 @@ Login.defaultProps = {
     idToken: 'dfjf1j3b1j4b4b4b4j44'
   }
 };
-

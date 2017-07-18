@@ -23,10 +23,11 @@ export default class Search extends React.Component {
   onSearch = () => {
     this.setState({ searchInput: event.target.value });
   }
-/*
-*
- * @returns{<Search/>}
- * @memberof Search that render the UI for the Search component
+/**
+ * 
+ * 
+ * @returns {search component}
+ * @memberof Search
  */
   render() {
     return (

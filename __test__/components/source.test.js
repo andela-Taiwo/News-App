@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { assert } from 'chai';
 import { spy } from 'sinon';
+import TestUtils from 'react-dom/test-utils';
 import Sources from '../../src/js/components/Sources.jsx';
 import sources from './../mockData/sourceData.json';
 import localStorageMock from './../__mocks__/LocalStorageMock';
@@ -21,6 +22,10 @@ describe('Source', () => {
       email: 'sokunbitaiwo82@gmail.com'
     }));
   });
+
+  const event = {
+    target: { value: 'click this one' },
+};
 
   describe('<Sources />', () => {
     it('should show the <Header /> component be default', () => {
@@ -51,6 +56,11 @@ describe('Source', () => {
     expect(Sources.prototype.componentDidMount).toHaveBeenCalledTimes(1);
   });
 
+  it('should check that #updateSearch method is getting called',
+    () => {
+      let view = TestUtils.renderIntoDocument(<Sources />);
+      let result = view.updateSearch(event);
+    });
   it('should check that the render method is getting called', () => {
     const wrapper = shallow(<Sources />); wrapper.instance().render();
   });

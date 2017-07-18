@@ -44,36 +44,30 @@ export default class Sources extends Component {
       sources: sourceStore.getSources()
     });
   }
-  /*
-  *
-   * set the sources based on user search input
+
+  /**
+   *
+   * @parameter event
+   * @memberof Sources
    */
+
   updateSearch = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     this.setState({ searchInput: event.target.value.substr(0, 20) });
   }
   onSearch = (event) => {
     this.setState({ searchInput: event.target.value });
   }
-
-/*
-*
- * @returns {sources component}
- * @memberof Sources  renders the UI for the sources component
+/**
+ *
+ *
+ * @returns {Sources component}
+ * @memberof Sources
  */
+
   render() {
     const { sources } = this.state;
-/*
-*
- * @returns {sources component}
- * @memberof Sources render sources based on search query or the default sources
- */
-    const error1 = sources.filter(
-      (source) => {
-        return (source.id.indexOf(this.state.searchInput.toLocaleLowerCase()) === -1)    
-      }
-    );
-    const message = (error1) ? 'Source not found' : '';
+    const message = 'Source not found';
     const filteredContent = sources.filter(
       (source) => {
         return source.id.indexOf(this.state.searchInput
@@ -85,7 +79,7 @@ export default class Sources extends Component {
       <Header />
       <div className="container">
         <div className="row">
-          <h4 className="sourceTitle"> News Sources Available </h4>
+          <h4 className="sourceTitle"> Available News Sources</h4>
           <form className="searchBox">
             <input
               type="text"
@@ -93,8 +87,9 @@ export default class Sources extends Component {
               onChange= {this.updateSearch}
               placeholder="Search for a source" />
             </form>
-          {filteredContent.map((source) => {
-            return (
+          { (filteredContent.length === 0) ?
+           message : filteredContent.map((source) => {
+             return (
               <div key={source.id} className="col s12 m7 card">
                 <div className="source-name nav">{source.name}</div>
                 <div className="col s12 sort center">
@@ -102,8 +97,7 @@ export default class Sources extends Component {
                     return (
                       <Link className="breadcrumb" key={sortBy}
                         to={{
-                          pathname: `/articles/${source.id}/${sortBy}/${source.sortBysAvailable}`,
-                          sortByAvailable: `${source.sortBysAvailable}`
+                          pathname: `/articles/${source.id}/${sortBy}`,
                         }} >
                           {sortBy} News
                       </Link>
@@ -112,13 +106,10 @@ export default class Sources extends Component {
                 }
               </div>
             </div>
-            );
-          }
-          
+             );
+           }
           )}
-          <div>{message}</div>
         </div>
-       
       </div>
       </div>
     );
@@ -129,28 +120,5 @@ Sources.PropTypes = {
   searchInput: PropTypes.string,
   sources: PropTypes.arrayOf(PropTypes.object),
 
-};
-
-Sources.defaultProps = {
-  searchInput: 'bbc-news',
-  sources: [
-    {
-      id: 'abc-news-au',
-      name: 'ABC News (AU)',
-      description: 'Australia\'s most trusted source of local, national',
-      url: 'http://www.abc.net.au/news',
-      category: 'general',
-      language: 'en',
-      country: 'au',
-      urlsToLogos: {
-        small: '',
-        medium: '',
-        large: ''
-      },
-      sortBysAvailable: [
-        'top'
-      ],
-    }
-  ],
 };
 

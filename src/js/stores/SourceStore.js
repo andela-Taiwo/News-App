@@ -6,11 +6,11 @@ class SourceStoreClass extends BaseStore {
     this.sources = [];
     this.subscribe(() => this.handler.bind(this));
   }
-    /**
-     * Register callback to handle all updates
-     *
-     * @param  {Object} action
-     */
+
+/**
+ * Register callback to handle all updates
+ * @param  {Object} action
+ */
   handler(action) {
     if (action.actionType === 'GET_SOURCES') {
       this.sources = action.sources;
@@ -24,10 +24,10 @@ class SourceStoreClass extends BaseStore {
   getSources() {
     return this.sources;
   }
-
-    /**
-    * Reset the sources array to null
-    */
+/**
+ * @returns {null}
+ * @memberof SourceStoreClass
+ */
   setSources() {
     return null;
   }

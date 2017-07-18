@@ -1,17 +1,11 @@
 import React from 'react';
 import { shallow, render } from 'enzyme';
+import TestUtils from 'react-dom/test-utils';
 import Login from '../../src/js/components/Login.jsx';
 import localStorageMock from './../__mocks__/LocalStorageMock';
 
 
 window.localStorage = localStorageMock;
-const response = {
-  getBasicProfile: {
-    givenName: 'Taiow',
-    email: 'raha@gmail.com',
-    idToken: '123i4i4j44jj4'
-  }
-};
 describe('Login', () => {
   beforeEach(() => {
     window.localStorage.setItem('userProfile', JSON.stringify({
@@ -19,6 +13,19 @@ describe('Login', () => {
       email: 'ME',
       idToken: '12313104144949444'
     }));
+
+    Login.defaultProps = {
+      userInfo: {
+        name: 'Taiwo',
+        email: 'taiwo@gmail.com',
+        idToken: 'dfjf1j3b1j4b4b4b4j44'
+      },
+      getBasicProfile: {
+        name: 'Taiwo',
+        email: 'taiwo@gmail.com',
+        idToken: 'dfjf1j3b1j4b4b4b4j44'
+      }
+    };
   });
 
   it('renders without crashing', () => {
@@ -34,7 +41,7 @@ describe('Login', () => {
     expect(wrapper.find('h2').length).toEqual(1);
   });
 
-  it('Found h2', () => {
+  it('Found h2 text ', () => {
     const wrapper = shallow(<Login />);
     expect(wrapper.find('h2').text()).toEqual('Articles Hub');
   });
@@ -45,11 +52,10 @@ describe('Login', () => {
   });
   it('Found span', () => {
     const wrapper = shallow(<Login />);
-    expect(wrapper.find('span').length).toEqual(1);
+    expect(wrapper.find('span').length).toEqual(2);
   });
 
-  it('should check that the responseGoogle method is getting called', () => {
+  it('should check that the render method is getting called', () => {
     const wrapper = shallow(<Login />); wrapper.instance().render();
   });
-
 });

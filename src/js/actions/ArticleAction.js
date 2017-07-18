@@ -2,8 +2,8 @@ import Dispatcher from '../dispatch/Dispatcher';
 import NewsAPI from '../utils/NewsAPI';
 
 /**
- *  passing an sources returned from API call to the dispatcher
- *  
+ * @export {sources}
+ * @returns {array}
  */
 export function getSources() {
   const url = 'https://newsapi.org/v1/sources?language=en';
@@ -16,9 +16,14 @@ export function getSources() {
     });
 }
 
-export function getArticles(srcId, sortQuery) {
-  const url = 'https://newsapi.org/v1/articles?source=' + srcId +
-  '&sortBy=' + sortQuery + '&apiKey=' + process.env.API_KEY;
+/**
+ * @export
+ * @param {any} sourceId
+ * @param {any} sortQuery
+ * @returns {array}
+ */
+export function getArticles(sourceId, sortQuery) {
+  const url = `https://newsapi.org/v1/articles?source=${sourceId}&sortBy=${sortQuery}&apiKey=${process.env.API_KEY}`;
   return NewsAPI.getArticles(url)
     .then((articles) => {
       Dispatcher.dispatch({
@@ -28,6 +33,10 @@ export function getArticles(srcId, sortQuery) {
     });
 }
 
+/**
+ * @export {aricles}
+ * @returns {null}
+ */
 export function setSources() {
   const url = 'https://newsapi.org/v1/sources?language=en';
   return NewsAPI.setSources(url)
