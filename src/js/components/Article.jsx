@@ -17,7 +17,6 @@ function getArray(sources, sourceName) {
       sortByAvailable = source.sortBysAvailable;
       return sortByAvailable;
     }
-    return [];
   }));
   const sorts = sortByArray.filter(e => typeof (e) !== 'undefined');
   return sorts[0];
