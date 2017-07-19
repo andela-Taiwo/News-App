@@ -5,17 +5,21 @@ import { Link } from 'react-router-dom';
  * @export
  * @returns {any}
  */
-export default function NotFound() {
+const NotFound = () => {
   return (
     <div className="container">
       <div className="row not-found">
-        <div className= "col s6 offset-s4">
+        <div className= "col s8 offset-s2 error_icon">
+          <a href="" className="material-icons error_icon">error_outline</a>
+      </div>
+      </div>
+      <div className="row not-found">
+        <div className= "col s8 offset-s2">
           <h2 className="found">PAGE NOT FOUND!</h2>
-          <div className=" col s7 offset">
-            <h4>404 Error</h4>
-            <p>
+          <div className=" col s8 offset-s2">
+            <h5>
               <Link to="/#!">Go back to the news Login Page</Link>
-            </p>
+            </h5>
           </div>
 
         </div>
@@ -23,5 +27,6 @@ export default function NotFound() {
     </div>
 
   );
-}
+};
 
+export default NotFound;

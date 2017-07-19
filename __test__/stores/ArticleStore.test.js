@@ -1,9 +1,5 @@
-import React from 'react';
-import { shallow } from 'enzyme';
 import ArticleStore from '../../src/js/stores/ArticleStore';
 import dispatcher from '../../src/js/dispatch/Dispatcher';
-// import * as ArticleAction from '../../src/js/actions/ArticleAction';
-
 
 jest.mock('../../src/js/dispatch/Dispatcher');
 jest.dontMock('../../src/js/stores/ArticleStore');

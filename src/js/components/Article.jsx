@@ -95,7 +95,7 @@ export default class Articles extends React.Component {
     const sortByAvailable = this.state.sortByAvailable;
     return (
       <div>
-        <Header />
+        <Header name={this.props.name}/>
         <div className="article">
           <nav className="row"
             style={{

@@ -52,7 +52,6 @@ export default class Sources extends Component {
    */
 
   updateSearch = (event) => {
-    // event.preventDefault();
     this.setState({ searchInput: event.target.value.substr(0, 20) });
   }
   onSearch = (event) => {
@@ -74,9 +73,10 @@ export default class Sources extends Component {
         .toLocaleLowerCase()) !== -1;
       }
     );
+
     return (
       <div>
-      <Header />
+      <Header name={this.props.name} />
       <div className="container">
         <div className="row">
           <h4 className="sourceTitle"> Available News Sources</h4>
@@ -98,6 +98,7 @@ export default class Sources extends Component {
                       <Link className="breadcrumb" key={sortBy}
                         to={{
                           pathname: `/articles/${source.id}/${sortBy}`,
+                          sortBysAvailable: `${source.sortBysAvailable}`,
                         }} >
                           {sortBy} News
                       </Link>

@@ -4,7 +4,7 @@ import sinon from 'sinon';
 import * as ArticleAction from '../../src/js/actions/ArticleAction';
 import articles from '../mockData/articleData.json';
 
-describe('Function \'get articles\'', () => {
+describe('Article Action', () => {
   let requestMock;
   beforeEach(() => {
     requestMock = sinon.stub(axios, 'get').callsFake(() => (
@@ -20,7 +20,7 @@ describe('Function \'get articles\'', () => {
     axios.get.restore();
   });
 
-  it('call recieve articles', () => (
+  it('#getArticles', () => (
       ArticleAction.getArticles().then(() => {
         expect(requestMock.calledOnce).toBeTruthy();
       })

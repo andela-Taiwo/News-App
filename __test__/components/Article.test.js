@@ -41,7 +41,7 @@ Articles.defaultProps = {
 };
 
 
-describe('Article', () => {
+describe('Articles', () => {
   beforeEach(() => {
     window.localStorage.setItem('userProfile', JSON.stringify({
       name: 'Taiwo Memunat',
@@ -52,9 +52,8 @@ describe('Article', () => {
   const event = {
     target: 'click',
   };
-  
   describe('<Articles />', () => {
-    it('should show the <Header /> component be default', () => {
+    it('should show the <Header /> component', () => {
       const wrapper = shallow(< Articles />);
       const article = wrapper.first('div');
       const header = wrapper.find('Header');
