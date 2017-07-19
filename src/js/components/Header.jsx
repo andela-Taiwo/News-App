@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, HashRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Authentication from '../../helpers/Auth';
+
 
 class Header extends React.Component {
   constructor(props) {
@@ -69,8 +71,8 @@ class Header extends React.Component {
                           fontSize: '16px',
                           marginLeft: '3px',
                           padding: '3px 5px',
-                          edge: 'right', // Choose the horizontal origin
-                          closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+                          edge: 'right',
+                          closeOnClick: true,
                           draggable: true,
                         }}
                         >
@@ -81,7 +83,8 @@ class Header extends React.Component {
                           marginLeft: '3px',
                           padding: '3px 5px',
                         }}
-                      ><i className="material-icons">person_pi</i>{this.props.name}</li>
+                      ><i className="material-icons">person_pi
+                          </i>{this.props.name}</li>
                       <li ><Link to="/" onClick={this.logout}>Logout</Link></li>
                       <li><Link to="/sources" >Sources</Link></li>
 
@@ -95,3 +98,7 @@ class Header extends React.Component {
 }
 
 export default Header;
+
+Header.PropTypes = {
+  name: PropTypes.string,
+};

@@ -8,7 +8,7 @@ import '../Style/style.sass';
 
 const app = document.getElementById('app');
 ReactDOM.render((
-    <HashRouter>
+  <HashRouter>
     <Layout />
   </HashRouter>
   ), app);

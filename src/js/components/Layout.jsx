@@ -1,54 +1,18 @@
 
 import React from 'react';
-import { HashRouter as Router, Route, Switch, Redirect } from
+import { HashRouter as Router, Route, Switch } from
    'react-router-dom';
 import { createBrowserHistory } from 'history';
-import PropTypes from 'prop-types';
 import Login from './Login.jsx';
 import Article from './Article.jsx';
 import Footer from './Footer.jsx';
 import Sources from './Sources.jsx';
 import NotFound from './NotFound.jsx';
 import fireAuthentication from '../../config/firebase-config';
+import PublicRoute from '../routes/PublicRoute';
+import PrivateRoute from '../routes/PrivateRoute';
 
 const history = createBrowserHistory();
-
-/**
- * @param { component}: Component, authed, ...rest}
- * @param  { authed}
- * @param { ...rest}
- * @returns {route}
- */
-function PrivateRoute({ component: Component, authed, ...rest }) {
-  return (
-    <Route
-      {...rest}
-      render={props => authed.authed === true
-      ? <Component {...props} name = {authed.user} />
-      : <Redirect to= {{ pathname: '/', state: { from: props.location } }} />}
-    />
-  );
-}
-PrivateRoute.PropTypes = {
-  component: PropTypes.any.isRequired,
-  authed: PropTypes.bool.isRequired,
-};
-
-function PublicRoute({ component: Component, authed, ...rest }) {
-  return (
-  <Route
-    {...rest}
-    render = { props => authed.authed === false
-    ? <Component {...props} name = {authed.user}/>
-    : <Redirect to="/sources" />}
-  />
-  );
-}
-
-PublicRoute.PropTypes = {
-  component: PropTypes.any.isRequired,
-  authed: PropTypes.bool.isRequired,
-};
 
 class Layout extends React.Component {
   constructor() {
@@ -86,7 +50,7 @@ class Layout extends React.Component {
   /**
    *
    * Provides route to the UI
-   * @returns {routes}
+   * @returns {string} any
    * @memberof Layout
    */
   // history={new BrowserHistory}

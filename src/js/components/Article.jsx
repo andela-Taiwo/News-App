@@ -8,7 +8,7 @@ import Header from './Header.jsx';
 /**
  * @param {any} sources
  * @param {any} sourceName
- * @returns {array}
+ * @returns {array} sorts
  */
 function getArray(sources, sourceName) {
   let sortByAvailable = [];
@@ -17,6 +17,7 @@ function getArray(sources, sourceName) {
       sortByAvailable = source.sortBysAvailable;
       return sortByAvailable;
     }
+    return [];
   }));
   const sorts = sortByArray.filter(e => typeof (e) !== 'undefined');
   return sorts[0];
@@ -55,11 +56,12 @@ export default class Articles extends React.Component {
   componentWillUnmount() {
     articleStore.removeListener('change', this.updateArticles);
   }
-  /**
-   *
-   * @parameter {event}
-   * @memberof Articles
-   */
+/**
+ *
+ * @param {string} event
+ * @memberof Articles
+ * @return {void}
+ */
   handleChange= (event) => {
     const value = event.target.value;
     ArticleAction.getArticles(this.state.sourceId, value);
@@ -85,7 +87,7 @@ export default class Articles extends React.Component {
    */
 /**
  * @memberof Articles
- * @returns {article component}
+ * @returns {string} Articles
  * @memberof Articles
  */
   render() {
@@ -175,6 +177,7 @@ Articles.PropTypes = {
   location: {
     sortByAvailable: PropTypes.arrayOf(PropTypes.object),
     search: PropTypes.string,
-  }
+  },
+  name: PropTypes.string
 };
 

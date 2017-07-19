@@ -120,6 +120,7 @@ export default class Sources extends Component {
 Sources.PropTypes = {
   searchInput: PropTypes.string,
   sources: PropTypes.arrayOf(PropTypes.object),
+  name: PropTypes.String,
 
 };
 
