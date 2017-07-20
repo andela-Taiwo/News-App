@@ -20,7 +20,9 @@ export default {
         resolve(res.data.articles);
       })
       .catch((error) => {
-        reject(error.response);
+        if (error) {
+          reject(error.response);
+        }
       });
     });
   },

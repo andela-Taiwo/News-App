@@ -1,9 +1,5 @@
-import React from 'react';
-import { shallow } from 'enzyme';
 import ArticleStore from '../../src/js/stores/ArticleStore';
 import dispatcher from '../../src/js/dispatch/Dispatcher';
-// import * as ArticleAction from '../../src/js/actions/ArticleAction';
-
 
 jest.mock('../../src/js/dispatch/Dispatcher');
 jest.dontMock('../../src/js/stores/ArticleStore');
@@ -37,7 +33,7 @@ describe('ArticleAction', () => {
       expect(ArticleStore.getArticles()).toEqual([]);
     });
 
-    it('returns an array of arcticles when action is dispatchedsssss', () => {
+    it('returns an array of arcticles when action is dispatched', () => {
       dispatchMock({ actionType: 'GET_ARTICLES', articles });
       expect(ArticleStore.getArticles()).toEqual(articles);
     });

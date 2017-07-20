@@ -6,7 +6,7 @@ import sources from '../mockData/sourceData.json';
 import Dispatcher from '../../src/js/dispatch/Dispatcher';
 import SourceStore from '../../src/js/stores/SourceStore';
 
-describe('Function \'getSources\'', () => {
+describe('Source Action', () => {
   let requestMock;
   beforeEach(() => {
     requestMock = sinon.stub(axios, 'get').callsFake(() => (
@@ -22,20 +22,20 @@ describe('Function \'getSources\'', () => {
     axios.get.restore();
   });
 
-  it('call recieve sources', () => (
+  it('#getSources', () => (
       ArticleAction.getSources().then(() => {
         expect(requestMock.calledOnce).toBeTruthy();
       })
     ));
 
-  it('call remove sources', () => (
+  it('#setSources', () => (
       ArticleAction.setSources().then(() => {
         expect(requestMock.calledOnce).toBeTruthy();
       })
     ));
-  it('tests error with async/await', async () => {
+  it('Should check error', async () => {
     try {
-      await ArticleAction.getSources(); //If this resolves then the test will pass
+      await ArticleAction.getSources();
     } catch (object) {
       expect(object.error).toEqual('sources array to  not be found.');
     }

@@ -23,12 +23,20 @@ export function getSources() {
  * @returns {array}
  */
 export function getArticles(sourceId, sortQuery) {
-  const url = `https://newsapi.org/v1/articles?source=${sourceId}&sortBy=${sortQuery}&apiKey=${process.env.API_KEY}`;
+  const articleUrl = `https://newsapi.org/v1/articles?source=${sourceId}`;
+  const queryParams = `&sortBy=${sortQuery}&apiKey=${process.env.API_KEY}`;
+  const url = `${articleUrl}${queryParams}`;
   return NewsAPI.getArticles(url)
     .then((articles) => {
       Dispatcher.dispatch({
         actionType: 'GET_ARTICLES',
         articles
+      });
+    })
+    .catch((err) => {
+      Dispatcher.dispatch({
+        actionType: 'GET_ARTICLES_ERROR',
+        message: err,
       });
     });
 }
@@ -45,5 +53,18 @@ export function setSources() {
         actionType: 'REMOVE_SOURCES',
         sources: null
       });
+    })
+    .catch((err) => {
+      Dispatcher.dispatch({
+        actionType: 'GET_SOURCES_ERROR',
+        message: err,
+      });
     });
 }
+
+export const getError = (message) => {
+  Dispatcher.dispatch({
+    actionType: 'GET_ARTICLES_ERROR',
+    message,
+  });
+};

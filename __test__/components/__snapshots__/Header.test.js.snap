@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header (Snapshot) Header render Logout 1`] = `
+exports[`Navigation Links  Should display Articles Hub 1`] = `
 <nav>
   <div
     className=""
@@ -13,14 +13,25 @@ exports[`Header (Snapshot) Header render Logout 1`] = `
       >
         <a
           className="brand-logo center"
-          href=""
-          to="/"
+          href="#/"
+          onClick={[Function]}
         >
           Articles Hub
         </a>
       </div>
+      <a
+        className="button-collapse"
+        data-activates="mobile-demo"
+        href="#"
+      >
+        <i
+          className="material-icons"
+        >
+          toc
+        </i>
+      </a>
       <ul
-        className="left"
+        className="left hide-on-med-and-down"
         id="nav-mobile"
       >
         <li>
@@ -33,12 +44,13 @@ exports[`Header (Snapshot) Header render Logout 1`] = `
         </li>
       </ul>
       <ul
-        className="right"
+        className="right hide-on-med-and-down"
         id="nav-mobile"
       >
         <li>
-           
-          Taiwo Memunat
+          <a
+            href="#"
+          />
         </li>
         <li>
           <a
@@ -50,11 +62,61 @@ exports[`Header (Snapshot) Header render Logout 1`] = `
         </li>
       </ul>
     </div>
+    <div>
+      <ul
+        className="side-nav"
+        id="mobile-demo"
+        style={
+          Object {
+            "backgroundColor": "#dfdddd",
+            "closeOnClick": true,
+            "color": "#6D29C5",
+            "draggable": true,
+            "edge": "right",
+            "fontSize": "16px",
+            "height": "55%",
+            "marginLeft": "3px",
+            "padding": "6px 5px",
+            "width": "32%",
+          }
+        }
+      >
+        <li
+          style={
+            Object {
+              "padding": "10px 10px",
+            }
+          }
+        >
+          <i
+            className="material-icons"
+          >
+            person_pi
+          </i>
+        </li>
+        <li>
+          <a
+            href="#/"
+            onClick={[Function]}
+          >
+            Logout
+          </a>
+        </li>
+        <li>
+          <a
+            href="#/sources"
+            onClick={[Function]}
+          >
+            Sources
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
 `;
 
-exports[`Header (Snapshot) Header renders Articles Hub 1`] = `
+exports[`Navigation Links  Should display Logout 1`] = `
 <nav>
   <div
     className=""
@@ -67,14 +129,25 @@ exports[`Header (Snapshot) Header renders Articles Hub 1`] = `
       >
         <a
           className="brand-logo center"
-          href=""
-          to="/"
+          href="#/"
+          onClick={[Function]}
         >
           Articles Hub
         </a>
       </div>
+      <a
+        className="button-collapse"
+        data-activates="mobile-demo"
+        href="#"
+      >
+        <i
+          className="material-icons"
+        >
+          toc
+        </i>
+      </a>
       <ul
-        className="left"
+        className="left hide-on-med-and-down"
         id="nav-mobile"
       >
         <li>
@@ -87,12 +160,13 @@ exports[`Header (Snapshot) Header renders Articles Hub 1`] = `
         </li>
       </ul>
       <ul
-        className="right"
+        className="right hide-on-med-and-down"
         id="nav-mobile"
       >
         <li>
-           
-          Taiwo Memunat
+          <a
+            href="#"
+          />
         </li>
         <li>
           <a
@@ -100,6 +174,56 @@ exports[`Header (Snapshot) Header renders Articles Hub 1`] = `
             onClick={[Function]}
           >
             Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <ul
+        className="side-nav"
+        id="mobile-demo"
+        style={
+          Object {
+            "backgroundColor": "#dfdddd",
+            "closeOnClick": true,
+            "color": "#6D29C5",
+            "draggable": true,
+            "edge": "right",
+            "fontSize": "16px",
+            "height": "55%",
+            "marginLeft": "3px",
+            "padding": "6px 5px",
+            "width": "32%",
+          }
+        }
+      >
+        <li
+          style={
+            Object {
+              "padding": "10px 10px",
+            }
+          }
+        >
+          <i
+            className="material-icons"
+          >
+            person_pi
+          </i>
+        </li>
+        <li>
+          <a
+            href="#/"
+            onClick={[Function]}
+          >
+            Logout
+          </a>
+        </li>
+        <li>
+          <a
+            href="#/sources"
+            onClick={[Function]}
+          >
+            Sources
           </a>
         </li>
       </ul>

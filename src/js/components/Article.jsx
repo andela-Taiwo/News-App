@@ -8,7 +8,7 @@ import Header from './Header.jsx';
 /**
  * @param {any} sources
  * @param {any} sourceName
- * @returns {array}
+ * @returns {array} sorts
  */
 function getArray(sources, sourceName) {
   let sortByAvailable = [];
@@ -30,6 +30,7 @@ export default class Articles extends React.Component {
       sourceId: (props.match.params.article),
       sortQuery: (props.match.params.sortBy),
       sortByAvailable: [],
+      errorMesssage: '',
       articles: [],
     };
   }
@@ -44,7 +45,9 @@ export default class Articles extends React.Component {
     sourceStore.on('change', () => {
       this.setState({
         sources: sourceStore.getSources(),
-        sortByAvailable: getArray(sourceStore.getSources(), this.state.sourceId)
+        sortByAvailable:
+         getArray(sourceStore.getSources(), this.state.sourceId),
+        errorMesssage: articleStore.getError(),
       });
     });
   }
@@ -55,11 +58,12 @@ export default class Articles extends React.Component {
   componentWillUnmount() {
     articleStore.removeListener('change', this.updateArticles);
   }
-  /**
-   *
-   * @parameter {event}
-   * @memberof Articles
-   */
+/**
+ *
+ * @param {string} event
+ * @memberof Articles
+ * @return {void}
+ */
   handleChange= (event) => {
     const value = event.target.value;
     ArticleAction.getArticles(this.state.sourceId, value);
@@ -85,17 +89,27 @@ export default class Articles extends React.Component {
    */
 /**
  * @memberof Articles
- * @returns {article component}
+ * @returns {string} Articles
  * @memberof Articles
  */
   render() {
+    const errorMesssage = this.state.errorMesssage;
     const sortQuery = (this.state.sortQuery);
     const sourceName = (this.state.sourceId);
     const articles = this.state.articles;
     const sortByAvailable = this.state.sortByAvailable;
     return (
       <div>
-        <Header />
+        <Header name={this.props.name}/>
+        { (errorMesssage) ? <h1
+            className="center"
+            style={{
+              color: 'red',
+              marginTop: '10%'
+            }}
+            >
+            Error {errorMesssage.status}
+              <br/> {errorMesssage.statusText} </h1> :
         <div className="article">
           <nav className="row"
             style={{
@@ -157,6 +171,7 @@ export default class Articles extends React.Component {
           </div>
         </div>
       </div>
+       }
     </div>
     );
   }
@@ -175,6 +190,7 @@ Articles.PropTypes = {
   location: {
     sortByAvailable: PropTypes.arrayOf(PropTypes.object),
     search: PropTypes.string,
-  }
+  },
+  name: PropTypes.string
 };
 

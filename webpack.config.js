@@ -7,7 +7,11 @@ module.exports = {
   entry: './src/js/app.js',
   resolve: {
     // allows you to require without the .js at end of filenames
-    extensions: ['.js', '.json', '.jsx']
+    extensions: ['.js', '.json', '.jsx'],
+    alias: {
+      '$': path.resolve(__dirname, 'node_modules/jquery/dist/jquery.js'),
+      'jquery': path.resolve(__dirname, 'node_modules/jquery/dist/jquery.js')
+    },
   },
   watch: true,
   output: {

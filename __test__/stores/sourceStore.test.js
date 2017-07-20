@@ -17,17 +17,17 @@ describe('ArticleAction', () => {
   afterEach(() => {
     SourceStore.handler({ type: 'GET_SOURCES', sources: [] });
   });
-  describe('SourceStore', () => {
-    it('returns an empty array before action is dispatched', () => {
+  describe('Source Store', () => {
+    it('should return an empty array before action is dispatched', () => {
       expect(SourceStore.getSources()).toEqual([]);
     });
 
-    it('List Sources out', () => {
+    it('#getSources Should return an array of sources ', () => {
       dispatchMock({ actionType: 'GET_SOURCES', sources });
       expect(SourceStore.getSources()).toEqual(sources);
     });
 
-    it('set sources to null when setSources is called', () => {
+    it('#setSources Should return an  empty array ', () => {
       SourceStore.setSources();
       expect(SourceStore.setSources()).toEqual(null);
     });

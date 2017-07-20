@@ -1,24 +1,34 @@
-
 import React from 'react';
 import { Link, HashRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import Authentication from '../../helpers/Auth';
+
 
 class Header extends React.Component {
-  constructor() {
-    super();
-
+  constructor(props) {
+    super(props);
     this.state = {
-      authenticated: false
+      authed: true,
     };
+    this.logout = this.logout.bind(this);
+  }
+
+  componentDidMount() {
+    $('.button-collapse').sideNav();
   }
   /**
-   * @memberof Header logs out the user when invoked
+   *Logout out the user
+   * set the state authentictaion
+   * @memberof
    */
-  logout = () => {
-    localStorage.removeItem('userProfile');
-    this.setState(() => {
-      this.state = false;
-    });
-    location.reload();
+  logout() {
+    if (this.state.authed) {
+      Authentication.signOut();
+      this.setState({
+        authed: false,
+        user: ''
+      });
+    }
   }
   /**
    *
@@ -28,22 +38,56 @@ class Header extends React.Component {
    */
 
   render() {
-    const user = JSON.parse(localStorage.getItem('userProfile'));
     return (
             <nav>
               <HashRouter>
                 <div className="">
                   <div className="navBar">
                     <div className="">
-                      <a href="" className="brand-logo center" to="/">
-                        Articles Hub</a>
+                      <Link to="/" className="brand-logo center">
+                        Articles Hub</Link>
                     </div>
-                    <ul id="nav-mobile" className="left">
+                    <a href="#" data-activates="mobile-demo"
+                      className="button-collapse">
+                      <i className="material-icons">toc</i>
+                    </a>
+                    <ul id="nav-mobile" className="left hide-on-med-and-down">
                       <li><Link to="/sources" >Sources</Link></li>
                     </ul>
-                    <ul id="nav-mobile" className="right">
-                      <li> {user.name}</li>
+                    <ul id="nav-mobile" className="right hide-on-med-and-down">
+                        <li>
+                          <a href="#">{this.props.name}</a>
+                        </li>
+                      <li ><Link to="/"
+                          onClick={this.logout}>Logout</Link>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <ul
+                        className="side-nav" id="mobile-demo"
+                        style ={{
+                          color: '#6D29C5',
+                          fontSize: '16px',
+                          marginLeft: '3px',
+                          padding: '6px 5px',
+                          edge: 'right',
+                          closeOnClick: true,
+                          draggable: true,
+                          width: '32%',
+                          height: '55%',
+                          backgroundColor: '#dfdddd'
+                        }}
+                        >
+                      <li
+                        style ={{
+                          padding: '10px 10px',
+                        }}
+                      ><i className="material-icons">person_pi
+                          </i>{this.props.name}</li>
                       <li ><Link to="/" onClick={this.logout}>Logout</Link></li>
+                      <li><Link to="/sources" >Sources</Link></li>
+
                     </ul>
                   </div>
                 </div>
@@ -54,3 +98,7 @@ class Header extends React.Component {
 }
 
 export default Header;
+
+Header.PropTypes = {
+  name: PropTypes.string,
+};
