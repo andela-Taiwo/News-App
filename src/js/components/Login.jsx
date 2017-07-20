@@ -22,14 +22,9 @@ export default class Login extends React.Component {
   /**
    *
    * renders the UI for the Login component
-   * @returns {Login components}
+   * @returns {any} Login component
    * @memberof Login
    */
-/*
- *  renders the UI for the Login component
- * @returns {Login components}
- * @memberof Login
- */
   render() {
     return (
       <div className="mainBG">

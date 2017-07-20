@@ -70,18 +70,18 @@ class Header extends React.Component {
                           color: '#6D29C5',
                           fontSize: '16px',
                           marginLeft: '3px',
-                          padding: '3px 5px',
+                          padding: '6px 5px',
                           edge: 'right',
                           closeOnClick: true,
                           draggable: true,
+                          width: '32%',
+                          height: '55%',
+                          backgroundColor: '#dfdddd'
                         }}
                         >
                       <li
                         style ={{
-                          color: '#6D29C5',
-                          fontSize: '15px',
-                          marginLeft: '3px',
-                          padding: '3px 5px',
+                          padding: '10px 10px',
                         }}
                       ><i className="material-icons">person_pi
                           </i>{this.props.name}</li>

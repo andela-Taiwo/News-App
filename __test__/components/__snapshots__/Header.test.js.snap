@@ -68,23 +68,23 @@ exports[`Navigation Links  Should display Articles Hub 1`] = `
         id="mobile-demo"
         style={
           Object {
+            "backgroundColor": "#dfdddd",
             "closeOnClick": true,
             "color": "#6D29C5",
             "draggable": true,
             "edge": "right",
             "fontSize": "16px",
+            "height": "55%",
             "marginLeft": "3px",
-            "padding": "3px 5px",
+            "padding": "6px 5px",
+            "width": "32%",
           }
         }
       >
         <li
           style={
             Object {
-              "color": "#6D29C5",
-              "fontSize": "15px",
-              "marginLeft": "3px",
-              "padding": "3px 5px",
+              "padding": "10px 10px",
             }
           }
         >
@@ -184,23 +184,23 @@ exports[`Navigation Links  Should display Logout 1`] = `
         id="mobile-demo"
         style={
           Object {
+            "backgroundColor": "#dfdddd",
             "closeOnClick": true,
             "color": "#6D29C5",
             "draggable": true,
             "edge": "right",
             "fontSize": "16px",
+            "height": "55%",
             "marginLeft": "3px",
-            "padding": "3px 5px",
+            "padding": "6px 5px",
+            "width": "32%",
           }
         }
       >
         <li
           style={
             Object {
-              "color": "#6D29C5",
-              "fontSize": "15px",
-              "marginLeft": "3px",
-              "padding": "3px 5px",
+              "padding": "10px 10px",
             }
           }
         >

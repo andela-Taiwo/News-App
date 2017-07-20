@@ -52,8 +52,8 @@ describe('Articles', () => {
   const event = {
     target: 'click',
   };
-  describe('<Articles />', () => {
-    it('should show the <Header /> component', () => {
+  describe('Header', () => {
+    it('should show in the Article ', () => {
       const wrapper = shallow(< Articles />);
       const article = wrapper.first('div');
       const header = wrapper.find('Header');
@@ -70,13 +70,13 @@ describe('Articles', () => {
 
     it('should check that #updateArticles method is getting called',
     () => {
-      let view = TestUtils.renderIntoDocument(<Articles />);
-      let result = view.updateArticles();
+      const view = TestUtils.renderIntoDocument(<Articles />);
+      view.updateArticles();
     });
     it('should check that #handleChange method is getting called',
     () => {
-      let view = TestUtils.renderIntoDocument(<Articles />);
-      let result = view. handleChange(event);
+      const view = TestUtils.renderIntoDocument(<Articles />);
+      view.handleChange(event);
     });
     it('should check that the render method is getting called', () => {
       const wrapper = shallow(<Articles />);

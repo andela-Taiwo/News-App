@@ -30,6 +30,7 @@ export default class Articles extends React.Component {
       sourceId: (props.match.params.article),
       sortQuery: (props.match.params.sortBy),
       sortByAvailable: [],
+      errorMesssage: '',
       articles: [],
     };
   }
@@ -44,7 +45,9 @@ export default class Articles extends React.Component {
     sourceStore.on('change', () => {
       this.setState({
         sources: sourceStore.getSources(),
-        sortByAvailable: getArray(sourceStore.getSources(), this.state.sourceId)
+        sortByAvailable:
+         getArray(sourceStore.getSources(), this.state.sourceId),
+        errorMesssage: articleStore.getError(),
       });
     });
   }
@@ -90,6 +93,7 @@ export default class Articles extends React.Component {
  * @memberof Articles
  */
   render() {
+    const errorMesssage = this.state.errorMesssage;
     const sortQuery = (this.state.sortQuery);
     const sourceName = (this.state.sourceId);
     const articles = this.state.articles;
@@ -97,6 +101,15 @@ export default class Articles extends React.Component {
     return (
       <div>
         <Header name={this.props.name}/>
+        { (errorMesssage) ? <h1
+            className="center"
+            style={{
+              color: 'red',
+              marginTop: '10%'
+            }}
+            >
+            Error {errorMesssage.status}
+              <br/> {errorMesssage.statusText} </h1> :
         <div className="article">
           <nav className="row"
             style={{
@@ -158,6 +171,7 @@ export default class Articles extends React.Component {
           </div>
         </div>
       </div>
+       }
     </div>
     );
   }

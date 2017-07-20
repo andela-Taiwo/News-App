@@ -16,6 +16,9 @@ class ArticleStore extends BaseStore {
     if (action.actionType === 'GET_ARTICLES') {
       this.articles = action.articles;
       this.emitChange();
+    } else if (action.actionType === 'GET_ARTICLES_ERROR') {
+      this.setError(action.message);
+      this.emitChange();
     }
   }
   /**
@@ -32,6 +35,25 @@ class ArticleStore extends BaseStore {
   */
   setArticles() {
     return null;
+  }
+
+    /**
+   * Set error message
+   * @param {string} message: error message
+   * @memberof ArticleStore
+   * @return {void}
+   */
+  setError(message) {
+    this.errorMessage = message;
+  }
+
+  /**
+   * Get error message
+   * @returns {string} message
+   * @memberof ArticleStore
+   */
+  getError() {
+    return this.errorMessage;
   }
 
 }

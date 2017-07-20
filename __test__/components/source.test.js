@@ -51,8 +51,8 @@ it('should check that the componentDidMountis called once', () => {
 
 it('should check that the #updateSearch is getting called',
   () => {
-    let view = TestUtils.renderIntoDocument(<Sources />);
-    let result = view.updateSearch(event);
+    const view = TestUtils.renderIntoDocument(<Sources />);
+    view.updateSearch(event);
   });
 it('should check that the #render method is getting called ', () => {
   const wrapper = shallow(<Sources />); wrapper.instance().render();
