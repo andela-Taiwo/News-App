@@ -1,50 +1,64 @@
-'use strict';
-
+const webpack = require('webpack');
 const path = require('path');
-const args = require('minimist')(process.argv.slice(2));
+const Dotenv = require('dotenv-webpack');
 
-// List of allowed environments
-const allowedEnvs = ['dev', 'dist', 'test'];
-
-// Set the correct environment
-let env;
-if (args._.length > 0 && args._.indexOf('start') !== -1) {
-  env = 'test';
-} else if (args.env) {
-  env = args.env;
-} else {
-  env = 'dev';
-}
-process.env.REACT_WEBPACK_ENV = env;
 
 module.exports = {
   entry: './src/js/app.js',
-  output: {
-    path: __dirname+ '/public',
-    filename:'bundle.js',
-    publicPath: '/public/'
+  resolve: {
+    // allows you to require without the .js at end of filenames
+    extensions: ['.js', '.json', '.jsx'],
+    alias: {
+      '$': path.resolve(__dirname, 'node_modules/jquery/dist/jquery.js'),
+      'jquery': path.resolve(__dirname, 'node_modules/jquery/dist/jquery.js')
+    },
   },
-	devServer: {
-		inline:true,
+  watch: true,
+  output: {
+    path: path.join(__dirname, '/public'),
+    filename: 'bundle.js',
+  },
+  devServer: {
+    inline: true,
     port: 3000
-},
-  module:{
+  },
+  module: {
     loaders: [
       {
         test: /\.(png|woff|woff2|eot|ttf|svg|jpg)$/,
         loader: 'url-loader?limit=8192'
       },
-      { test: /\.css$/, loader: "style-loader!css-loader" },
+      { test: /\.css$/, loader: 'style-loader!css-loader' },
+      { test: /\.sass$/, loader: 'style-loader!css-loader!sass-loader',
+    },
+
       {
-				test:/\.sass$/,
-				loader:'style-loader!css-loader!sass-loader',
-			},
-      {
-        test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/,
-         query:{presets: ['es2015','react'],
-       }
+        test: /\.jsx?$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        query: { presets: ['es2015', 'react', 'stage-0'],
+        }
       },
     ]
   },
 
-}
+  externals:
+  {
+    'react/addons': true,
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': true
+  },
+  plugins: [
+    new Dotenv({
+      path: './.env', // Path to .env file (this is the default)
+      safe: false
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin()
+  ]
+
+};

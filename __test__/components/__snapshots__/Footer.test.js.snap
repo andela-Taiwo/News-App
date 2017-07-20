@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer (Snapshot) Footer renders Sokunbi Memunat ©2017 1`] = `
+<div
+  className="footer"
+>
+  Sokunbi Memunat ©2017.
+</div>
+`;

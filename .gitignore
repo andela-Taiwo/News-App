@@ -1,1 +1,7 @@
 node_modules
+yarn.lock
+coverage
+.env
+.vscode
+.DS_Store
+**/.DS_Store
